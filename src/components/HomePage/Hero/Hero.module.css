@@ -98,10 +98,14 @@
   display: none;
 }
 
-@media screen and (max-width: 1068px) {
+@media screen and (max-width: 1268px) {
   .top {
     grid-template-columns: 1fr;
     grid-gap: 5rem;
+  }
+
+  .heading {
+    width: 80%;
   }
 
   .right {
