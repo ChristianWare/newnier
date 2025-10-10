@@ -4,7 +4,7 @@ import Button from "@/components/shared/Button/Button";
 import ImageCluster from "@/components/shared/ImageCluster/ImageCluster";
 import Digital from "@/components/shared/Digital/Digital";
 import Image from "next/image";
-import Img1 from "../../../../public/images/road.jpg";
+import Img1 from "../../../../public/images/hero.jpg";
 
 export default function Hero() {
   return (

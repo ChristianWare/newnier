@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter_Tight } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/shared/Nav/Nav";
 
 const InterTight = Inter_Tight({
   variable: "--interTight",
@@ -20,7 +21,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${InterTight.variable}`}>{children}</body>
+      <body className={`${InterTight.variable}`}>
+        <Nav />
+        {children}</body>
     </html>
   );
 }
