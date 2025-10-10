@@ -145,10 +145,10 @@ export default function Nav({
 
           <div className={styles.btnContainerii}>
             <Button
-              href='https://calendly.com/chris-ware-dev/discovery-call'
-              target='_blank'
-              text='Book your discovery call'
-              btnType='black'
+              href='/'
+              text='Book your Ride'
+              btnType='navBlackOutline'
+              arrow
               onClick={closeMenu}
             />
           </div>
@@ -163,10 +163,10 @@ export default function Nav({
 
         <div className={styles.btnContainer}>
           <Button
-            href='https://calendly.com/chris-ware-dev/discovery-call'
-            target='_blank'
-            text='Book your discovery call'
-            btnType='navLime'
+            href='/'
+            text='Book your Ride'
+            btnType='navBlackOutline'
+            arrow
           />
         </div>
 

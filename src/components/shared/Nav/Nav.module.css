@@ -15,10 +15,10 @@
   border: 1px solid var(--grayii);
 }
 
-.header.hide {
+/* .header.hide {
   transform: translateY(-120%);
   opacity: 0;
-}
+} */
 
 .header.show,
 .header.open {
@@ -49,7 +49,7 @@
 
 .logoText {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.3px;
   color: var(--black);
 }
@@ -224,6 +224,15 @@
     width: 100%;
     border-bottom: 1px solid var(--gray);
     padding-bottom: 1rem;
+  }
+
+  .navItemActive::after {
+    position: static;
+    display: inline-block;
+    margin-left: 8px;
+    vertical-align: middle;
+    left: auto;
+    right: auto;
   }
 
   .menuImage {
