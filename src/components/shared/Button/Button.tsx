@@ -51,7 +51,11 @@ export default function Button({
           </span>
         )}
         {content}
-        {arrow && <Arrow className={styles.arrow} />}
+        {arrow && (
+          <div className={styles.arrowContainer}>
+            <Arrow className={styles.arrow} />
+          </div>
+        )}{" "}
       </Link>
     );
   }
@@ -70,7 +74,11 @@ export default function Button({
         </span>
       )}
       {content}
-      {arrow && <Arrow className={styles.arrow} />}
+      {arrow && (
+        <div className={styles.arrowContainer}>
+          <Arrow className={styles.arrow} />
+        </div>
+      )}
     </button>
   );
 }

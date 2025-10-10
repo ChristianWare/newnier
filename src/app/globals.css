@@ -16,8 +16,6 @@
   scroll-margin-top: 40px;
   */
   -webkit-tap-highlight-color: transparent;
-  /* font-family: var(--SuisseRegular); */
-  /* font-family: var(--inter); */
   font-family: var(--interTight);
   overscroll-behavior: none;
 }
@@ -63,32 +61,22 @@ h1 {
 h2 {
   font-size: 4.4rem;
   line-height: 1;
-  letter-spacing: -0.5px;
 }
 
 h3 {
-  line-height: 1;
-  font-family: var(--sofia);
-  letter-spacing: -0.02em;
   font-size: 3.6rem;
 }
 
 h4 {
   font-size: 3rem;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
 }
 
 h5 {
   font-size: 2.2rem;
-  font-weight: 600;
-  letter-spacing: -0.04em;
 }
 
 h6 {
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  font-size: 1.8rem;
 }
 
 button {
@@ -146,9 +134,9 @@ textarea:focus {
     font-size: 55%;
   }
 
-  /* h1 {
-    font-size: 8rem;
-  } */
+  h1 {
+    font-size: 5rem;
+  }
 
   h2 {
     font-size: 6rem;
@@ -160,28 +148,15 @@ textarea:focus {
 }
 
 @media screen and (max-width: 768px) {
-  /* h1 {
-    font-size: 10vw;
-  } */
-
-  /* h2 {
-  font-size: 9vw;
- } */
+  h1 {
+    font-size: 4.6rem;
+  }
 }
 
 @media screen and (max-width: 568px) {
   html {
     font-size: 50%;
   }
-
-  /* h1,
-  h2 {
-    font-size: 9vw;
-  } */
-
-  /* h2 {
-    font-size: 5rem;
-  } */
 
   p {
     font-size: 2rem;
@@ -206,5 +181,3 @@ textarea:focus {
 /* .toastFont {
   font-family: var(--roboto);
 } */
-
-/* Ensure chat widget stays behind mobile menu */

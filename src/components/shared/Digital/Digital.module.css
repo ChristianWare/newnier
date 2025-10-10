@@ -1,0 +1,14 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.node {
+  width: 20px;
+  height: 20px;
+  background-color: var(--tan);
+}
+
+.node:nth-child(4n) {
+  background-color: var(--yellow);
+}

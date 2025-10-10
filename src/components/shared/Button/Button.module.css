@@ -23,34 +23,6 @@
   color: inherit;
 }
 
-.lime,
-.lime:link,
-.lime:visited {
-  background-color: var(--lime);
-  color: var(--black);
-  border: 1px solid var(--lime);
-}
-
-.lime:hover {
-  background-color: var(--black);
-  color: var(--lime);
-  border: 1px solid var(--lime);
-}
-
-.navLime {
-  background-color: var(--lime);
-  color: var(--black);
-  border: 1px solid var(--lime);
-  padding: 0.5rem 1.5rem;
-  font-size: 1.3rem;
-}
-
-.navLime:hover {
-  background-color: var(--black);
-  color: var(--lime);
-  border: 1px solid var(--lime);
-}
-
 .black,
 .black:link,
 .black:visited {
@@ -64,66 +36,20 @@
   color: var(--black);
 }
 
-.grayOutline {
-  background-color: var(--white);
-  border: 1px solid var(--grayiii);
-}
-
-.grayOutline:hover {
-  border: 1px solid var(--gray);
-  background-color: var(--gray);
-  color: var(--black);
-}
-
-.grayOutlineii {
+.blackCircle {
   background-color: transparent;
-  border: 1px solid var(--tan);
-  color: var(--tan);
-}
-
-.imgContainer {
-  position: relative;
-  width: 35px;
-  height: 35px;
-}
-
-.img {
-  border: 1px solid var(--black);
-  padding: 3px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.noBackgroundBlueText {
-  border: 1px solid var(--black);
-  padding: 0.4rem 0.5rem;
-  padding-right: 1rem;
-}
-
-.blackOutline {
-  border: 1px solid var(--black);
-  color: var(--black);
-}
-
-.greenOutline {
-  border: 1px solid var(--lime);
-  background-color: transparent;
-  color: var(--lime) !important;
-}
-
-.tanOutline {
-  border: 1px solid var(--tan);
-  background-color: transparent;
-  color: var(--tan) !important;
-}
-
-.tanOutline:hover {
-  background-color: var(--tan);
   color: var(--black) !important;
+  border: 1px solid var(--black);
+}
+
+.blackCircle:hover {
+  background-color: var(--black);
+  color: var(--yellow) !important;
 }
 
 .arrow {
-  transform: rotate(45deg);
+  color: inherit;
+  transform: rotate(90deg);
 }
 
 @media (hover: hover) and (pointer: fine) {
