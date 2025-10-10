@@ -9,6 +9,11 @@
   background-color: var(--tan);
 }
 
+.large {
+  width: 45px;
+  height: 45px;
+}
+
 .node:nth-child(4n) {
-  background-color: var(--yellow);
+  background-color: transparent;
 }

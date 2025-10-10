@@ -1,0 +1,30 @@
+.container {
+  background-color: var(--black);
+  padding: 10rem 0rem;
+  position: relative;
+}
+
+.digitalBox {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+}
+
+.heading {
+  color: var(--tan);
+}
+
+.spanImage {
+  vertical-align: middle;
+  object-fit: cover;
+  background-image: url(/images/road.jpg);
+  background-position: 50% 100%;
+  background-size: cover;
+  border-radius: 40px;
+  width: 90px;
+  height: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
