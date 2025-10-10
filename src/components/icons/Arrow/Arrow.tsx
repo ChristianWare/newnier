@@ -20,7 +20,7 @@ export default function Arrow(props: SVGProps<SVGSVGElement>) {
           C50.034 6482.966 52.834 6480.166 44 6489
         '
         transform='translate(-44 -6479)' /* shifts the path into the 0-20 box */
-        strokeWidth={0.5} /* outline thickness */
+        strokeWidth={1} /* outline thickness */
         strokeLinecap='round'
         strokeLinejoin='round'
       />

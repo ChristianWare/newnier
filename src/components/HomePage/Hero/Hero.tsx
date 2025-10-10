@@ -21,7 +21,7 @@ export default function Hero() {
                 your trusted partner in high end transportation.
               </p>
               <div className={styles.btnClusterContainer}>
-                <Button href='/' text='Reserve Ride Now' btnType='black' />
+                <Button href='/' text='See our services' btnType='black' />
                 <ImageCluster />
               </div>
             </div>

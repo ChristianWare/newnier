@@ -147,7 +147,7 @@ export default function Nav({
             <Button
               href='/'
               text='Book your Ride'
-              btnType='navBlackOutline'
+              btnType='navYellowBlackOutline'
               arrow
               onClick={closeMenu}
             />
@@ -165,7 +165,7 @@ export default function Nav({
           <Button
             href='/'
             text='Book your Ride'
-            btnType='navBlackOutline'
+            btnType='navYellowBlackOutline'
             arrow
           />
         </div>
