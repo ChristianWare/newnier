@@ -22,7 +22,11 @@ export default function Hero() {
                 <ImageCluster />
               </div>
             </div>
-            <div className={styles.right}></div>
+            <div className={styles.right}>
+              <div className={styles.infoBox}>
+                
+              </div>
+            </div>
           </div>
           <div className={styles.bottom}></div>
         </div>
