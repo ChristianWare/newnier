@@ -3,6 +3,7 @@
   --tan: #f8f7ec;
   --yellow: #fab700;
   --gray: #e7e5dc;
+  --darkGray: #646464;
 }
 
 * {
@@ -56,7 +57,7 @@ span {
 
 h1 {
   font-size: 6rem;
-  line-height: 1;
+  line-height: 1.2;
 }
 
 h2 {
@@ -145,9 +146,9 @@ textarea:focus {
     font-size: 55%;
   }
 
-  h1 {
+  /* h1 {
     font-size: 8rem;
-  }
+  } */
 
   h2 {
     font-size: 6rem;
@@ -159,9 +160,9 @@ textarea:focus {
 }
 
 @media screen and (max-width: 768px) {
-  h1 {
+  /* h1 {
     font-size: 10vw;
-  }
+  } */
 
   /* h2 {
   font-size: 9vw;
@@ -173,10 +174,10 @@ textarea:focus {
     font-size: 50%;
   }
 
-  h1,
+  /* h1,
   h2 {
     font-size: 9vw;
-  }
+  } */
 
   /* h2 {
     font-size: 5rem;

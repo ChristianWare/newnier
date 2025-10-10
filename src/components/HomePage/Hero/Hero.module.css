@@ -1,0 +1,34 @@
+.container {
+  padding: 10rem 0rem;
+  background-color: var(--tan);
+}
+
+.content {
+  width: 100%;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.copy {
+  color: var(--darkGray);
+  max-width: 400px;
+}
+
+.btnClusterContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5rem;
+    margin-top: 2rem;
+}
