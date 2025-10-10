@@ -34,15 +34,15 @@ export default function Hero() {
                 <div className={styles.statii}>Years of experience</div>
 
                 <div className={styles.statiii}>
-                  {/* <div className={styles.statiiiText}>
+                  <div className={styles.statiiiText}>
                     Trusted by over 10,000 customers.
-                  </div> */}
-                  <Button
+                  </div>
+                  {/* <Button
                     href='/'
                     text='Reserve Ride Now'
                     btnType='blackCircle'
                     arrow
-                  />
+                  /> */}
                 </div>
               </div>
               <div className={styles.imgContainer}>
