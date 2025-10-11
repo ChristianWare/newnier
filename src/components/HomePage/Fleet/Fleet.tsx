@@ -62,9 +62,7 @@ export default function Fleet() {
           <p className={styles.copy}>
             Choose from executive sedans with cold bottled water and phone
             chargers, sleek SUVs that swallow six roller bags, or luxury
-            sprinter vans with Wi-Fi and conference seating. Each vehicle is
-            sanitized before every trip and inspected weekly by our in-house
-            mechanic.
+            sprinter vans with Wi-Fi and conference seating.
           </p>
         </div>
         <div className={styles.content}>

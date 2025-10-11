@@ -1,4 +1,5 @@
 import AboutUsIntro from "@/components/HomePage/AboutUsIntro/AboutUsIntro";
+import Faq from "@/components/HomePage/Faq/Faq";
 import Fleet from "@/components/HomePage/Fleet/Fleet";
 import Hero from "@/components/HomePage/Hero/Hero";
 import Pitch from "@/components/HomePage/Pitch/Pitch";
@@ -16,6 +17,7 @@ export default function Home() {
       <ServiceAreas />
       <Fleet />
       <Testimonials />
+      <Faq />
     </main>
   );
 }

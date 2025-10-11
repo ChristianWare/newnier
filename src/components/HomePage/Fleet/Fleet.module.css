@@ -108,13 +108,13 @@
 
 @media screen and (max-width: 1268px) {
   .copy {
-    width: 80%;
+    width: 60%;
   }
 }
 
 @media screen and (max-width: 1068px) {
   .copy {
-    width: 100%;
+    width: 80%;
   }
 
   .content {
@@ -142,5 +142,9 @@
   }
   .imgContainer {
     height: 300px;
+  }
+
+  .copy {
+    width: 95%;
   }
 }

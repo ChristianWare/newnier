@@ -1,0 +1,151 @@
+.container {
+  background-color: var(--tan);
+  padding: 10rem 0rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10rem;
+}
+
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.digitalBox {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.mapDataContainer {
+  margin-top: 10rem;
+}
+
+.qaContainer {
+  padding: 3rem 0rem;
+  border-top: 1px solid var(--darkGrayii);
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+  display: grid;
+}
+
+.question {
+  font-size: 2.2rem;
+  line-height: 1.2;
+  text-transform: none;
+  letter-spacing: 0em;
+  color: var(--black);
+}
+
+.answerContainer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-in-out;
+}
+
+.answerContainer.show {
+  max-height: 350px;
+}
+
+.answer {
+  margin-top: 2rem;
+  width: 100%;
+  color: var(--darkGray);
+}
+
+.headingArrowContainer {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+}
+
+.arrowContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowContainer {
+  /* border: 1px solid var(--border); */
+  background-color: var(--black);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  padding: 1.2rem;
+  margin-left: auto;
+}
+
+.icon {
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  color: var(--tan);
+  width: 3rem;
+  height: 3rem;
+  transform: rotate(45deg);
+}
+
+.iconFlip {
+  transform: rotate(230deg);
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: var(--yellow);
+  width: 3rem;
+  height: 3rem;
+}
+
+.h3Container {
+  display: flex;
+  gap: 1rem;
+}
+
+.index {
+  margin-right: 1rem;
+  font-size: 2rem;
+}
+
+.mobileHeading {
+    display: none;
+}
+
+@media screen and (max-width: 1068px) {
+  .content {
+    grid-template-columns: 1fr;
+    grid-gap: 5rem;
+  }
+
+  .mapDataContainer {
+    margin-top: 0rem;
+  }
+
+  .imgContainer {
+    
+    height: 450px;
+  }
+
+  .desktopHeading {
+    display: none;
+  }
+
+  .mobileHeading {
+    display: block;
+    margin-bottom: 2rem;
+    
+  }
+}
+
+@media screen and (max-width: 768px) {
+    .imgContainer {
+        height: 300px;
+    }
+}

@@ -21,3 +21,10 @@
 .black {
   background-color: var(--black);
 }
+
+@media screen and (max-width: 568px) {
+  .large {
+    width: 25px;
+    height: 25px;
+  }
+}
