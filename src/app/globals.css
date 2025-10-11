@@ -87,13 +87,14 @@ button {
 }
 
 p,
+ul,
 input,
 textarea {
   hyphens: auto;
   font-size: 1.6rem;
   line-height: 1.3;
   hyphens: auto;
-  /* letter-spacing: -0.2px; */
+  color: var(--black);
 }
 
 input:focus,
