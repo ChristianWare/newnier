@@ -4,6 +4,7 @@ import Image from "next/image";
 import Img1 from "../../../../public/images/phoenix.jpg";
 import Button from "@/components/shared/Button/Button";
 import Check from "@/components/icons/Check/Check";
+import Logo from "@/components/shared/Logo/Logo";
 
 export default function ServiceAreas() {
   return (
@@ -13,7 +14,7 @@ export default function ServiceAreas() {
           <LayoutWrapper>
             <div className={styles.leftContent}>
               <h2 className={styles.heading}>
-                No matter where you are in the Phoenix area, our team is ready
+                No matter where you are in the Phoenix area, Nier Transportation is ready
                 to provide top-notch service to enhance your travel experience.
               </h2>
               <p className={styles.copy}>
@@ -61,6 +62,11 @@ export default function ServiceAreas() {
         </div>
         <div className={styles.right}>
           <div className={styles.imgContainer}>
+            <div className={styles.menuImageOverlay} />
+            <div className={styles.logoContainer}>
+              <Logo className={styles.logo} />
+            </div>
+
             <Image src={Img1} alt='Phoenix' fill className={styles.img} />
           </div>
         </div>

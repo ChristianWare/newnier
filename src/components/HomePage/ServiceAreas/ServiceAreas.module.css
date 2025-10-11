@@ -61,6 +61,32 @@
   object-fit: cover;
 }
 
+.menuImageOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.logoContainer {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.logo {
+  font-size: 15rem;
+  color: var(--yellow);
+}
+
 @media screen and (max-width: 1268px) {
   .left {
     padding: 0rem;
@@ -83,7 +109,10 @@
   }
 
   .list {
-      grid-column-gap: 5rem;
+    grid-column-gap: 5rem;
+  }
 
+  .logo {
+    font-size: 12rem;
   }
 }
