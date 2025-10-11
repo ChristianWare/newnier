@@ -8,6 +8,7 @@ import MercedesSedan from "../../../../public/images/mercedesSedan.avif";
 import PartyBus from "../../../../public/images/partyBusii.png";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import Button from "@/components/shared/Button/Button";
+import Digital from "@/components/shared/Digital/Digital";
 
 const data = [
   {
@@ -69,6 +70,9 @@ export default function Fleet() {
         <div className={styles.content}>
           {data.map((x) => (
             <div className={styles.card} key={x.id}>
+              <div className={styles.digitalBox}>
+                <Digital />
+              </div>
               <div className={styles.left}>
                 <SectionHeading text='Available' />
                 <div className={styles.imgContainer}>
@@ -82,19 +86,23 @@ export default function Fleet() {
                 </div>
               </div>
               <div className={styles.right}>
-                <h3 className={styles.title}>{x.title}</h3>
-                <div>
+                <div className={styles.featureContainer}>
+                  <h3 className={styles.title}>{x.title}</h3>{" "}
+                </div>
+                <div className={styles.featureContainer}>
+                  <p className={styles.detail}>{x.desc}</p>
+                </div>
+                <div className={styles.featureContainer}>
                   <span className={styles.feature}>Seats:</span>
                   <p className={styles.detail}>{x.seats}</p>
                 </div>
-                <div>
+                <div className={styles.featureContainer}>
                   <span className={styles.feature}>Cargo:</span>
                   <p className={styles.detail}>{x.cargo}</p>
                 </div>
-                <div>
+                {/* <div className={styles.featureContainer}>
                   <span className={styles.feature}>Details:</span>
-                  <p className={styles.detail}>{x.desc}</p>
-                </div>
+                </div> */}
                 <div className={styles.btnContainer}>
                   <Button
                     href='/'
