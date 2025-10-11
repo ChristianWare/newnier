@@ -1,39 +1,35 @@
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./Pitch.module.css";
 import Digital from "@/components/shared/Digital/Digital";
-import Cog from "@/components/icons/Cog/Cog";
-import Car from "@/components/icons/Car/Car";
-import Calendar from "@/components/icons/Calendar/Calendar";
+import Clock from "@/components/icons/Clock/Clock";
+import Money from "@/components/icons/Money/Money";
+import Support from "@/components/icons/Support/Support";
 import Multiple from "@/components/icons/Multiple/Multiple";
 
 const data = [
   {
-    id: 1,
-    icon: <Cog className={styles.icon} />,
-    title: "Airport Transfers",
+    title: "Proven Punctuality",
     description:
-      "Business travelers rely on us for seamless Sky Harbor pickups and drop-offs, complete with real-time flight monitoring and 60 minutes of complimentary wait time.",
+      "We maintain a 100% on-time arrival rate—audited quarterly by an independent firm to ensure you’re never left waiting.",
+    icon: <Clock className={styles.icon} />,
   },
   {
-    id: 2,
-    icon: <Car className={styles.icon} />,
-    title: "Corporate Roadshows",
+    title: "Flat-Rate Pricing",
     description:
-      "Keep your executives on schedule with door-to-door service between meetings, including printed receipts and chilled bottled water onboard.",
+      "Enjoy fully transparent, all-inclusive flat-rate pricing with no surge fees, hidden charges, or surprise add-ons.",
+    icon: <Money className={styles.icon} />,
   },
   {
-    id: 3,
-    icon: <Calendar className={styles.icon} />,
-    title: "Special Events",
+    title: "Rapid Response Support",
     description:
-      "From weddings to stadium games, we eliminate the parking headache—add meet-and-greet signage or champagne service for a memorable arrival.",
+      "Our dedicated customer-Coge team answers every inquiry within seven minutes, 24/7—so you always have real-time assistance.",
+    icon: <Support className={styles.icon} />,
   },
   {
-    id: 4,
+    title: "Certified Chauffeurs",
+    description:
+      "All of our chauffeurs undergo thorough background checks and hold commercial licenses with annual defensive-driving recertifications.",
     icon: <Multiple className={styles.icon} />,
-    title: "Weekend Getaways",
-    description:
-      "Families and groups book round-trip excursions to Sedona, Flagstaff, and beyond with flat-rate mileage pricing—no hidden fuel surcharges or surprise fees.",
   },
 ];
 
@@ -47,11 +43,21 @@ export default function Pitch() {
           </div>
           <div className={styles.top}>
             <h2 className={styles.heading}>
-              Popular Routes <span className={styles.spanImage} />
-              <br className={styles.br} /> & Use-Cases
+              Why Ride with <span className={styles.spanImage} />
+              <br className={styles.br} /> Nier Transportation?
             </h2>
           </div>
-          <div className={styles.bottom}></div>
+          <div className={styles.bottom}>
+            <div className={styles.mapData}>
+              {data.map((x, index) => (
+                <div key={index} className={styles.card}>
+                  <div className={styles.iconBox}>{x.icon}</div>
+                  <h3 className={styles.title}>{x.title}</h3>
+                  <p className={styles.desc}>{x.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </LayoutWrapper>
     </section>

@@ -28,6 +28,13 @@ import Point2 from "../../public/images/point2.jpg";
 // import Vip2 from "../public/images/vip2.jpg";
 import Wedding from "../../public/images/wedding.jpg";
 import Wedding2 from "../../public/images/wedding2.jpg";
+import ImgScottsdale from "../../public/images/scottsdaleii.jpg";
+import ImgPhoenix from "../../public/images/phoenixii.jpg";
+import ImgMesa from "../../public/images/mesaii.jpg";
+import ImgTempe from "../../public/images/tempe.jpg";
+import ImgWestValley from "../../public/images/westValleyiii.jpg";
+import ImgCasaGrande from "../../public/images/casaGrandeii.jpg";
+import ImgMaricopa from "../../public/images/maricopaii.jpg";
 
 export const reviews = [
   {
@@ -506,4 +513,49 @@ export const services = [
   //     },
   //   ],
   // },
+] as const;
+
+export const ServiceAreas = [
+  {
+    id: 7,
+    city: "Scottsdale",
+    desc: "Scottsdale is known for its vibrant arts scene, upscale shopping, and stunning desert landscapes.",
+    src: ImgScottsdale,
+  },
+  {
+    id: 8,
+    city: "Phoenix",
+    desc: "The state's capital and largest city, offering a diverse cultural scene, desert botanical gardens, and outdoor adventures.",
+    src: ImgPhoenix,
+  },
+  {
+    id: 9,
+    city: "Mesa",
+    desc: "Mesa boasts a rich history, with the Mesa Arts Center and a thriving downtown area, making it a hub for arts and culture.",
+    src: ImgMesa,
+  },
+  {
+    id: 10,
+    city: "Tempe",
+    desc: "Home to Arizona State University, combines a lively college atmosphere with recreation along Tempe Town Lake.",
+    src: ImgTempe,
+  },
+  {
+    id: 13,
+    city: "West Valley",
+    desc: "Avondale, Goodyear, Buckeye, Surprise, Glendale, Tolleson, and Peoria—suburban living with easy recreation.",
+    src: ImgWestValley,
+  },
+  {
+    id: 14,
+    city: "Casa Grande",
+    desc: "Casa Grande, home of Lucid Motors, features the Casa Grande Ruins National Monument and a welcoming community.",
+    src: ImgCasaGrande,
+  },
+  {
+    id: 15,
+    city: "Maricopa",
+    desc: "Maricopa is a fast‑growing, family‑friendly city set against the natural beauty of the Sonoran Desert.",
+    src: ImgMaricopa,
+  },
 ] as const;
