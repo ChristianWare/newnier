@@ -37,6 +37,24 @@
   color: var(--black);
 }
 
+.blackOutline {
+  background-color: transparent;
+  color: var(--black);
+  border: 1px solid var(--black);
+}
+
+.blackOutline:hover {
+  border: 1px solid var(--yellow);
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
+.black:hover {
+  border: 1px solid var(--yellow);
+  background-color: var(--yellow);
+  color: var(--black);
+}
+
 .arrow {
   color: inherit;
   transform: rotate(90deg);
