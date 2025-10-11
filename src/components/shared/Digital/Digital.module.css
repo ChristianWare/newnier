@@ -17,3 +17,7 @@
 .node:nth-child(4n) {
   background-color: transparent;
 }
+
+.black {
+  background-color: var(--black);
+}

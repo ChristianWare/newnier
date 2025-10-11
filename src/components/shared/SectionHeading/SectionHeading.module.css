@@ -17,3 +17,7 @@
   font-weight: 500;
   white-space: nowrap;
 }
+
+.tan {
+  color: var(--tan);
+}

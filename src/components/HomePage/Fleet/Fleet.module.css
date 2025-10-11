@@ -24,14 +24,13 @@
 
 .content {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 2rem;
 }
 
-
 .card {
   display: grid;
-  grid-template-columns:2fr 1fr;
+  grid-template-columns: 1fr;
   grid-gap: 5rem;
   width: 100%;
   border: 1px solid var(--darkerTan);
@@ -55,7 +54,7 @@
 .right {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 3rem;
+  grid-gap: 2rem;
   width: 100%;
   background-color: var(--darkGrayii);
   border-radius: 7px;
@@ -74,7 +73,7 @@
 
 .detail {
   color: var(--darkGray);
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .btnContainer {
@@ -89,7 +88,7 @@
   }
 }
 
-@media screen and (max-width: 968px) {
+@media screen and (max-width: 1068px) {
   .copy {
     width: 100%;
   }
@@ -113,7 +112,10 @@
   }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (max-width: 768px) {
+  .card {
+    grid-gap: 0rem;
+  }
   .imgContainer {
     height: 300px;
   }

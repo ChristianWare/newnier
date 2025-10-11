@@ -4,6 +4,7 @@ import Hero from "@/components/HomePage/Hero/Hero";
 import Pitch from "@/components/HomePage/Pitch/Pitch";
 import ServiceAreas from "@/components/HomePage/ServiceAreas/ServiceAreas";
 import ServicesPreview from "@/components/HomePage/ServicesPreview/ServicesPreview";
+import Testimonials from "@/components/HomePage/Testimonials/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Pitch />
       <ServiceAreas />
       <Fleet />
+      <Testimonials />
     </main>
   );
 }
