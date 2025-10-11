@@ -1,4 +1,5 @@
 import AboutUsIntro from "@/components/HomePage/AboutUsIntro/AboutUsIntro";
+import Fleet from "@/components/HomePage/Fleet/Fleet";
 import Hero from "@/components/HomePage/Hero/Hero";
 import Pitch from "@/components/HomePage/Pitch/Pitch";
 import ServiceAreas from "@/components/HomePage/ServiceAreas/ServiceAreas";
@@ -12,6 +13,7 @@ export default function Home() {
       <ServicesPreview />
       <Pitch />
       <ServiceAreas />
+      <Fleet />
     </main>
   );
 }

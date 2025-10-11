@@ -1,0 +1,120 @@
+.container {
+  background-color: var(--tan);
+  padding: 10rem 0rem;
+}
+
+.top {
+  margin-bottom: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.heading {
+  text-align: center;
+  width: 100%;
+}
+
+.copy {
+  text-align: center;
+  width: 50%;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 2rem;
+}
+
+
+.card {
+  display: grid;
+  grid-template-columns:2fr 1fr;
+  grid-gap: 5rem;
+  width: 100%;
+  border: 1px solid var(--darkerTan);
+  background-color: var(--gray);
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 300px;
+}
+
+.img {
+  object-fit: contain;
+  /* background-color: white; */
+  padding: 3rem;
+}
+
+.right {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 3rem;
+  width: 100%;
+  background-color: var(--darkGrayii);
+  border-radius: 7px;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.feature {
+  font-size: 1.6rem;
+  font-weight: 700;
+  display: block;
+}
+
+.detail {
+  color: var(--darkGray);
+  margin-top: .5rem;
+}
+
+.btnContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+}
+
+@media screen and (max-width: 1268px) {
+  .copy {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .copy {
+    width: 100%;
+  }
+
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10rem;
+  }
+
+  .card {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .imgContainer {
+    height: 400px;
+  }
+
+  .btnContainer {
+    display: grid;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .imgContainer {
+    height: 300px;
+  }
+}
