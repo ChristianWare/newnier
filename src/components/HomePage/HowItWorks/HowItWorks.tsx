@@ -53,7 +53,7 @@ export default function HowItWorks() {
                   </div>
                   <span className={`${styles.index} stat`}>0{item.id}</span>
                   <h4 className={styles.title}>{item.title}</h4>
-                  <p className={styles.description}>{item.description}</p>
+                  <p className={styles.desc}>{item.description}</p>
                 </div>
               ))}
             </div>
