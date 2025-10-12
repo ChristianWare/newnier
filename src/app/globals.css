@@ -3,10 +3,11 @@
   --lightBlack: #2a2a2a;
   --tan: #f8f7ec;
   --yellow: #fab700;
-  --yellowii: #D79700;
+  --yellowii: #d79700;
   --gray: #e7e5dc;
   --darkGray: #646464;
   --darkGrayii: rgb(194, 192, 192);
+  --blue: #2563eb;
 }
 
 * {
