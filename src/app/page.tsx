@@ -7,8 +7,7 @@ import Pitch from "@/components/HomePage/Pitch/Pitch";
 import ServiceAreas from "@/components/HomePage/ServiceAreas/ServiceAreas";
 import ServicesPreview from "@/components/HomePage/ServicesPreview/ServicesPreview";
 import Testimonials from "@/components/HomePage/Testimonials/Testimonials";
-import FinalCTA from "@/components/shared/FinalCTA/FinalCTA";
-import HorizontalScroll from "@/components/shared/HorizontalScroll/HorizontalScroll";
+import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
 
 export default function Home() {
   return (
@@ -22,8 +21,7 @@ export default function Home() {
       <HowItWorks />
       <Testimonials />
       <Faq />
-      <FinalCTA />
-      <HorizontalScroll />
+      <FinalCTA2 />
     </main>
   );
 }

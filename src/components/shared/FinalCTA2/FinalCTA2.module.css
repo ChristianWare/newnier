@@ -1,0 +1,76 @@
+.container {
+  background-color: var(--gray);
+  padding: 10rem 0rem;
+}
+
+.top {
+  margin-bottom: 7rem;
+}
+
+.scrollContainer {
+  font-size: 0;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gray) 10%,
+    var(--gray) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gray) 10%,
+    var(--gray) 90%,
+    transparent 100%
+  );
+}
+
+.mapDataContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.imgContainer {
+  border: 1px solid var(--darkGrayii);
+  font-size: 0;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.heading {
+  text-align: center;
+}
+
+.copy {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 500px;
+  line-height: 1.4;
+  color: var(--darkGray);
+}
+
+.btnContainer {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 568px) {
+  .br {
+    display: none;
+  }
+
+  .copy {
+    width: 90%;
+  }
+}
