@@ -1,10 +1,15 @@
 .container {
   background-color: var(--gray);
-  padding: 10rem 0rem;
+  /* padding: 10rem 0rem; */
 }
 
 .top {
   margin-bottom: 7rem;
+}
+
+.logo {
+  font-size: 15rem;
+  color: var(--black);
 }
 
 .scrollContainer {
@@ -23,6 +28,7 @@
     var(--gray) 90%,
     transparent 100%
   );
+  margin-top: 5rem;
 }
 
 .mapDataContainer {
@@ -72,5 +78,13 @@
 
   .copy {
     width: 90%;
+  }
+
+  .logo {
+    font-size: 8rem;
+  }
+
+  .btnContainer {
+    margin-top: 1rem;
   }
 }

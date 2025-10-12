@@ -3,6 +3,7 @@ import LayoutWrapper from "../LayoutWrapper";
 import styles from "./FinalCTA2.module.css";
 
 import HorizontalScroll from "../HorizontalScroll/HorizontalScroll";
+import Logo from "../Logo/Logo";
 
 export default function FinalCTA2() {
   return (
@@ -10,13 +11,10 @@ export default function FinalCTA2() {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
-            <div className={styles.scrollContainer}>
-            <HorizontalScroll />
-            </div>
           </div>
           <div className={styles.bottom}>
+            <Logo className={styles.logo} />
             <h2 className={styles.heading}>
-              {" "}
               Take the first step toward <br className={styles.br} /> an
               elevated travel experience.
             </h2>
@@ -29,6 +27,9 @@ export default function FinalCTA2() {
             </div>
           </div>
         </div>
+            <div className={styles.scrollContainer}>
+              <HorizontalScroll />
+            </div>
       </LayoutWrapper>
     </section>
   );

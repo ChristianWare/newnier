@@ -16,7 +16,6 @@ export default function FinalCTA() {
               Take the first step toward <br className={styles.br} /> an
               elevated travel experience.
             </h2>
-
             <div className={styles.btnContainer}>
               <Button href='/' text='Book Now' btnType='black' />
             </div>
