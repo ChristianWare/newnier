@@ -196,14 +196,15 @@
     left: 0;
     right: 0;
     margin: 1rem;
-    border-radius: 15px;
+    border-radius: 10px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
     gap: 3rem;
     padding: 2rem;
     padding-top: 7rem;
-    background: var(--darkerTan);
+    background: var(--tan);
+    /* border: 1px solid var(--yellow); */
     height: auto;
     max-height: 90vh;
     overflow-y: auto;
@@ -238,6 +239,11 @@
   .menuImage {
     display: block;
     overflow: hidden;
+  }
+
+  .logoii {
+    color: var(--yellow);
+    font-size: 10rem;
   }
 
   .btnContainer {

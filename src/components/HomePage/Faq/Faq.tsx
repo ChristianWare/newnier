@@ -28,7 +28,7 @@ export default function Faq() {
         <div className={styles.content}>
           <div className={styles.left}>
             <div className={styles.mobileHeading}>
-              <SectionHeading text='Testimonials' />
+              <SectionHeading text='Faq' />
             </div>
             <div className={styles.imgContainer}>
               <Image src={Img1} alt='hero image' className={styles.img} fill />

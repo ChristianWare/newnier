@@ -1,6 +1,7 @@
 .container {
   background-color: var(--black);
   padding: 10rem 0rem;
+  padding-top: 20rem;
 }
 
 .content {
@@ -165,6 +166,12 @@
 
   .right {
     order: -1;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  .container {
+    padding-top: 10rem;
   }
 }
 

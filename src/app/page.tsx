@@ -2,11 +2,13 @@ import AboutUsIntro from "@/components/HomePage/AboutUsIntro/AboutUsIntro";
 import Faq from "@/components/HomePage/Faq/Faq";
 import Fleet from "@/components/HomePage/Fleet/Fleet";
 import Hero from "@/components/HomePage/Hero/Hero";
+import HowItWorks from "@/components/HomePage/HowItWorks/HowItWorks";
 import Pitch from "@/components/HomePage/Pitch/Pitch";
 import ServiceAreas from "@/components/HomePage/ServiceAreas/ServiceAreas";
 import ServicesPreview from "@/components/HomePage/ServicesPreview/ServicesPreview";
 import Testimonials from "@/components/HomePage/Testimonials/Testimonials";
 import FinalCTA from "@/components/shared/FinalCTA/FinalCTA";
+import HorizontalScroll from "@/components/shared/HorizontalScroll/HorizontalScroll";
 
 export default function Home() {
   return (
@@ -17,9 +19,11 @@ export default function Home() {
       <Pitch />
       <ServiceAreas />
       <Fleet />
+      <HowItWorks />
       <Testimonials />
       <Faq />
       <FinalCTA />
+      <HorizontalScroll />
     </main>
   );
 }

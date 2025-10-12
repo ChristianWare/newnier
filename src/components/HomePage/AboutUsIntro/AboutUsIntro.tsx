@@ -9,6 +9,7 @@ import Support from "@/components/icons/Support/Support";
 import Hosting from "@/components/icons/Hosting/Hosting";
 import Stariii from "@/components/icons/Stariii/Stariii";
 import CountUp from "@/components/shared/CountUp/CountUp";
+import Logo from "@/components/shared/Logo/Logo";
 
 const data = [
   { id: 1, number: "22", detail: "Years of Experience" },
@@ -33,6 +34,7 @@ export default function AboutUsIntro() {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
+            <Logo className={styles.logo} />
             <div className={styles.iconContainer}>
               <Stariii className={styles.icon} />
               <Cog className={styles.icon} />

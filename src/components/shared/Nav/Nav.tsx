@@ -139,7 +139,7 @@ export default function Nav({
           <div className={styles.menuImage}>
             <Image src={Img1} alt='Menu image' fill className={styles.img} />
             <div className={styles.menuImageOverlay}>
-              {/* <SectionIntroii title='Fonts & Footers' color='tan' /> */}
+              <Logo className={styles.logoii} />
             </div>
           </div>
 
@@ -154,7 +154,6 @@ export default function Nav({
           </div>
         </div>
 
-        {/* PORTALED OVERLAY */}
         {isOpen &&
           createPortal(
             <div className={styles.overlay} onClick={closeMenu} />,

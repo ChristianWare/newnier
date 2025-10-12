@@ -13,7 +13,6 @@ export default function FinalCTA() {
           </div>
           <div className={styles.bottom}>
             <h2 className={styles.heading}>
-              {/* Ready for Next-Level <br /> Ground Travel? */}
               Take the first step toward <br className={styles.br} /> an
               elevated travel experience.
             </h2>

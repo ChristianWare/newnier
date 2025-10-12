@@ -10,6 +10,11 @@
   gap: 3rem;
 }
 
+.logo {
+  font-size: 7rem;
+  color: var(--black);
+}
+
 .iconContainer {
   display: flex;
   align-items: center;
