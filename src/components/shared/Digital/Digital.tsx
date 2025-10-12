@@ -8,15 +8,12 @@ interface DigitalProps {
 export default function Digital({ size = "", color = "" }: DigitalProps) {
   return (
     <div className={styles.container}>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
-      <div className={`${styles.node} ${styles[size]} ${styles[color]} `}></div>
+      {Array.from({ length: 9 }).map((_, i) => (
+        <div
+          key={i}
+          className={`${styles.node} ${styles[size]} ${styles[color]}`}
+        ></div>
+      ))}
     </div>
   );
 }

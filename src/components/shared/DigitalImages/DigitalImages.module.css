@@ -1,0 +1,32 @@
+/* components/DigitalImages/DigitalImages.module.css */
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.node {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  overflow: hidden;
+  /* border-radius: 6px; */
+}
+
+.img {
+  object-fit: cover;
+}
+
+@media screen and (max-width: 1268px) {
+  .node {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+@media screen and (max-width: 968px) {
+  .node {
+    width: 40px;
+    height: 40px;
+  }
+}

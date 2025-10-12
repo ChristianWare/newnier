@@ -1,0 +1,68 @@
+.container {
+  padding: 10rem 0rem;
+  padding-top: 15rem;
+  background-color: var(--tan);
+  position: relative;
+}
+
+.digitalBox {
+  position: absolute;
+  top: 15rem;
+  left: 0;
+}
+
+.digitalBoxii {
+  position: absolute;
+  top: 15rem;
+  right: 0;
+  transform: scaleX(-1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.heading {
+  text-align: center;
+}
+
+.copy {
+  text-align: center;
+  color: var(--darkGray);
+  max-width: 550px;
+  font-size: 1.8rem;
+}
+
+@media screen and (max-width: 1268px) {
+  /* .copy {
+    width: 80%;
+  } */
+}
+
+@media screen and (max-width: 968px) {
+  .digitalBox,
+  .digitalBoxii {
+    top: 10rem;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .container {
+    
+    padding-top: 25rem;
+    
+    
+  }
+
+  /* .copy {
+    width: 95%;
+  } */
+
+  /* .br {
+    display: none;
+  } */
+}

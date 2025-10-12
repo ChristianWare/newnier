@@ -2,34 +2,34 @@ import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./Pitch.module.css";
 import Digital from "@/components/shared/Digital/Digital";
 import Clock from "@/components/icons/Clock/Clock";
-import Money from "@/components/icons/Money/Money";
 import Support from "@/components/icons/Support/Support";
-import Multiple from "@/components/icons/Multiple/Multiple";
+import Driver from "@/components/icons/Driver/Driver";
+import Luxury from "@/components/icons/Luxury/Luxury";
 
 const data = [
   {
-    title: "Proven Punctuality",
+    title: "Punctual—Guaranteed",
     description:
-      "We maintain a 100% on-time arrival rate—audited quarterly by an independent firm to ensure you’re never left waiting.",
+      "We back every airport pickup with a 15‑minute on‑time guarantee or the first hour is free.",
     icon: <Clock className={styles.icon} />,
   },
   {
-    title: "Flat-Rate Pricing",
+    title: "Professional Chauffeurs",
     description:
-      "Enjoy fully transparent, all-inclusive flat-rate pricing with no surge fees, hidden charges, or surprise add-ons.",
-    icon: <Money className={styles.icon} />,
+      "Uniformed, background‑checked, trained in discreet service and desert driving.",
+    icon: <Driver className={styles.icon} />,
   },
   {
-    title: "Rapid Response Support",
+    title: "Luxury Fleet",
     description:
-      "Our dedicated customer-Coge team answers every inquiry within seven minutes, 24/7—so you always have real-time assistance.",
+      "Late‑model sedans, SUVs, Sprinters, and party buses maintained above DOT standards.",
+    icon: <Luxury className={styles.icon} />,
+  },
+  {
+    title: "24/7 Customer Support",
+    description:
+      "Always available for booking changes, questions, or last-minute requests—day or night.",
     icon: <Support className={styles.icon} />,
-  },
-  {
-    title: "Certified Chauffeurs",
-    description:
-      "All of our chauffeurs undergo thorough background checks and hold commercial licenses with annual defensive-driving recertifications.",
-    icon: <Multiple className={styles.icon} />,
   },
 ];
 

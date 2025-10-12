@@ -24,7 +24,8 @@
 
 .copy {
   color: var(--darkGray);
-  max-width: 400px;
+  max-width: 450px;
+  font-size: 1.8rem;
 }
 
 .btnClusterContainer {

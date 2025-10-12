@@ -15,7 +15,7 @@ import Golf from "../../public/images/golf.jpg";
 import Golf2 from "../../public/images/golf2.jpg";
 import CherylC from "../../public/images/CherylC.jpg";
 import JimConnie from "../../public/images/Jim&Connie.jpg";
-import Adam from "../../public/images/Adam.jpg";
+// import Adam from "../../public/images/Adam.jpg";
 import Lynn from "../../public/images/lynn.jpg";
 import Lady from "../../public/images/lady.jpg";
 import Corporate from "../../public/images/corporateii.jpg";
@@ -142,7 +142,7 @@ export const services = [
   },
   {
     id: 2,
-    title: "Hourly “As-Directed” Chauffeur",
+    title: "Hourly Chauffeur",
     slug: "hourly-chauffeur",
     copy: "Keep a dedicated car and driver on standby for meetings, golf, or a night out; pay only for the hours you use.",
     src: Hourly,

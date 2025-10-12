@@ -204,7 +204,6 @@
     padding: 2rem;
     padding-top: 7rem;
     background: var(--tan);
-    /* border: 1px solid var(--yellow); */
     height: auto;
     max-height: 90vh;
     overflow-y: auto;
@@ -225,6 +224,9 @@
     width: 100%;
     border-bottom: 1px solid var(--gray);
     padding-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
   }
 
   .navItemActive::after {
