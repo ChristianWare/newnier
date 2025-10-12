@@ -28,6 +28,7 @@ export default function HorizontalScroll() {
               height={300}
               alt={service.title}
               className={styles.img}
+              priority
             />
           </div>
         ))}
