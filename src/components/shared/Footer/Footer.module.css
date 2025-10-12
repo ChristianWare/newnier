@@ -38,7 +38,7 @@
 
 .copy {
   color: var(--darkGrayii);
-  width: 80%;
+  width: 300px;
 }
 
 .socialsContainer {
@@ -84,6 +84,9 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2em;
 }
 
 .bottom {
@@ -163,9 +166,8 @@
   }
 
   .socialIcon {
-  width: 5rem;
-  height: 5rem;
-  padding: 1.2rem;
-}
-
+    width: 5rem;
+    height: 5rem;
+    padding: 1.2rem;
+  }
 }
