@@ -47,8 +47,8 @@ export default function AboutUsIntro() {
             <h3 className={styles.heading}>
               With a passion <span className={styles.spanImage} /> for providing
               the best car service in the Phoenix Metro area, we‘ve been serving
-              the Arizona community <span className={styles.spanImage} /> for 20
-              years.
+              the Arizona community <span className={styles.spanImage} /> for
+              20+ years.
             </h3>
           </div>
 
