@@ -7,6 +7,9 @@
   display: grid;
   grid-template-columns: 3fr 4fr;
   grid-gap: 10rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
   /* padding: 0rem 10rem; */
 }
 
@@ -36,15 +39,15 @@
   gap: 4rem;
 }
 
-.heading {
-  width: 80%;
-}
-
 .copyContainer {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
   gap: 5rem;
+}
+
+.copy {
+  opacity: 0.8;
 }
 
 .box {
@@ -60,6 +63,13 @@
   height: 12px;
   border-radius: 2px;
   background-color: var(--black);
+}
+
+@media screen and (max-width: 1468px) {
+
+  .content {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 1268px) {
@@ -85,6 +95,10 @@
     background-color: var(--yellowiii);
     padding: 2rem;
     border-radius: 10px;
+  }
+
+  .copy {
+    opacity: 1;
   }
 }
 
