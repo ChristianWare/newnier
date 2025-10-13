@@ -3,6 +3,8 @@ import AboutPageIntro from "@/components/AboutPage/AboutPageIntro/AboutPageIntro
 import AboutServicesPreview from "@/components/AboutPage/AboutServicesPreview/AboutServicesPreview";
 import Mission from "@/components/AboutPage/Mission/Mission";
 import Story from "@/components/AboutPage/Story/Story";
+import Faq from "@/components/HomePage/Faq/Faq";
+import Pitch from "@/components/HomePage/Pitch/Pitch";
 
 export default function AboutPage() {
   return (
@@ -10,8 +12,10 @@ export default function AboutPage() {
       <AboutPageIntro />
       <AboutNumbers />
       <Story />
-      <AboutServicesPreview />  
+      <AboutServicesPreview />
       <Mission />
+      <Pitch />
+      <Faq />
     </main>
   );
 }
