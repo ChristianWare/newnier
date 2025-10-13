@@ -100,6 +100,7 @@ export default function Testimonials() {
               <div className={styles.counter}>
                 {idx + 1} / {len}
               </div>
+              <br />
               <div className={styles.dots}>
                 {reviews.map((_, i) => (
                   <button
