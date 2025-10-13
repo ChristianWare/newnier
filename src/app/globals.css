@@ -5,11 +5,12 @@
   --yellow: #fab700;
   --yellowOpacity: rgba(250, 183, 0, 0.2);
   --yellowii: #d79700;
+  --yellowiii: #e8a302;
   --gray: #e7e5dc;
   --darkGray: #646464;
   --darkGrayii: rgb(194, 192, 192);
   --blue: #2563eb;
-  --lightGray: #E7E6DB;
+  --lightGray: #e7e6db;
 }
 
 * {
@@ -109,6 +110,11 @@ textarea:focus {
 .stat {
   font-size: 8rem;
   font-weight: 600;
+}
+
+.h3 {
+  font-size: 3.6rem;
+  font-weight: 500;
 }
 
 /* .toastFont {

@@ -22,6 +22,10 @@
   background-color: var(--black);
 }
 
+.yellow {
+  background-color: var(--yellow);
+}
+
 @media screen and (max-width: 568px) {
   .large {
     width: 25px;
