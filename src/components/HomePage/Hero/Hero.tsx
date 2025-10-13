@@ -5,6 +5,7 @@ import ImageCluster from "@/components/shared/ImageCluster/ImageCluster";
 import Digital from "@/components/shared/Digital/Digital";
 import Image from "next/image";
 import Img1 from "../../../../public/images/hero.jpg";
+import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 
 export default function Hero() {
   return (
@@ -13,8 +14,9 @@ export default function Hero() {
         <div className={styles.content}>
           <div className={styles.top}>
             <div className={styles.left}>
+              <SectionHeading text='Nier Transportation' />
               <h1 className={styles.heading}>
-                Reliable black car service across phoenix & beyond.
+                Reliable black car service <br className={styles.br} /> across phoenix & beyond.
               </h1>
               <p className={styles.copy}>
                 At Nier Transportation, we’re more than a car service; we’re
