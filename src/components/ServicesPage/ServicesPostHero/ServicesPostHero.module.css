@@ -1,0 +1,108 @@
+.container {
+  background-color: var(--tan);
+  padding: 10rem 0rem;
+  padding-top: 0rem;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
+  margin-bottom: 7rem;
+}
+
+.topLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.copy {
+  max-width: 600px;
+  font-size: 1.8rem;
+}
+
+.topRight {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.mapDataContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 2rem;
+}
+
+.card {
+  border-right: 1px solid var(--gray);
+  padding-left: 1rem;
+}
+
+.card:last-child {
+  border-right: none;
+}
+
+.number {
+  position: relative;
+  width: fit-content;
+  margin-bottom: 1.2rem;
+}
+
+.number::after {
+  content: "+";
+  font-size: 4.5rem;
+  color: var(--yellow);
+  position: absolute;
+  top: 0px;
+  right: -40px;
+}
+
+@media screen and (max-width: 1268px) {
+  .top {
+    grid-template-columns: 1fr;
+    margin-bottom: 5rem;
+  }
+
+  .topRight {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  .mapDataContainer {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    background-color: var(--gray);
+    padding: 2rem;
+    border-radius: 10px;
+  }
+
+  .card:nth-child(2n) {
+    border-right: none;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .mapDataContainer {
+    grid-template-columns: repeat(1, 1fr);
+    grid-row-gap: 2rem;
+  }
+
+  .br {
+    display: none;
+  }
+}

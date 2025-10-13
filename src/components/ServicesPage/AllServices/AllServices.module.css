@@ -1,0 +1,124 @@
+.container {
+  padding: 10rem 0rem;
+  background-color: var(--tan);
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 7rem;
+}
+
+.heading {
+  text-align: center;
+  width: 60%;
+  font-size: 3.6rem;
+  line-height: 43.2px;
+}
+
+.spanImage {
+  vertical-align: middle;
+  object-fit: cover;
+  background-image: url(/images/road.jpg);
+  background-position: 50% 100%;
+  background-size: cover;
+  border-radius: 40px;
+  width: 90px;
+  height: 45px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.bottom {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 1rem;
+}
+
+.card {
+  background-color: var(--gray);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 2rem;
+  border-radius: 5px;
+  position: relative;
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--yellow);
+  color: var(--black);
+  border-radius: 3px;
+  padding: 0.6rem;
+}
+
+.digitalBox {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  right: 0;
+  transform: rotate(90deg);
+}
+
+.desc {
+  opacity: 0.7;
+  width: 90%;
+}
+
+.btnContainer {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 1268px) {
+  .top {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 5rem;
+  }
+
+  .heading {
+    text-align: center;
+    width: 80%;
+  }
+
+  .bottom {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bottom {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .heading {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .spanImage {
+    height: 30px;
+  }
+
+  .break {
+    display: none;
+  }
+}
