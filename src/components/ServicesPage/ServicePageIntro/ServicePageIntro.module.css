@@ -24,7 +24,7 @@
 
 .copy {
   color: var(--darkGray);
-  max-width: 450px;
+  max-width: 600px;
   font-size: 1.8rem;
 }
 
@@ -42,9 +42,10 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 2rem;
+  gap: 3rem;
   padding: 4rem 2rem 2rem;
-  max-width: 320px;
+  padding-top: 10rem;
+  max-width: 360px;
   border-radius: 7px;
   color: var(--black);
   position: relative;
@@ -60,21 +61,20 @@
 }
 
 .stat {
-  font-size: 8rem;
-  font-weight: 600;
-  margin-bottom: 1.2rem;
-}
-
-.statii {
-  font-size: 1.8rem;
-  font-weight: 500;
-  margin-bottom: 4rem;
+  line-height: 1.2em;
 }
 
 .statiii {
-  display: grid;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
   width: 100%;
-  gap: 3rem;
+}
+
+.imgSmall {
+  object-fit: cover;
+  border-radius: 2px;
 }
 
 .statiiiText {
@@ -167,6 +167,10 @@
   .right {
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
+  }
+
+  .copy {
+    width: 95%;
   }
 
   .imgContainer {

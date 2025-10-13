@@ -1,5 +1,9 @@
+import ServicePageIntro from "@/components/ServicesPage/ServicePageIntro/ServicePageIntro";
+
 export default function ServicesPage() {
   return (
-    <div>ServicesPage</div>
-  )
+    <main>
+      <ServicePageIntro />
+    </main>
+  );
 }
