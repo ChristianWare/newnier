@@ -36,7 +36,7 @@ const data = [
     description:
       "Direct, door-to-door rides across the Valley with fixed pricing and 15-minute courtesy wait time.",
     icon: <Location className={styles.icon} />,
-    slug: "point-to-point-city-transfers",
+    slug: "point-to-point",
   },
   {
     id: 4,
@@ -102,10 +102,7 @@ export default function AllServices() {
       <LayoutWrapper>
         <div className={styles.top}>
           <h3 className={styles.heading}>
-            With a passion <span className={styles.spanImage} /> for providing
-            the best car service in the Phoenix Metro area, we‘ve been serving
-            the Arizona community <span className={styles.spanImage} /> for 20+
-            years.
+            Services we offer
           </h3>
         </div>
         <div className={styles.bottom}>

@@ -10,6 +10,8 @@ import Button from "@/components/shared/Button/Button";
 import Faq from "@/components/HomePage/Faq/Faq";
 import AddOns from "../AddOns/AddOns";
 import Digital from "@/components/shared/Digital/Digital";
+import HowItWorks from "@/components/HomePage/HowItWorks/HowItWorks";
+import Testimonials from "@/components/HomePage/Testimonials/Testimonials";
 
 type AddOnItem = { id: number | string; title: string; description?: string };
 
@@ -58,7 +60,7 @@ function SectionList({
   const ListTag = ordered ? "ol" : "ul";
   return (
     <section className={styles.section}>
-      <h3 className={styles.subHeading}>{title}</h3>
+      <h3 className={`${styles.subHeading} h5`}>{title}</h3>
       <ListTag className={styles.list}>
         {items.map((item, i) => (
           <li key={i} className={styles.listItem}>
@@ -227,6 +229,9 @@ export default function ServiceDetails({ service }: { service: Service }) {
         ctaText='Book your ride'
         items={toAddOnItems(service.addOns)}
       />
+      <HowItWorks />
+      <Testimonials />
+
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

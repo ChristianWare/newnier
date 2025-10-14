@@ -5,6 +5,7 @@ import Mission from "@/components/AboutPage/Mission/Mission";
 import Story from "@/components/AboutPage/Story/Story";
 import Faq from "@/components/HomePage/Faq/Faq";
 import Pitch from "@/components/HomePage/Pitch/Pitch";
+import { aboutQuestions } from "@/lib/data";
 
 export default function AboutPage() {
   return (
@@ -15,7 +16,7 @@ export default function AboutPage() {
       <AboutServicesPreview />
       <Mission />
       <Pitch />
-      <Faq />
+      <Faq items={aboutQuestions} />
     </main>
   );
 }

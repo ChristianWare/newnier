@@ -7,7 +7,7 @@ import Pitch from "@/components/HomePage/Pitch/Pitch";
 import ServiceAreas from "@/components/HomePage/ServiceAreas/ServiceAreas";
 import ServicesPreview from "@/components/HomePage/ServicesPreview/ServicesPreview";
 import Testimonials from "@/components/HomePage/Testimonials/Testimonials";
-
+import { homeQuestions } from "@/lib/data";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
       <Fleet />
       <HowItWorks />
       <Testimonials />
-      <Faq />
+      <Faq items={homeQuestions} />
     </main>
   );
 }

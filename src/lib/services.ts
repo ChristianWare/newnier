@@ -8,6 +8,46 @@ import Hourly from "../../public/images/sand.jpg";
 import Hourly2 from "../../public/images/hourly2.jpg";
 import Wedding from "../../public/images/wedding.jpg";
 
+import type { StaticImageData } from "next/image";
+
+export type ServiceShape = {
+  id: number;
+  title: string;
+  slug: string;
+  copy?: string;
+  marketingCopy?: string;
+  description?: string;
+  src?: StaticImageData;
+  src2?: StaticImageData;
+  features?: ReadonlyArray<{
+    id: number | string;
+    title: string;
+    details: string;
+  }>;
+  // add any other fields you actually read in components, e.g.:
+  whoThisIsFor?: ReadonlyArray<string>;
+  coverageTitle?: string;
+  coverageAndAirports?: ReadonlyArray<string>;
+  whatsIncluded?: ReadonlyArray<string>;
+  vehicleClasses?: ReadonlyArray<string>;
+  pickupOptions?: ReadonlyArray<string>;
+  bookingAndPayment?: ReadonlyArray<string>;
+  policies?: ReadonlyArray<string>;
+  familiesAccessibilitySpecial?: ReadonlyArray<string>;
+  safetyAndStandards?: ReadonlyArray<string>;
+  communicationAndTracking?: ReadonlyArray<string>;
+  whatToExpect?: ReadonlyArray<string>;
+  faqs?: ReadonlyArray<{
+    q: string;
+    a: string;
+  }>;
+  addOns?: ReadonlyArray<{
+    id: number | string;
+    title: string;
+    description: string;
+  }>;
+  forTravelManagers?: ReadonlyArray<string>;
+};
 
 export const servicesData = [
   {
@@ -1577,4 +1617,4 @@ export const servicesData = [
       },
     ],
   },
-] as const;
+] satisfies ReadonlyArray<ServiceShape>;
