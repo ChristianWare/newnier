@@ -4,15 +4,14 @@
 import React from "react";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./ServiceDetails.module.css";
-// import { servicesData as services } from "@/lib/services";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/shared/Button/Button";
 import Faq from "@/components/HomePage/Faq/Faq";
 import AddOns from "../AddOns/AddOns";
 
-type FAQ = { q: string; a: string };
-type Feature = { id: number | string; title: string; details: string };
+type AddOnItem = { id: number | string; title: string; description?: string };
+
 type Service = {
   id: number;
   title: string;
@@ -34,10 +33,15 @@ type Service = {
   safetyAndStandards?: ReadonlyArray<string>;
   communicationAndTracking?: ReadonlyArray<string>;
   whatToExpect?: ReadonlyArray<string>;
-  faqs?: ReadonlyArray<FAQ>;
-  addOns?: ReadonlyArray<string>;
+  faqs?: ReadonlyArray<{ q: string; a: string }>;
+  // ⬇️ Was ReadonlyArray<string>; change to object list:
+  addOns?: ReadonlyArray<AddOnItem> | ReadonlyArray<string>;
   forTravelManagers?: ReadonlyArray<string>;
-  features?: ReadonlyArray<Feature>;
+  features?: ReadonlyArray<{
+    id: number | string;
+    title: string;
+    details: string;
+  }>;
 };
 
 function SectionList({
@@ -63,6 +67,19 @@ function SectionList({
       </ListTag>
     </section>
   );
+}
+
+function toAddOnItems(
+  addOns?: ReadonlyArray<AddOnItem> | ReadonlyArray<string>
+): AddOnItem[] {
+  if (!addOns) return [];
+  if (typeof addOns[0] === "string") {
+    return (addOns as ReadonlyArray<string>).map((text, i) => ({
+      id: i + 1,
+      title: text,
+    }));
+  }
+  return Array.from(addOns as ReadonlyArray<AddOnItem>);
 }
 
 // function SectionFAQs({
@@ -263,7 +280,12 @@ export default function ServiceDetails({ service }: { service: Service }) {
         items={service.forTravelManagers}
         /> */}
       </LayoutWrapper>
-        <AddOns />
+      <AddOns
+        heading='Add-ons'
+        ctaHref={`/book?service=${encodeURIComponent(service.slug)}`}
+        ctaText='Book your ride'
+        items={toAddOnItems(service.addOns)}
+      />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

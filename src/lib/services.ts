@@ -112,9 +112,34 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "10–15 minute convenience stop (coffee, pharmacy, ATM)",
-      "Charter-by-the-hour if your plans include multiple stops after pickup",
-      "Return trip booking with bundle pricing",
+      {
+        id: 1,
+        title: "Convenience Stop",
+        description: "10–15 minute coffee/pharmacy/ATM stop en route.",
+      },
+      {
+        id: 2,
+        title: "Meet & Greet Upgrade",
+        description:
+          "Inside-terminal greeting with name sign and escort to baggage claim.",
+      },
+      {
+        id: 3,
+        title: "Extra Wait-Time Block",
+        description:
+          "Pre-purchase additional wait-time in 15–30 minute increments.",
+      },
+      {
+        id: 4,
+        title: "Return-Trip Bundle",
+        description:
+          "Lock in your pickup for the flight home at a preferred bundle rate.",
+      },
+      {
+        id: 5,
+        title: "Child Seat Rental",
+        description: "Rear/forward-facing seats and boosters staged to spec.",
+      },
     ],
     forTravelManagers: [
       "Corporate accounts with saved profiles, preferred rates, and consolidated monthly billing",
@@ -259,9 +284,33 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Extra hour blocks at preferred rates",
-      "Restaurant & valet coordination",
-      "Bottled water upgrades / light refreshments",
+      {
+        id: 1,
+        title: "Return-Trip Bundle",
+        description: "Add your ride back now for smoother timing and savings.",
+      },
+      {
+        id: 2,
+        title: "Quick En-Route Stop",
+        description:
+          "Short pickup (pharmacy/keys) without changing destination.",
+      },
+      {
+        id: 3,
+        title: "Lobby Meet Assist",
+        description:
+          "Chauffeur meets inside lobby or concierge where permitted.",
+      },
+      {
+        id: 4,
+        title: "Priority Pickup Window",
+        description: "Narrow pickup window with proactive staging texts.",
+      },
+      {
+        id: 5,
+        title: "Premium Water Service",
+        description: "Chilled still/sparkling stocked on request.",
+      },
     ],
     forTravelManagers: [
       "Consolidated billing and rider profiles",
@@ -396,9 +445,32 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Return-trip bundle pricing",
-      "Premium bottled water / refreshments",
-      "Venue coordination with event staff",
+      {
+        id: 1,
+        title: "Cooler & Ice Setup",
+        description:
+          "We stage a small cooler with ice (sealed beverages only).",
+      },
+      {
+        id: 2,
+        title: "Warm-Up Range Stop",
+        description: "Swing by the range or retail pro shop before tee time.",
+      },
+      {
+        id: 3,
+        title: "Multi-Course Day Shuttle",
+        description: "Hourly shuttle between morning and afternoon rounds.",
+      },
+      {
+        id: 4,
+        title: "Clubhouse Liaison",
+        description: "Coordination with bag drop and staff for smooth loading.",
+      },
+      {
+        id: 5,
+        title: "Post-Round Dinner Transfer",
+        description: "Direct drop to your dinner reservation after 18.",
+      },
     ],
     forTravelManagers: [
       "Saved traveler profiles and preferences",
@@ -529,9 +601,31 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Warm-up stop (range/retail) before tee time",
-      "Cooler & ice setup",
-      "Post-round dinner transfer",
+      {
+        id: 1,
+        title: "On-Site Marshal/Coordinator",
+        description: "Dedicated ground lead to manage load zones and timing.",
+      },
+      {
+        id: 2,
+        title: "Printed Signage & Badges",
+        description: "Co-branded pickup signs and staff credentials.",
+      },
+      {
+        id: 3,
+        title: "VIP/Green-Room Shuttle",
+        description: "Discreet back-of-house routing for speakers and execs.",
+      },
+      {
+        id: 4,
+        title: "Manifest Manager",
+        description: "Shared live manifest with real-time rider updates.",
+      },
+      {
+        id: 5,
+        title: "Radio/Comms Kit",
+        description: "Event radios or alt comms for larger footprints.",
+      },
     ],
     forTravelManagers: [
       "Group manifests and tee-time schedules saved to profile",
@@ -666,9 +760,31 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "On-site marshal/coordinator",
-      "Printed signage and badges",
-      "Refreshment provisioning",
+      {
+        id: 1,
+        title: "Photo-Stop Routing",
+        description: "Pre-planned scenic stops with timing buffers.",
+      },
+      {
+        id: 2,
+        title: "Red-Carpet Door Assist",
+        description: "Polished arrivals with door service for photos.",
+      },
+      {
+        id: 3,
+        title: "Surprise Coordination",
+        description: "Quiet comms with hosts to time the big moment.",
+      },
+      {
+        id: 4,
+        title: "Floral & Garment Care",
+        description: "Gentle loading and hanger space on request.",
+      },
+      {
+        id: 5,
+        title: "Restaurant/Valet Liaison",
+        description: "We align drop/hold timing with venue staff.",
+      },
     ],
     forTravelManagers: [
       "Centralized dashboards and monthly statements",
@@ -795,9 +911,32 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Photo-stop planning",
-      "Restaurant/valet coordination",
-      "Bottled water upgrades",
+      {
+        id: 1,
+        title: "Extra Time Blocks",
+        description: "Add hours to keep the night going.",
+      },
+      {
+        id: 2,
+        title: "Venue Coordination & Guest List",
+        description: "We sync windows and check-ins with venues.",
+      },
+      {
+        id: 3,
+        title: "Cooler Prep (Sealed Beverages)",
+        description: "Space staged for sealed drinks; no open containers.",
+      },
+      {
+        id: 4,
+        title: "End-of-Night Split Drops",
+        description: "Staggered neighborhood drop-offs for the group.",
+      },
+      {
+        id: 5,
+        title: "Playlist Setup",
+        description:
+          "Connect your device for music; AUX/Bluetooth as available.",
+      },
     ],
     forTravelManagers: [
       "Concierge coordination",
@@ -924,9 +1063,31 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Extra time blocks",
-      "Venue coordination and guest list check-ins",
-      "Return split runs",
+      {
+        id: 1,
+        title: "Multi-Passenger Sequencing",
+        description: "Pre-set sibling or co-worker pickup order.",
+      },
+      {
+        id: 2,
+        title: "Key Handling Protocol",
+        description: "Secure key/code handoffs with audit notes.",
+      },
+      {
+        id: 3,
+        title: "Backup Window Scheduling",
+        description: "Secondary time slots to absorb schedule drift.",
+      },
+      {
+        id: 4,
+        title: "Family/Org Billing Consolidation",
+        description: "One statement for multiple riders or routes.",
+      },
+      {
+        id: 5,
+        title: "Caregiver Handoff Notes",
+        description: "Documented pickup/drop procedures for minors or seniors.",
+      },
     ],
     forTravelManagers: [
       "Group rosters and timing sheets",
@@ -1053,9 +1214,31 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Multi-passenger sequencing",
-      "Key handling protocols",
-      "Consolidated billing for families",
+      {
+        id: 1,
+        title: "Multi-Passenger Sequencing",
+        description: "Pre-set sibling or co-worker pickup order.",
+      },
+      {
+        id: 2,
+        title: "Key Handling Protocol",
+        description: "Secure key/code handoffs with audit notes.",
+      },
+      {
+        id: 3,
+        title: "Backup Window Scheduling",
+        description: "Secondary time slots to absorb schedule drift.",
+      },
+      {
+        id: 4,
+        title: "Family/Org Billing Consolidation",
+        description: "One statement for multiple riders or routes.",
+      },
+      {
+        id: 5,
+        title: "Caregiver Handoff Notes",
+        description: "Documented pickup/drop procedures for minors or seniors.",
+      },
     ],
     forTravelManagers: [
       "Roster-based schedules",
@@ -1182,9 +1365,31 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "Return-trip bundling",
-      "Snacks and beverage provisioning",
-      "Hotel coordination for overnight returns",
+      {
+        id: 1,
+        title: "Snack & Beverage Kit",
+        description: "Water and light snacks prepared for the route.",
+      },
+      {
+        id: 2,
+        title: "Overnight Return Coordination",
+        description: "Hotel liaison for driver rest or next-day return.",
+      },
+      {
+        id: 3,
+        title: "Pet Travel Kit",
+        description: "Seat protector and cleanup supplies for crated pets.",
+      },
+      {
+        id: 4,
+        title: "Preferred Rest-Stop Plan",
+        description: "Pre-mapped breaks based on your preferences.",
+      },
+      {
+        id: 5,
+        title: "Second-Driver Option",
+        description: "For very long itineraries, quote a relay handoff.",
+      },
     ],
     forTravelManagers: [
       "Trip manifests and policy notes",
@@ -1307,9 +1512,32 @@ export const servicesData = [
       },
     ],
     addOns: [
-      "On-site marshal",
-      "Getaway car photo moment planning",
-      "Guest shuttle signage",
+      {
+        id: 1,
+        title: "Getaway Car Photo Moment",
+        description:
+          "Coordinate a picture-perfect exit with timing and staging.",
+      },
+      {
+        id: 2,
+        title: "Guest Shuttle Signage",
+        description: "Branded signs and window cards for loops.",
+      },
+      {
+        id: 3,
+        title: "On-Site Marshal",
+        description: "Ground lead to manage bridal party and guest flows.",
+      },
+      {
+        id: 4,
+        title: "Timeline Buffer Blocks",
+        description: "Pre-purchased overage to absorb delays gracefully.",
+      },
+      {
+        id: 5,
+        title: "Photo-Stop Planning",
+        description: "Scenic detours with AC-safe hair/makeup buffers.",
+      },
     ],
     forTravelManagers: [
       "Planner/venue coordination",
