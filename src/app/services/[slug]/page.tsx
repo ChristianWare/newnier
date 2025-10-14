@@ -1,7 +1,7 @@
 // app/services/[slug]/page.tsx  (server component)
 
 import type { Metadata } from "next";
-import { services } from "@/lib/data";
+import { servicesData } from "@/lib/services";
 import ServiceDetailsClient from "./components/ServiceDetailsClient/ServiceDetailsClient";
 
 type Params = { slug: string };
@@ -11,7 +11,7 @@ export async function generateMetadata(
   { params }: { params: Promise<Params> } // ← accept the promise
 ): Promise<Metadata> {
   const { slug } = await params; // ← await it
-  const svc = services.find((s) => s.slug === slug);
+  const svc = servicesData.find((s) => s.slug === slug);
   return { title: svc ? svc.title : "Service Not Found" };
 }
 
@@ -20,7 +20,7 @@ export default async function Page(
   { params }: { params: Promise<Params> } // ← accept the promise
 ) {
   const { slug } = await params; // ← await it
-  const svc = services.find((s) => s.slug === slug);
+  const svc = servicesData.find((s) => s.slug === slug);
 
   if (!svc) {
     return (

@@ -108,489 +108,378 @@ export const services = [
     id: 1,
     title: "Airport Transfers",
     slug: "airport-transfers",
-    copy: "On-time, every time. Seamless airport transfers to PHX, Scottsdale, and Gateway with real-time flight tracking, 60-minute grace period, and professional meet-and-greet. Reserve your black car in minutes.",
+    copy: "Reliable black car service to Scottsdale, Sky Harbor, and Gateway airports. Professional chauffeurs ensure punctual, stress-free travel.",
     src: Airport,
     src2: Airport2,
     description:
-      "Start and end every trip on time—and in comfort. Nier Transportation provides premium airport transfers across the Phoenix metro, including Sky Harbor (PHX), Scottsdale Airport (SDL), and Phoenix–Mesa Gateway (AZA), plus private and corporate FBOs. Professional chauffeurs, real-time flight tracking, and door-to-door service make your airport run simple, punctual, and stress-free.",
-    whoThisIsFor: [
-      "Business travelers who need on-time pickups and quiet, climate-controlled rides to work in transit",
-      "Families with luggage, strollers, and child seats who want hands-on help from curb to door",
-      "Leisure travelers who prefer a reserved vehicle and a dedicated chauffeur—no ride-share roulette",
-      "Corporate travel coordinators who need reliable, invoice-ready, policy-compliant ground transport",
-    ],
-    coverageAndAirports: [
-      "PHX – Phoenix Sky Harbor International (Terminals 3 & 4, all airlines)",
-      "SDL – Scottsdale Airport (commercial connections & private FBO passengers)",
-      "AZA – Phoenix–Mesa Gateway",
-      "Private Aviation (FBOs): meet-and-greet or ramp-side coordination where permitted",
-      "Metro pickup/drop-off: Scottsdale, Phoenix, Tempe, Chandler, Mesa, Gilbert, Paradise Valley, Glendale, Peoria, Goodyear, Surprise, and nearby communities",
-    ],
-    whatsIncluded: [
-      "Real-Time Flight Monitoring – We track your flight and auto-adjust dispatch and pickup times for delays or early arrivals.",
-      "Meet & Greet – Optional terminal-inside greeting with a name sign for a smooth handoff.",
-      "Luggage Assistance – From carousel to curb, and from curb to your door.",
-      "Complimentary Wait Time – Up to 60 minutes after wheels-down to deplane and collect bags.",
-      "Door-to-Door – Private ride, no shared stops.",
-      "Quiet Cabin – Climate-controlled vehicles with water and phone charging on request.",
-    ],
-    vehicleClasses: [
-      "Executive SUV (up to 6–7 passengers) – Ideal for families and small teams with checked bags",
-      "Luxury Sedan (up to 3 passengers) – Best for solo travelers or couples with carry-ons",
-      "Premium & Specialty – Sprinter-style vans for groups, or elevated VIP options on request",
-    ],
-    pickupOptions: [
-      "Curbside Pickup (fastest): Your chauffeur coordinates via text at passenger pickup zones.",
-      "Meet & Greet (most seamless): Chauffeur waits inside at the designated arrivals area with a sign, escorts you to baggage claim and the vehicle.",
-      "FBO/Private Aviation: Ramp-side or lounge pickup where permitted by the facility; we coordinate with the FBO.",
-    ],
-    bookingAndPayment: [
-      "Reserve in minutes – Online booking with instant confirmation.",
-      "Transparent pricing – Flat, zone-based airport rates with no surge pricing.",
-      "Deposits – Option to secure your ride with a deposit; balance auto-settles per your preference.",
-      "Receipts & invoices – Emailed automatically; monthly statements available for corporate accounts.",
-    ],
-    policies: [
-      "Complimentary Wait Time: 60 minutes domestic/international from actual landing. After the grace period, wait time may apply in 15-minute increments.",
-      "Advance reservations: Recommended for all flights; required for very early/late arrivals.",
-      "Same-day bookings: Subject to availability—call or book online to check live inventory.",
-      "Cancellations & Changes: Free changes up to a reasonable pre-dispatch window; once the chauffeur is en route or on location, standard fees may apply.",
-      "No-Shows: Marked 30 minutes after the grace period ends if we cannot reach you via call/text.",
-      "(Pro tip: Share your flight number and mobile during booking for the smoothest experience.)",
-    ],
-    familiesAccessibilitySpecial: [
-      "Child Seats: Rear-facing, forward-facing, and boosters available on request. Tell us the ages of children so we bring the correct seat(s).",
-      "ADA & Accessibility: Low step-in options and extra loading assistance available. Let us know mobility needs in advance.",
-      "Pet-Friendly: Crated small pets welcome; service animals always welcome. Please note cleaning fees only if extraordinary detailing is required.",
-      "Extra Stops: Short grocery/pharmacy stops or key pickups available—add during checkout.",
-    ],
-    safetyAndStandards: [
-      "Licensed & insured commercial operations",
-      "Chauffeur screening & training – route planning, defensive driving, client service",
-      "Vehicle care – inspected, clean interiors, climate control checked daily",
-    ],
-    communicationAndTracking: [
-      "SMS updates – Driver details and live arrival updates",
-      "Flight tracking – We monitor your inbound flight and adjust staging so we’re ready when you are",
-      "Support – Human dispatch for itinerary changes or delays",
-    ],
-    whatToExpect: [
-      "Booking Confirmation: You’ll receive a confirmation with pickup details and your chauffeur’s contact closer to arrival.",
-      "Landing & Grace Period: We start your 60-minute complimentary window once the flight lands.",
-      "Bags & Meet Point: Text us when you reach baggage claim; for Meet & Greet, your chauffeur is already inside with a sign.",
-      "Load & Go: We handle luggage and route selection—fastest route factoring traffic and closures.",
-      "Arrival: Door-to-door drop-off with a final luggage handoff.",
-    ],
-    faqs: [
-      {
-        q: "What if my flight is early or delayed?",
-        a: "We update pickup times automatically—no need to call unless your flight number changes.",
-      },
-      {
-        q: "Where do I meet my driver at PHX?",
-        a: "For curbside, we coordinate by text at the designated passenger pickup area for your terminal. For Meet & Greet, your chauffeur will be just outside baggage claim with a sign.",
-      },
-      {
-        q: "Do you charge for tolls, parking, or airport fees?",
-        a: "Airport/parking fees are passed through at cost and listed on your receipt; no surprise surcharges.",
-      },
-      {
-        q: "How much luggage fits in an SUV?",
-        a: "Typically 5–7 standard suitcases plus personal items; tell us your loadout and we’ll size up if needed.",
-      },
-      {
-        q: "Can you handle very late arrivals?",
-        a: "Yes—24/7 service with advance booking. For red-eyes and first-wave arrivals, reserve as early as possible.",
-      },
-    ],
-    addOns: [
-      "10–15 minute convenience stop (coffee, pharmacy, ATM)",
-      "Charter-by-the-hour if your plans include multiple stops after pickup",
-      "Return trip booking with bundle pricing",
-    ],
-    forTravelManagers: [
-      "Corporate accounts with saved profiles, preferred rates, and consolidated monthly billing",
-      "Saved itineraries and traveler preferences (pickup style, bottle water preference, quiet-ride, etc.)",
-      "Admin dashboard access available on request",
-    ],
+      "Our Airport Transfers guarantee a seamless start or end to your journey, with professional chauffeurs who track your flight status in real time and adjust pickup as needed. Enjoy a spacious, climate-controlled vehicle and door-to-door service that removes the hassle of parking or shuttle lines. From curbside greeting to luggage handling, we manage every detail so you can focus on what matters most.",
     features: [
       {
         id: 1.1,
         title: "Real-Time Flight Monitoring",
         details:
-          "We track your flight and auto-adjust dispatch and pickup times for delays or early arrivals.",
+          "We automatically adjust your pickup time based on live flight data to accommodate delays or early arrivals.",
       },
       {
         id: 1.2,
-        title: "Meet & Greet",
+        title: "Meet & Greet Service",
         details:
-          "Optional terminal-inside greeting with a name sign for a smooth handoff.",
+          "Your chauffeur will be waiting inside the terminal with a personalized name sign for a smooth handoff.",
       },
       {
         id: 1.3,
         title: "Luggage Assistance",
-        details: "From carousel to curb, and from curb to your door.",
+        details:
+          "Professional loading and unloading of all bags directly to and from the vehicle.",
       },
       {
         id: 1.4,
         title: "Complimentary Wait Time",
         details:
-          "Up to 60 minutes after wheels-down to deplane and collect bags.",
-      },
-      {
-        id: 1.5,
-        title: "Door-to-Door",
-        details: "Private ride, no shared stops.",
-      },
-      {
-        id: 1.6,
-        title: "Quiet Cabin",
-        details:
-          "Climate-controlled vehicles with water and phone charging on request.",
+          "Enjoy up to 60 minutes of free wait time after landing without any additional fees.",
       },
     ],
   },
-  // {
-  //   id: 2,
-  //   title: "Hourly Chauffeur",
-  //   slug: "hourly-chauffeur",
-  //   copy: "Keep a dedicated car and driver on standby for meetings, golf, or a night out; pay only for the hours you use.",
-  //   src: Hourly,
-  //   src2: Hourly2,
-  //   description:
-  //     "Engage our Hourly “As-Directed” Chauffeur for complete flexibility—your private driver awaits your schedule, whether it’s back-to-back meetings, a round of golf, or a social evening. You’re billed only for the exact time you travel, with unlimited stops and seamless route changes on the fly. All vehicles come stocked with bottled water, phone chargers, and a professional, courteous chauffeur to ensure comfort throughout.",
-  //   features: [
-  //     {
-  //       id: 2.1,
-  //       title: "Unlimited Stops",
-  //       details:
-  //         "Add as many pickups or drop-offs as you need during your booked time slot.",
-  //     },
-  //     {
-  //       id: 2.2,
-  //       title: "On-Demand Route Changes",
-  //       details:
-  //         "Modify your itinerary on the go via text or call—no extra charge.",
-  //     },
-  //     {
-  //       id: 2.3,
-  //       title: "Hourly Rate Transparency",
-  //       details:
-  //         "Know exactly what you’ll pay, down to the minute, with no hidden fees.",
-  //     },
-  //     {
-  //       id: 2.4,
-  //       title: "Vehicle Amenities",
-  //       details:
-  //         "Every car includes bottled water, phone chargers, and optional Wi-Fi access.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 3,
-  //   title: "Point-to-Point City Transfers",
-  //   slug: "point-to-point",
-  //   copy: "Direct, door-to-door rides across the Valley with fixed pricing and 15-minute courtesy wait time.",
-  //   src: Point,
-  //   src2: Point2,
-  //   description:
-  //     "Our Point-to-Point City Transfers deliver efficient, no-surprises travel anywhere in the Valley. Benefit from fixed flat rates, a complimentary 15-minute wait window, and an experienced chauffeur who navigates local traffic so you arrive relaxed and on schedule. Perfect for quick trips to meetings, restaurants, or social engagements without the uncertainty of ride-share apps.",
-  //   features: [
-  //     {
-  //       id: 3.1,
-  //       title: "Fixed Flat Rates",
-  //       details:
-  //         "Lock in your fare up front—no surge pricing or unexpected tolls.",
-  //     },
-  //     {
-  //       id: 3.2,
-  //       title: "15-Minute Courtesy Wait",
-  //       details:
-  //         "We’ll wait for you at no extra cost if you’re running a few minutes behind.",
-  //     },
-  //     {
-  //       id: 3.3,
-  //       title: "Local Traffic Expertise",
-  //       details:
-  //         "Our drivers know every shortcut and peak-hour pattern to minimize delays.",
-  //     },
-  //     {
-  //       id: 3.4,
-  //       title: "Clean & Sanitized Vehicles",
-  //       details:
-  //         "Every car is disinfected before each trip for your peace of mind.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 4,
-  //   title: "Golf Outing Transportation",
-  //   slug: "golf-outing-transportation",
-  //   copy: "Stress-free rides to TPC, We-Ko Pa, Troon and other courses. Vehicles for any group size with knowledgeable local drivers.",
-  //   src: Golf,
-  //   src2: Golf2,
-  //   description:
-  //     "Hit the links without the logistics headache: our Golf Outing Tours transport your group to top courses like TPC Scottsdale or Troon North in spacious SUVs or vans. Our drivers know each course’s layout and club rules, ensuring you arrive ready to play. Clubs and equipment can be pre-loaded to maximize your time on the green.",
-  //   features: [
-  //     {
-  //       id: 4.1,
-  //       title: "Comfortable Vehicles",
-  //       details:
-  //         "Use well-maintained, spacious vehicles that provide a comfortable ride for passengers, ensuring a pleasant experience before and after the game.",
-  //     },
-  //     {
-  //       id: 4.2,
-  //       title: "Timely Scheduling",
-  //       details:
-  //         "Establish a reliable schedule that allows for timely pickups and drop-offs, minimizing wait times and ensuring players arrive at the course without stress.",
-  //     },
-  //     {
-  //       id: 4.3,
-  //       title: "Knowledgeable Drivers",
-  //       details:
-  //         "Employ experienced drivers who are familiar with the area and can navigate efficiently, providing local insights and tips about the golf course and surroundings.",
-  //     },
-  //     {
-  //       id: 4.4,
-  //       title: "Group Coordination",
-  //       details:
-  //         "Facilitate group transportation options, such as shuttles or vans, to accommodate larger parties, fostering a social atmosphere and making it easier for players to travel together.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 5,
-  //   title: "Corporate & Event Logistics",
-  //   slug: "corporate-events",
-  //   copy: "VIP roadshows and conferences with onsite greeters, manifest tracking, and consolidated billing.",
-  //   src: Corporate,
-  //   src2: Corporate3,
-  //   description:
-  //     "Elevate your corporate roadshows and events with our end-to-end logistics support: professional greeters meet your guests, digital manifests keep attendance organized, and one consolidated invoice simplifies expense reporting. We handle every detail so you can focus on your agenda. Tailored service options include branded signage, on-site coordinators, and multi-vehicle synchronization for smooth transitions.",
-  //   features: [
-  //     {
-  //       id: 5.1,
-  //       title: "Onsite Greeters",
-  //       details: "Uniformed staff meet and escort your attendees on arrival.",
-  //     },
-  //     {
-  //       id: 5.2,
-  //       title: "Digital Manifest",
-  //       details: "Real-time tracking of guest check-ins and ride assignments.",
-  //     },
-  //     {
-  //       id: 5.3,
-  //       title: "Consolidated Invoicing",
-  //       details:
-  //         "One single bill for all vehicles and services during your event.",
-  //     },
-  //     {
-  //       id: 5.4,
-  //       title: "Branded Signage Options",
-  //       details:
-  //         "Custom logo signs or banner stands for a polished, professional look.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 6,
-  //   title: "Special Events",
-  //   slug: "special-events",
-  //   copy: "Arrive in style for any occasion. We provide luxury vehicles and shuttle buses to suit all group sizes and event types.",
-  //   src: Events,
-  //   src2: Events2,
-  //   description:
-  //     "Make an entrance at weddings, galas, and social celebrations with our Special Events service, featuring luxury sedans, stretch limousines, or shuttle buses tailored to your guest count. Our team coordinates timing, signage, and on-site support so every arrival is flawless. Custom branding, champagne service, and red-carpet setups are available to elevate the experience.",
-  //   features: [
-  //     {
-  //       id: 6.1,
-  //       title: "Red-Carpet Welcome",
-  //       details: "Roll out the red carpet for an unforgettable arrival.",
-  //     },
-  //     {
-  //       id: 6.2,
-  //       title: "Champagne Service",
-  //       details: "Toast to the moment with chilled champagne on board.",
-  //     },
-  //     {
-  //       id: 6.3,
-  //       title: "Guest Counting",
-  //       details: "We manage headcounts to ensure every guest is accounted for.",
-  //     },
-  //     {
-  //       id: 6.4,
-  //       title: "On-Site Coordination",
-  //       details: "Dedicated staff coordinate vehicle staging and timing.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 7,
-  //   title: "Party Bus",
-  //   slug: "party-bus",
-  //   copy: "Elevate your celebration with our premium party buses. Featuring spacious interiors, entertainment systems, and professional chauffeurs.",
-  //   src: Party,
-  //   src2: Party2,
-  //   description:
-  //     "Turn any night into a moving celebration aboard our Party Buses, equipped with premium sound systems, LED lighting, and plush seating for up to 30 guests. Your personal chauffeur handles the road while you and your group enjoy onboard entertainment and VIP amenities. Perfect for bachelorette parties, birthday celebrations, or concert pre-shuttles.",
-  //   features: [
-  //     {
-  //       id: 7.1,
-  //       title: "LED Light Show",
-  //       details: "Customizable lighting to set the mood.",
-  //     },
-  //     {
-  //       id: 7.2,
-  //       title: "Premium Sound System",
-  //       details: "Bluetooth connectivity for your playlist.",
-  //     },
-  //     {
-  //       id: 7.3,
-  //       title: "Refreshment Station",
-  //       details: "Mini-bar and cooler space for drinks and snacks.",
-  //     },
-  //     {
-  //       id: 7.4,
-  //       title: "Leather Lounge Seating",
-  //       details: "Spacious, comfortable seating for socializing.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 8,
-  //   title: "Reoccurring Rides",
-  //   slug: "reoccurring-rides",
-  //   copy: "Dependable transportation for regular business needs. Scheduled rides ensure timely arrivals without ride-share uncertainties.",
-  //   src: Reocurring,
-  //   src2: Reocurring2,
-  //   description:
-  //     "Streamline your routine commutes or team shuttles with our Reoccurring Rides plan—set up daily, weekly, or custom schedules and we’ll dispatch the same experienced driver and vehicle each time. Enjoy consistency, reliability, and priority service without having to book each trip individually. Automated billing options simplify expense management for corporate accounts.",
-  //   features: [
-  //     {
-  //       id: 8.1,
-  //       title: "Consistent Driver Assignment",
-  //       details: "Ride with the same chauffeur for familiarity and trust.",
-  //     },
-  //     {
-  //       id: 8.2,
-  //       title: "Custom Scheduling",
-  //       details: "Choose specific days and times for your repeating rides.",
-  //     },
-  //     {
-  //       id: 8.3,
-  //       title: "Priority Dispatch",
-  //       details:
-  //         "Reoccurring customers receive top priority during peak hours.",
-  //     },
-  //     {
-  //       id: 8.4,
-  //       title: "Automated Billing",
-  //       details:
-  //         "Weekly or monthly invoicing directly to your corporate account.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 9,
-  //   title: "Long Distance Drives",
-  //   slug: "long-distance",
-  //   copy: "Comfortable intercity travel with professional drivers. Relax in our well-maintained vehicles while we handle the journey.",
-  //   src: Distance,
-  //   src2: Distance2,
-  //   description:
-  //     "Experience stress-free Long Distance Drives in climate-controlled comfort, whether you’re headed to Sedona’s red rocks or Tucson’s desert resorts. Our courteous chauffeurs navigate highways and scenic byways so you can work, rest, or take in the views without interruption. Every trip includes bottled water, phone chargers, and optional in-vehicle Wi-Fi to keep you connected.",
-  //   features: [
-  //     {
-  //       id: 9.1,
-  //       title: "Scenic Route Planning",
-  //       details: "Choose the most picturesque roads for a memorable journey.",
-  //     },
-  //     {
-  //       id: 9.2,
-  //       title: "In-Vehicle Wi-Fi",
-  //       details: "Stay connected with high-speed internet onboard.",
-  //     },
-  //     {
-  //       id: 9.3,
-  //       title: "Snack & Beverage Kit",
-  //       details: "Optional pre-stocked refreshments for longer trips.",
-  //     },
-  //     {
-  //       id: 9.4,
-  //       title: "Flexible Stopovers",
-  //       details: "Add breaks or sightseeing stops without changing your rate.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 10,
-  //   title: "Golf Outing Transportation",
-  //   slug: "golf-outing-transportation",
-  //   copy: "Stress-free rides to TPC, We-Ko Pa, Troon and other courses. Vehicles for any group size with knowledgeable local drivers.",
-  //   src: Golf,
-  //   src2: Golf2,
-  //   description:
-  //     "Hit the links without the logistics headache: our Golf Outing Tours transport your group to top courses like TPC Scottsdale or Troon North in spacious SUVs or vans. Our drivers know each course’s layout and club rules, ensuring you arrive ready to play. Clubs and equipment can be pre-loaded to maximize your time on the green.",
-  //   features: [
-  //     {
-  //       id: 10.1,
-  //       title: "Comfortable Vehicles",
-  //       details:
-  //         "Use well-maintained, spacious vehicles that provide a comfortable ride for passengers, ensuring a pleasant experience before and after the game.",
-  //     },
-  //     {
-  //       id: 10.2,
-  //       title: "Timely Scheduling",
-  //       details:
-  //         "Establish a reliable schedule that allows for timely pickups and drop-offs, minimizing wait times and ensuring players arrive at the course without stress.",
-  //     },
-  //     {
-  //       id: 10.3,
-  //       title: "Knowledgeable Drivers",
-  //       details:
-  //         "Employ experienced drivers who are familiar with the area and can navigate efficiently, providing local insights and tips about the golf course and surroundings.",
-  //     },
-  //     {
-  //       id: 10.4,
-  //       title: "Group Coordination",
-  //       details:
-  //         "Facilitate group transportation options, such as shuttles or vans, to accommodate larger parties, fostering a social atmosphere and making it easier for players to travel together.",
-  //     },
-  //   ],
-  // },
-  // {
-  //   id: 11,
-  //   title: "Weddings",
-  //   slug: "party-bus-weddings",
-  //   copy: "LED lighting, Bluetooth sound, and wrap-around seating for unforgettable celebrations and seamless shuttles.",
-  //   src: Wedding,
-  //   src2: Wedding2,
-  //   description:
-  //     "Add a touch of luxury to your wedding day with our Wedding Shuttles or Party Buses—complete with ambient lighting, premium audio, and plush seating. We coordinate pickup times and routes so your entire party arrives together and on time. Personalized décor options and keepsake signage make your transportation as memorable as the ceremony itself.",
-  //   features: [
-  //     {
-  //       id: 11.1,
-  //       title: "Custom Décor Options",
-  //       details: "Choose ribbons, flowers, or signage to match your theme.",
-  //     },
-  //     {
-  //       id: 11.2,
-  //       title: "Keepsake Signage",
-  //       details: "Personalized boards to commemorate your special day.",
-  //     },
-  //     {
-  //       id: 11.3,
-  //       title: "Champagne Toast Setup",
-  //       details: "Pre-chilled celebratory drinks served onboard.",
-  //     },
-  //     {
-  //       id: 11.4,
-  //       title: "Coordinated Bridal Party Pickup",
-  //       details: "Staggered timing ensures everyone arrives together.",
-  //     },
-  //   ],
-  // }
-  ,
+  {
+    id: 2,
+    title: "Hourly Chauffeur",
+    slug: "hourly-chauffeur",
+    copy: "Keep a dedicated car and driver on standby for meetings, golf, or a night out; pay only for the hours you use.",
+    src: Hourly,
+    src2: Hourly2,
+    description:
+      "Engage our Hourly “As-Directed” Chauffeur for complete flexibility—your private driver awaits your schedule, whether it’s back-to-back meetings, a round of golf, or a social evening. You’re billed only for the exact time you travel, with unlimited stops and seamless route changes on the fly. All vehicles come stocked with bottled water, phone chargers, and a professional, courteous chauffeur to ensure comfort throughout.",
+    features: [
+      {
+        id: 2.1,
+        title: "Unlimited Stops",
+        details:
+          "Add as many pickups or drop-offs as you need during your booked time slot.",
+      },
+      {
+        id: 2.2,
+        title: "On-Demand Route Changes",
+        details:
+          "Modify your itinerary on the go via text or call—no extra charge.",
+      },
+      {
+        id: 2.3,
+        title: "Hourly Rate Transparency",
+        details:
+          "Know exactly what you’ll pay, down to the minute, with no hidden fees.",
+      },
+      {
+        id: 2.4,
+        title: "Vehicle Amenities",
+        details:
+          "Every car includes bottled water, phone chargers, and optional Wi-Fi access.",
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: "Point-to-Point City Transfers",
+    slug: "point-to-point",
+    copy: "Direct, door-to-door rides across the Valley with fixed pricing and 15-minute courtesy wait time.",
+    src: Point,
+    src2: Point2,
+    description:
+      "Our Point-to-Point City Transfers deliver efficient, no-surprises travel anywhere in the Valley. Benefit from fixed flat rates, a complimentary 15-minute wait window, and an experienced chauffeur who navigates local traffic so you arrive relaxed and on schedule. Perfect for quick trips to meetings, restaurants, or social engagements without the uncertainty of ride-share apps.",
+    features: [
+      {
+        id: 3.1,
+        title: "Fixed Flat Rates",
+        details:
+          "Lock in your fare up front—no surge pricing or unexpected tolls.",
+      },
+      {
+        id: 3.2,
+        title: "15-Minute Courtesy Wait",
+        details:
+          "We’ll wait for you at no extra cost if you’re running a few minutes behind.",
+      },
+      {
+        id: 3.3,
+        title: "Local Traffic Expertise",
+        details:
+          "Our drivers know every shortcut and peak-hour pattern to minimize delays.",
+      },
+      {
+        id: 3.4,
+        title: "Clean & Sanitized Vehicles",
+        details:
+          "Every car is disinfected before each trip for your peace of mind.",
+      },
+    ],
+  },
+  {
+    id: 4,
+    title: "Golf Outing Transportation",
+    slug: "golf-outing-transportation",
+    copy: "Stress-free rides to TPC, We-Ko Pa, Troon and other courses. Vehicles for any group size with knowledgeable local drivers.",
+    src: Golf,
+    src2: Golf2,
+    description:
+      "Hit the links without the logistics headache: our Golf Outing Tours transport your group to top courses like TPC Scottsdale or Troon North in spacious SUVs or vans. Our drivers know each course’s layout and club rules, ensuring you arrive ready to play. Clubs and equipment can be pre-loaded to maximize your time on the green.",
+    features: [
+      {
+        id: 4.1,
+        title: "Comfortable Vehicles",
+        details:
+          "Use well-maintained, spacious vehicles that provide a comfortable ride for passengers, ensuring a pleasant experience before and after the game.",
+      },
+      {
+        id: 4.2,
+        title: "Timely Scheduling",
+        details:
+          "Establish a reliable schedule that allows for timely pickups and drop-offs, minimizing wait times and ensuring players arrive at the course without stress.",
+      },
+      {
+        id: 4.3,
+        title: "Knowledgeable Drivers",
+        details:
+          "Employ experienced drivers who are familiar with the area and can navigate efficiently, providing local insights and tips about the golf course and surroundings.",
+      },
+      {
+        id: 4.4,
+        title: "Group Coordination",
+        details:
+          "Facilitate group transportation options, such as shuttles or vans, to accommodate larger parties, fostering a social atmosphere and making it easier for players to travel together.",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Corporate & Event Logistics",
+    slug: "corporate-events",
+    copy: "VIP roadshows and conferences with onsite greeters, manifest tracking, and consolidated billing.",
+    src: Corporate,
+    src2: Corporate3,
+    description:
+      "Elevate your corporate roadshows and events with our end-to-end logistics support: professional greeters meet your guests, digital manifests keep attendance organized, and one consolidated invoice simplifies expense reporting. We handle every detail so you can focus on your agenda. Tailored service options include branded signage, on-site coordinators, and multi-vehicle synchronization for smooth transitions.",
+    features: [
+      {
+        id: 5.1,
+        title: "Onsite Greeters",
+        details: "Uniformed staff meet and escort your attendees on arrival.",
+      },
+      {
+        id: 5.2,
+        title: "Digital Manifest",
+        details: "Real-time tracking of guest check-ins and ride assignments.",
+      },
+      {
+        id: 5.3,
+        title: "Consolidated Invoicing",
+        details:
+          "One single bill for all vehicles and services during your event.",
+      },
+      {
+        id: 5.4,
+        title: "Branded Signage Options",
+        details:
+          "Custom logo signs or banner stands for a polished, professional look.",
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Special Events",
+    slug: "special-events",
+    copy: "Arrive in style for any occasion. We provide luxury vehicles and shuttle buses to suit all group sizes and event types.",
+    src: Events,
+    src2: Events2,
+    description:
+      "Make an entrance at weddings, galas, and social celebrations with our Special Events service, featuring luxury sedans, stretch limousines, or shuttle buses tailored to your guest count. Our team coordinates timing, signage, and on-site support so every arrival is flawless. Custom branding, champagne service, and red-carpet setups are available to elevate the experience.",
+    features: [
+      {
+        id: 6.1,
+        title: "Red-Carpet Welcome",
+        details: "Roll out the red carpet for an unforgettable arrival.",
+      },
+      {
+        id: 6.2,
+        title: "Champagne Service",
+        details: "Toast to the moment with chilled champagne on board.",
+      },
+      {
+        id: 6.3,
+        title: "Guest Counting",
+        details: "We manage headcounts to ensure every guest is accounted for.",
+      },
+      {
+        id: 6.4,
+        title: "On-Site Coordination",
+        details: "Dedicated staff coordinate vehicle staging and timing.",
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "Party Bus",
+    slug: "party-bus",
+    copy: "Elevate your celebration with our premium party buses. Featuring spacious interiors, entertainment systems, and professional chauffeurs.",
+    src: Party,
+    src2: Party2,
+    description:
+      "Turn any night into a moving celebration aboard our Party Buses, equipped with premium sound systems, LED lighting, and plush seating for up to 30 guests. Your personal chauffeur handles the road while you and your group enjoy onboard entertainment and VIP amenities. Perfect for bachelorette parties, birthday celebrations, or concert pre-shuttles.",
+    features: [
+      {
+        id: 7.1,
+        title: "LED Light Show",
+        details: "Customizable lighting to set the mood.",
+      },
+      {
+        id: 7.2,
+        title: "Premium Sound System",
+        details: "Bluetooth connectivity for your playlist.",
+      },
+      {
+        id: 7.3,
+        title: "Refreshment Station",
+        details: "Mini-bar and cooler space for drinks and snacks.",
+      },
+      {
+        id: 7.4,
+        title: "Leather Lounge Seating",
+        details: "Spacious, comfortable seating for socializing.",
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Reoccurring Rides",
+    slug: "reoccurring-rides",
+    copy: "Dependable transportation for regular business needs. Scheduled rides ensure timely arrivals without ride-share uncertainties.",
+    src: Reocurring,
+    src2: Reocurring2,
+    description:
+      "Streamline your routine commutes or team shuttles with our Reoccurring Rides plan—set up daily, weekly, or custom schedules and we’ll dispatch the same experienced driver and vehicle each time. Enjoy consistency, reliability, and priority service without having to book each trip individually. Automated billing options simplify expense management for corporate accounts.",
+    features: [
+      {
+        id: 8.1,
+        title: "Consistent Driver Assignment",
+        details: "Ride with the same chauffeur for familiarity and trust.",
+      },
+      {
+        id: 8.2,
+        title: "Custom Scheduling",
+        details: "Choose specific days and times for your repeating rides.",
+      },
+      {
+        id: 8.3,
+        title: "Priority Dispatch",
+        details:
+          "Reoccurring customers receive top priority during peak hours.",
+      },
+      {
+        id: 8.4,
+        title: "Automated Billing",
+        details:
+          "Weekly or monthly invoicing directly to your corporate account.",
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "Long Distance Drives",
+    slug: "long-distance",
+    copy: "Comfortable intercity travel with professional drivers. Relax in our well-maintained vehicles while we handle the journey.",
+    src: Distance,
+    src2: Distance2,
+    description:
+      "Experience stress-free Long Distance Drives in climate-controlled comfort, whether you’re headed to Sedona’s red rocks or Tucson’s desert resorts. Our courteous chauffeurs navigate highways and scenic byways so you can work, rest, or take in the views without interruption. Every trip includes bottled water, phone chargers, and optional in-vehicle Wi-Fi to keep you connected.",
+    features: [
+      {
+        id: 9.1,
+        title: "Scenic Route Planning",
+        details: "Choose the most picturesque roads for a memorable journey.",
+      },
+      {
+        id: 9.2,
+        title: "In-Vehicle Wi-Fi",
+        details: "Stay connected with high-speed internet onboard.",
+      },
+      {
+        id: 9.3,
+        title: "Snack & Beverage Kit",
+        details: "Optional pre-stocked refreshments for longer trips.",
+      },
+      {
+        id: 9.4,
+        title: "Flexible Stopovers",
+        details: "Add breaks or sightseeing stops without changing your rate.",
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: "Golf Outing Transportation",
+    slug: "golf-outing-transportation",
+    copy: "Stress-free rides to TPC, We-Ko Pa, Troon and other courses. Vehicles for any group size with knowledgeable local drivers.",
+    src: Golf,
+    src2: Golf2,
+    description:
+      "Hit the links without the logistics headache: our Golf Outing Tours transport your group to top courses like TPC Scottsdale or Troon North in spacious SUVs or vans. Our drivers know each course’s layout and club rules, ensuring you arrive ready to play. Clubs and equipment can be pre-loaded to maximize your time on the green.",
+    features: [
+      {
+        id: 10.1,
+        title: "Comfortable Vehicles",
+        details:
+          "Use well-maintained, spacious vehicles that provide a comfortable ride for passengers, ensuring a pleasant experience before and after the game.",
+      },
+      {
+        id: 10.2,
+        title: "Timely Scheduling",
+        details:
+          "Establish a reliable schedule that allows for timely pickups and drop-offs, minimizing wait times and ensuring players arrive at the course without stress.",
+      },
+      {
+        id: 10.3,
+        title: "Knowledgeable Drivers",
+        details:
+          "Employ experienced drivers who are familiar with the area and can navigate efficiently, providing local insights and tips about the golf course and surroundings.",
+      },
+      {
+        id: 10.4,
+        title: "Group Coordination",
+        details:
+          "Facilitate group transportation options, such as shuttles or vans, to accommodate larger parties, fostering a social atmosphere and making it easier for players to travel together.",
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: "Weddings",
+    slug: "party-bus-weddings",
+    copy: "LED lighting, Bluetooth sound, and wrap-around seating for unforgettable celebrations and seamless shuttles.",
+    src: Wedding,
+    src2: Wedding2,
+    description:
+      "Add a touch of luxury to your wedding day with our Wedding Shuttles or Party Buses—complete with ambient lighting, premium audio, and plush seating. We coordinate pickup times and routes so your entire party arrives together and on time. Personalized décor options and keepsake signage make your transportation as memorable as the ceremony itself.",
+    features: [
+      {
+        id: 11.1,
+        title: "Custom Décor Options",
+        details: "Choose ribbons, flowers, or signage to match your theme.",
+      },
+      {
+        id: 11.2,
+        title: "Keepsake Signage",
+        details: "Personalized boards to commemorate your special day.",
+      },
+      {
+        id: 11.3,
+        title: "Champagne Toast Setup",
+        details: "Pre-chilled celebratory drinks served onboard.",
+      },
+      {
+        id: 11.4,
+        title: "Coordinated Bridal Party Pickup",
+        details: "Staggered timing ensures everyone arrives together.",
+      },
+    ],
+  },
   // {
   //   id: 11,
   //   title: "Secure VIP Transport",

@@ -1,14 +1,42 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import React from "react";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./ServiceDetails.module.css";
-import { services } from "@/lib/data";
+// import { servicesData as services } from "@/lib/services";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/shared/Button/Button";
 
-type Service = (typeof services)[number];
+type FAQ = { q: string; a: string };
+type Feature = { id: number | string; title: string; details: string };
+type Service = {
+  id: number;
+  title: string;
+  slug: string;
+  copy?: string;
+  marketingCopy?: string;
+  src?: any;
+  src2?: any;
+  description?: string;
+  whoThisIsFor?: ReadonlyArray<string>;
+  coverageTitle?: string;
+  coverageAndAirports?: ReadonlyArray<string>;
+  whatsIncluded?: ReadonlyArray<string>;
+  vehicleClasses?: ReadonlyArray<string>;
+  pickupOptions?: ReadonlyArray<string>;
+  bookingAndPayment?: ReadonlyArray<string>;
+  policies?: ReadonlyArray<string>;
+  familiesAccessibilitySpecial?: ReadonlyArray<string>;
+  safetyAndStandards?: ReadonlyArray<string>;
+  communicationAndTracking?: ReadonlyArray<string>;
+  whatToExpect?: ReadonlyArray<string>;
+  faqs?: ReadonlyArray<FAQ>;
+  addOns?: ReadonlyArray<string>;
+  forTravelManagers?: ReadonlyArray<string>;
+  features?: ReadonlyArray<Feature>;
+};
 
 function SectionList({
   title,
@@ -72,10 +100,53 @@ export default function ServiceDetails({ service }: { service: Service }) {
     );
   }
 
+  const bookHref = `/book?service=${encodeURIComponent(service.slug)}`;
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: service.title,
+    description:
+      service.description || service.marketingCopy || service.copy || "",
+    areaServed: "Phoenix Metro, Arizona",
+    provider: { "@type": "LocalBusiness", name: "Nier Transportation" },
+    category: "Ground Transportation",
+  };
+
   return (
     <section className={styles.container}>
       <LayoutWrapper>
-        {/* Top: Overview + Feature cards */}
+        <div className={styles.header}>
+          <div className={styles.headerText}>
+            <h1 className={styles.title}>{service.title}</h1>
+            {service.copy && <p className={styles.kicker}>{service.copy}</p>}
+            {service.marketingCopy && (
+              <p className={styles.marketing}>{service.marketingCopy}</p>
+            )}
+            <div className={styles.headerCtas}>
+              <Button
+                href={bookHref}
+                text='Book your ride'
+                btnType='black'
+                arrow
+              />
+              <Link href='/services' className={styles.backLink}>
+                All services
+              </Link>
+            </div>
+          </div>
+          {/* {(service.src || service.src2) && (
+            <div className={styles.heroImgContainer}>
+              <Image
+                src={service.src2 || service.src}
+                alt={service.title || "Service image"}
+                fill
+                className={styles.heroImg}
+                priority
+              />
+            </div>
+          )} */}
+        </div>
+
         <div className={styles.content}>
           <div className={styles.left}>
             <h2 className={`${styles.heading} h3`}>Service overview</h2>
@@ -87,7 +158,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 <Image
                   src={service.src2}
                   fill
-                  alt={service.title || ""}
+                  alt={service.title || "Service image"}
                   className={styles.img}
                 />
               </div>
@@ -98,7 +169,10 @@ export default function ServiceDetails({ service }: { service: Service }) {
             {service.features && service.features.length > 0 && (
               <div className={styles.featureContainer}>
                 {service.features.map((x, index) => (
-                  <div className={styles.card} key={x.id}>
+                  <div
+                    className={styles.card}
+                    key={`${service.slug}-${String(x.id)}-${index}`}
+                  >
                     <div className={styles.indexContainer}>
                       <span className={styles.index}>{index + 1}</span>
                     </div>
@@ -108,99 +182,60 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 ))}
               </div>
             )}
-
             <div className={styles.btnClusterContainer}>
-              <Button href='/' text='Book your ride' btnType='black' arrow />
+              <Button
+                href={bookHref}
+                text='Book your ride'
+                btnType='black'
+                arrow
+              />
             </div>
           </div>
         </div>
 
-        {/* Full-width detail sections */}
         <div className={styles.details}>
+          <SectionList title='Who this is for' items={service.whoThisIsFor} />
           <SectionList
-            title='Who this is for'
-            items={service.whoThisIsFor as ReadonlyArray<string> | undefined}
+            title={service.coverageTitle || "Coverage & Service Area"}
+            items={service.coverageAndAirports}
           />
-          <SectionList
-            title='Coverage & Airports'
-            items={
-              service.coverageAndAirports as ReadonlyArray<string> | undefined
-            }
-          />
-          <SectionList
-            title='What’s included'
-            items={service.whatsIncluded as ReadonlyArray<string> | undefined}
-          />
-          <SectionList
-            title='Vehicle classes'
-            items={service.vehicleClasses as ReadonlyArray<string> | undefined}
-          />
-          <SectionList
-            title='Pickup options'
-            items={service.pickupOptions as ReadonlyArray<string> | undefined}
-          />
+          <SectionList title='What’s included' items={service.whatsIncluded} />
+          <SectionList title='Vehicle classes' items={service.vehicleClasses} />
+          <SectionList title='Pickup options' items={service.pickupOptions} />
           <SectionList
             title='Booking & Payment'
-            items={
-              service.bookingAndPayment as ReadonlyArray<string> | undefined
-            }
+            items={service.bookingAndPayment}
           />
-          <SectionList
-            title='Policies'
-            items={service.policies as ReadonlyArray<string> | undefined}
-          />
-
+          <SectionList title='Policies' items={service.policies} />
           <SectionList
             title='Families, Accessibility & Special Requests'
-            items={
-              service.familiesAccessibilitySpecial as
-                | ReadonlyArray<string>
-                | undefined
-            }
+            items={service.familiesAccessibilitySpecial}
           />
-
           <SectionList
             title='Safety & Standards'
-            items={
-              service.safetyAndStandards as ReadonlyArray<string> | undefined
-            }
+            items={service.safetyAndStandards}
           />
           <SectionList
             title='Communication & Tracking'
-            items={
-              service.communicationAndTracking as
-                | ReadonlyArray<string>
-                | undefined
-            }
+            items={service.communicationAndTracking}
           />
-
           <SectionList
             title='What to expect'
-            items={service.whatToExpect as ReadonlyArray<string> | undefined}
+            items={service.whatToExpect}
             ordered
           />
-
-          <SectionFAQs
-            title='FAQs'
-            faqs={
-              service.faqs as
-                | ReadonlyArray<{ q: string; a: string }>
-                | undefined
-            }
-          />
-
-          <SectionList
-            title='Add-ons'
-            items={service.addOns as ReadonlyArray<string> | undefined}
-          />
+          <SectionFAQs title='FAQs' faqs={service.faqs} />
+          <SectionList title='Add-ons' items={service.addOns} />
           <SectionList
             title='For travel managers'
-            items={
-              service.forTravelManagers as ReadonlyArray<string> | undefined
-            }
+            items={service.forTravelManagers}
           />
         </div>
       </LayoutWrapper>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </section>
   );
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import { services } from "@/lib/data";
+import { servicesData } from "@/lib/services";
 import ServiceSlugPageIntro from "../ServiceSlugPageIntro/ServiceSlugPageIntro";
 import ServiceDetails from "../ServiceDetails/ServiceDetails";
 
 /** Exact, readonly type derived from your data */
-type Service = (typeof services)[number];
+type Service = (typeof servicesData)[number];
 
 export default function ServiceDetailsClient({
   service,
