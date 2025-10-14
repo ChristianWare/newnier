@@ -96,7 +96,7 @@ export default function Nav({
     { text: "Home", href: "/" },
     { text: "Reservations", href: "/reservations" },
     { text: "Services", href: "/services" },
-    { text: "Fleet", href: "/fleet" },
+    { text: "Events", href: "/events" },
     { text: "About", href: "/about" },
     { text: "Blog", href: "/blog" },
     { text: "Contact", href: "/contact" },
