@@ -9,6 +9,7 @@ import Image from "next/image";
 import Button from "@/components/shared/Button/Button";
 import Faq from "@/components/HomePage/Faq/Faq";
 import AddOns from "../AddOns/AddOns";
+import Digital from "@/components/shared/Digital/Digital";
 
 type AddOnItem = { id: number | string; title: string; description?: string };
 
@@ -82,29 +83,6 @@ function toAddOnItems(
   return Array.from(addOns as ReadonlyArray<AddOnItem>);
 }
 
-// function SectionFAQs({
-//   title,
-//   faqs,
-// }: {
-//   title: string;
-//   faqs?: ReadonlyArray<{ q: string; a: string }>;
-// }) {
-//   if (!faqs || faqs.length === 0) return null;
-//   return (
-//     <section className={styles.section}>
-//       <h3 className={styles.heading}>{title}</h3>
-//       <div className={styles.faqGroup}>
-//         {faqs.map((f, i) => (
-//           <details key={i} className={styles.faq}>
-//             <summary className={styles.faqQ}>{f.q}</summary>
-//             <p className={styles.faqA}>{f.a}</p>
-//           </details>
-//         ))}
-//       </div>
-//     </section>
-//   );
-// }
-
 export default function ServiceDetails({ service }: { service: Service }) {
   if (!service) {
     return (
@@ -134,37 +112,6 @@ export default function ServiceDetails({ service }: { service: Service }) {
   return (
     <section className={styles.container}>
       <LayoutWrapper>
-        <div className={styles.header}>
-          {/* <div className={styles.headerText}>
-          
-            {service.marketingCopy && (
-              <p className={styles.marketing}>{service.marketingCopy}</p>
-            )}
-            <div className={styles.headerCtas}>
-              <Button
-                href={bookHref}
-                text='Book your ride'
-                btnType='black'
-                arrow
-              />
-              <Link href='/services' className={styles.backLink}>
-                All services
-              </Link>
-            </div>
-          </div> */}
-          {/* {(service.src || service.src2) && (
-            <div className={styles.heroImgContainer}>
-              <Image
-                src={service.src2 || service.src}
-                alt={service.title || "Service image"}
-                fill
-                className={styles.heroImg}
-                priority
-              />
-            </div>
-          )} */}
-        </div>
-
         <div className={styles.content}>
           <div className={styles.left}>
             <div className={styles.serviceoverview}>
@@ -173,16 +120,6 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 <p className={styles.desc}>{service.description}</p>
               )}
             </div>
-            {/* {service.src2 && (
-              <div className={styles.imgContainer}>
-                <Image
-                  src={service.src2}
-                  fill
-                  alt={service.title || "Service image"}
-                  className={styles.img}
-                />
-              </div>
-            )} */}
             <div className={styles.details}>
               <SectionList
                 title='Who this is for'
@@ -236,50 +173,54 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 items={service.whatToExpect}
                 ordered
               />
+              <SectionList
+                title='For travel managers'
+                items={service.forTravelManagers}
+              />
             </div>
           </div>
 
           <div className={styles.right}>
-            {service.features && service.features.length > 0 && (
-              <div className={styles.featureContainer}>
-                {service.features.map((x, index) => (
-                  <div
-                    className={styles.card}
-                    key={`${service.slug}-${String(x.id)}-${index}`}
-                  >
-                    <div className={styles.indexContainer}>
-                      <span className={styles.index}>{index + 1}</span>
-                    </div>
-                    <h3 className={styles.featureTitle}>{x.title}</h3>
-                    <p className={styles.featureDetails}>{x.details}</p>
+            <div className={styles.rightContent}>
+              <div className={styles.mapDataContainer}>
+                {service.features && service.features.length > 0 && (
+                  <div className={styles.featureContainer}>
+                    {service.features.map((x, index) => (
+                      <div
+                        className={styles.card}
+                        key={`${service.slug}-${String(x.id)}-${index}`}
+                      >
+                        <div className={styles.digitalBox}>
+                          <Digital />
+                        </div>
+                        <h3 className={`${styles.featureTitle} h5`}>
+                          {x.title}
+                        </h3>
+                        <p className={styles.featureDetails}>{x.details}</p>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            )}
-            <div className={styles.btnClusterContainer}>
-              <Button
-                href={bookHref}
-                text='Book your ride'
-                btnType='black'
-                arrow
-              />
+              <div className={styles.btnContainer}>
+                <Button
+                  href={bookHref}
+                  text='Book your ride'
+                  btnType='black'
+                  arrow
+                />
+              </div>
             </div>
           </div>
         </div>
-        {/* <SectionFAQs title='FAQs' faqs={service.faqs} /> */}
-        <Faq
-          items={(service.faqs ?? []).map((f, i) => ({
-            id: i,
-            question: f.q,
-            answer: f.a,
-          }))}
-        />
-        {/* <SectionList title='Add-ons' items={service.addOns} />
-        <SectionList
-        title='For travel managers'
-        items={service.forTravelManagers}
-        /> */}
       </LayoutWrapper>
+      <Faq
+        items={(service.faqs ?? []).map((f, i) => ({
+          id: i,
+          question: f.q,
+          answer: f.a,
+        }))}
+      />
       <AddOns
         heading='Add-ons'
         ctaHref={`/book?service=${encodeURIComponent(service.slug)}`}
