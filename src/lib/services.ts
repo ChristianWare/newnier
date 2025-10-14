@@ -1166,8 +1166,8 @@ export const servicesData = [
 
   {
     id: 8,
-    title: "Recurring Rides",
-    slug: "recurring-rides",
+    title: "Reoccurring Rides",
+    slug: "reoccurring-rides",
     copy: "Set-and-forget scheduled rides: daily, weekly, or monthly. Consistent chauffeurs and reliable timing.",
     marketingCopy:
       "Subscription-style convenience. Lock in regular pickups for work commutes, school runs, or caregiver visits—one setup, ongoing reliability.",

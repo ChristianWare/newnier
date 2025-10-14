@@ -1,4 +1,6 @@
-.container, .content, .right {
+.container,
+.content,
+.right {
   overflow: visible !important; /* Ensure no hidden overflow */
 }
 
@@ -14,7 +16,6 @@
   align-items: start;
   overflow: visible;
 }
-
 
 .serviceoverview {
   display: flex;
@@ -32,12 +33,14 @@
 
 .desc {
   color: var(--darkGray);
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .details {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-gap: 2rem;
 }
 
 .section {
@@ -46,6 +49,9 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 2.5rem;
+  background-color: var(--gray);
+  padding: 2rem;
+  border-radius: 7px;
 }
 
 .list {
@@ -67,7 +73,7 @@
   width: 7px;
   height: 7px;
   border-radius: 2px;
-  background-color: var(--yellow);
+  background-color: var(--darkGray);
 }
 
 .imgContainer {
@@ -87,7 +93,7 @@
 }
 
 .rightContent {
-  background-color: var(--gray);
+  background-color: var(--yellow);
   border-radius: 7px;
   padding: 3rem;
   position: sticky;
@@ -108,7 +114,7 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 2rem 0rem;
-  border-bottom: 1px solid var(--darkGrayii);
+  border-bottom: 1px solid var(--black);
 }
 
 .btnContainer {
@@ -122,6 +128,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 5rem;
   }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 1068px) {
@@ -129,9 +139,24 @@
     grid-template-columns: 1fr;
     gap: 5rem;
   }
+
+  .details {
+    grid-template-columns: 1fr 1fr;
+  }
+
   .rightContent {
     position: static;
     top: auto;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .content {
+    gap: 2rem;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
   }
 }

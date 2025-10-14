@@ -90,7 +90,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
     return (
       <section className={styles.container}>
         <LayoutWrapper>
-          <div className={styles.container}>
+          <div className={styles.content}>
             <h1 className={styles.heading}>Service not found</h1>
             <Link href='/services'>Back to services</Link>
           </div>
@@ -131,7 +131,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 title={service.coverageTitle || "Coverage & Service Area"}
                 items={service.coverageAndAirports}
               />
-              {service.src2 && (
+              {/* {service.src2 && (
                 <div className={styles.imgContainer}>
                   <Image
                     src={service.src2}
@@ -140,7 +140,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
                     className={styles.img}
                   />
                 </div>
-              )}
+              )} */}
               <SectionList
                 title='What’s included'
                 items={service.whatsIncluded}

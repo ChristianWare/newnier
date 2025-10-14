@@ -52,7 +52,7 @@ const data = [
     description:
       "VIP roadshows and conferences with onsite greeters, manifest tracking, and consolidated billing.",
     icon: <Business className={styles.icon} />,
-    slug: "corporate-&-event-logistics",
+    slug: "corporate-and-event-logistics",
   },
   {
     id: 6,
@@ -92,7 +92,7 @@ const data = [
     description:
       "LED lighting, Bluetooth sound, and wrap-around seating for unforgettable celebrations and seamless shuttles.",
     icon: <Wedding className={styles.icon} />,
-    slug: "party-bus-weddings",
+    slug: "weddings",
   },
 ];
 
