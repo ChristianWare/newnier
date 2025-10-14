@@ -10,8 +10,7 @@ export default function FinalCTA2() {
     <section className={styles.container}>
       <LayoutWrapper>
         <div className={styles.content}>
-          <div className={styles.top}>
-          </div>
+          <div className={styles.top}></div>
           <div className={styles.bottom}>
             <Logo className={styles.logo} />
             <h2 className={styles.heading}>
@@ -27,9 +26,9 @@ export default function FinalCTA2() {
             </div>
           </div>
         </div>
-            <div className={styles.scrollContainer}>
-              <HorizontalScroll />
-            </div>
+        <div className={styles.scrollViewport}>
+          <HorizontalScroll />
+        </div>
       </LayoutWrapper>
     </section>
   );

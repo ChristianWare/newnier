@@ -64,7 +64,7 @@ function SectionList({
       <ListTag className={styles.list}>
         {items.map((item, i) => (
           <li key={i} className={styles.listItem}>
-            <div className={styles.dot} /> {item}
+            <span className={styles.dot}>•</span> {item}
           </li>
         ))}
       </ListTag>
@@ -131,7 +131,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 title={service.coverageTitle || "Coverage & Service Area"}
                 items={service.coverageAndAirports}
               />
-              {/* {service.src2 && (
+              {service.src2 && (
                 <div className={styles.imgContainer}>
                   <Image
                     src={service.src2}
@@ -140,7 +140,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
                     className={styles.img}
                   />
                 </div>
-              )} */}
+              )}
               <SectionList
                 title='What’s included'
                 items={service.whatsIncluded}
@@ -181,7 +181,6 @@ export default function ServiceDetails({ service }: { service: Service }) {
               />
             </div>
           </div>
-
           <div className={styles.right}>
             <div className={styles.rightContent}>
               <div className={styles.mapDataContainer}>

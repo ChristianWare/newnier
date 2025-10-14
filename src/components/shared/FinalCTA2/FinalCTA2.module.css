@@ -71,6 +71,30 @@
   margin-top: 2rem;
 }
 
+.scrollViewport {
+  position: relative;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+  isolation: isolate;
+  contain: layout paint;
+   mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gray) 10%,
+    var(--gray) 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    var(--gray) 10%,
+    var(--gray) 90%,
+    transparent 100%
+  );
+  margin-top: 5rem;
+}
+
 @media screen and (max-width: 568px) {
   .br {
     display: none;

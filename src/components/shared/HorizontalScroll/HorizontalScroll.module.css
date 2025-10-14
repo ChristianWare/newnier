@@ -1,25 +1,22 @@
 .container {
   --duration: 50s;
   width: 100%;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 }
 
-.scrollTrack {
+.track {
   display: flex;
-  width: max-content;
   gap: 1rem;
-  animation: scroll var(--duration) linear infinite;
+  width: max-content;
   will-change: transform;
+  animation: marquee var(--duration) linear infinite;
+  transform: translate3d(0,0,0);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+@keyframes marquee {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-50%,0,0); }
 }
 
 .imgContainer {
@@ -35,13 +32,4 @@
   object-fit: cover;
   display: block;
   border-radius: 10px;
-}
-
-.icon {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
 }

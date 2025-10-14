@@ -2,24 +2,14 @@
 
 import styles from "./HorizontalScroll.module.css";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useMemo } from "react";
 import { services } from "@/lib/data";
 
-const loopedServices = [...services, ...services];
-
 export default function HorizontalScroll() {
-  useEffect(() => {
-    document.documentElement.style.overflowX = "hidden";
-    document.body.style.overflowX = "hidden";
-    return () => {
-      document.documentElement.style.overflowX = "";
-      document.body.style.overflowX = "";
-    };
-  }, []);
-
+  const loopedServices = useMemo(() => [...services, ...services], []);
   return (
     <div className={styles.container}>
-      <div className={styles.scrollTrack}>
+      <div className={styles.track} aria-hidden='true'>
         {loopedServices.map((service, idx) => (
           <div className={styles.imgContainer} key={`${service.id}-${idx}`}>
             <Image
@@ -28,7 +18,7 @@ export default function HorizontalScroll() {
               height={300}
               alt={service.title}
               className={styles.img}
-              priority
+              priority={idx < 4}
             />
           </div>
         ))}
