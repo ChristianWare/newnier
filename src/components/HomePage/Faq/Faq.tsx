@@ -6,19 +6,17 @@ import styles from "./Faq.module.css";
 import Image from "next/image";
 import Img1 from "../../../../public/images/chauffeur.jpg";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
-import { questions } from "@/lib/data";
 import { useState } from "react";
 import Arrow from "@/components/icons/Arrow/Arrow";
 import Digital from "@/components/shared/Digital/Digital";
 
-export default function Faq() {
+type FAQItem = { id: number | string; question: string; answer: string };
+
+export default function Faq({ items }: { items: ReadonlyArray<FAQItem> }) {
   const [selected, setSelected] = useState<null | number>(null);
 
   const toggle = (i: any) => {
-    if (selected === i) {
-      return setSelected(null);
-    }
-
+    if (selected === i) return setSelected(null);
     setSelected(i);
   };
 
@@ -28,7 +26,7 @@ export default function Faq() {
         <div className={styles.content}>
           <div className={styles.left}>
             <div className={styles.mobileHeading}>
-              <SectionHeading text='Faq' />
+              <SectionHeading text='Faqs' />
             </div>
             <div className={styles.imgContainer}>
               <Image src={Img1} alt='hero image' className={styles.img} fill />
@@ -39,10 +37,10 @@ export default function Faq() {
           </div>
           <div className={styles.right}>
             <div className={styles.desktopHeading}>
-              <SectionHeading text='Testimonials' />
+              <SectionHeading text='Faqs' />
             </div>
             <div className={styles.mapDataContainer}>
-              {questions.map((x, i) => (
+              {items.map((x, i) => (
                 <div
                   key={x.id}
                   className={

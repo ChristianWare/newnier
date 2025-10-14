@@ -16,6 +16,7 @@ export default function ServiceDetailsClient({
     <main>
       <ServiceSlugPageIntro service={service} />
       <ServiceDetails service={service} />
+      
     </main>
   );
 }

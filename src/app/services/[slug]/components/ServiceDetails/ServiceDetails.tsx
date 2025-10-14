@@ -8,6 +8,8 @@ import styles from "./ServiceDetails.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/shared/Button/Button";
+import Faq from "@/components/HomePage/Faq/Faq";
+import AddOns from "../AddOns/AddOns";
 
 type FAQ = { q: string; a: string };
 type Feature = { id: number | string; title: string; details: string };
@@ -51,11 +53,11 @@ function SectionList({
   const ListTag = ordered ? "ol" : "ul";
   return (
     <section className={styles.section}>
-      <h3 className={styles.heading}>{title}</h3>
+      <h3 className={styles.subHeading}>{title}</h3>
       <ListTag className={styles.list}>
         {items.map((item, i) => (
           <li key={i} className={styles.listItem}>
-            {item}
+            <div className={styles.dot} /> {item}
           </li>
         ))}
       </ListTag>
@@ -63,28 +65,28 @@ function SectionList({
   );
 }
 
-function SectionFAQs({
-  title,
-  faqs,
-}: {
-  title: string;
-  faqs?: ReadonlyArray<{ q: string; a: string }>;
-}) {
-  if (!faqs || faqs.length === 0) return null;
-  return (
-    <section className={styles.section}>
-      <h3 className={styles.heading}>{title}</h3>
-      <div className={styles.faqGroup}>
-        {faqs.map((f, i) => (
-          <details key={i} className={styles.faq}>
-            <summary className={styles.faqQ}>{f.q}</summary>
-            <p className={styles.faqA}>{f.a}</p>
-          </details>
-        ))}
-      </div>
-    </section>
-  );
-}
+// function SectionFAQs({
+//   title,
+//   faqs,
+// }: {
+//   title: string;
+//   faqs?: ReadonlyArray<{ q: string; a: string }>;
+// }) {
+//   if (!faqs || faqs.length === 0) return null;
+//   return (
+//     <section className={styles.section}>
+//       <h3 className={styles.heading}>{title}</h3>
+//       <div className={styles.faqGroup}>
+//         {faqs.map((f, i) => (
+//           <details key={i} className={styles.faq}>
+//             <summary className={styles.faqQ}>{f.q}</summary>
+//             <p className={styles.faqA}>{f.a}</p>
+//           </details>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// }
 
 export default function ServiceDetails({ service }: { service: Service }) {
   if (!service) {
@@ -116,9 +118,8 @@ export default function ServiceDetails({ service }: { service: Service }) {
     <section className={styles.container}>
       <LayoutWrapper>
         <div className={styles.header}>
-          <div className={styles.headerText}>
-            <h1 className={styles.title}>{service.title}</h1>
-            {service.copy && <p className={styles.kicker}>{service.copy}</p>}
+          {/* <div className={styles.headerText}>
+          
             {service.marketingCopy && (
               <p className={styles.marketing}>{service.marketingCopy}</p>
             )}
@@ -133,7 +134,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
                 All services
               </Link>
             </div>
-          </div>
+          </div> */}
           {/* {(service.src || service.src2) && (
             <div className={styles.heroImgContainer}>
               <Image
@@ -149,11 +150,13 @@ export default function ServiceDetails({ service }: { service: Service }) {
 
         <div className={styles.content}>
           <div className={styles.left}>
-            <h2 className={`${styles.heading} h3`}>Service overview</h2>
-            {service.description && (
-              <p className={styles.desc}>{service.description}</p>
-            )}
-            {service.src2 && (
+            <div className={styles.serviceoverview}>
+              <h2 className={`${styles.heading} h3`}>Service overview</h2>
+              {service.description && (
+                <p className={styles.desc}>{service.description}</p>
+              )}
+            </div>
+            {/* {service.src2 && (
               <div className={styles.imgContainer}>
                 <Image
                   src={service.src2}
@@ -162,7 +165,61 @@ export default function ServiceDetails({ service }: { service: Service }) {
                   className={styles.img}
                 />
               </div>
-            )}
+            )} */}
+            <div className={styles.details}>
+              <SectionList
+                title='Who this is for'
+                items={service.whoThisIsFor}
+              />
+              <SectionList
+                title={service.coverageTitle || "Coverage & Service Area"}
+                items={service.coverageAndAirports}
+              />
+              {service.src2 && (
+                <div className={styles.imgContainer}>
+                  <Image
+                    src={service.src2}
+                    fill
+                    alt={service.title || "Service image"}
+                    className={styles.img}
+                  />
+                </div>
+              )}
+              <SectionList
+                title='What’s included'
+                items={service.whatsIncluded}
+              />
+              <SectionList
+                title='Vehicle classes'
+                items={service.vehicleClasses}
+              />
+              <SectionList
+                title='Pickup options'
+                items={service.pickupOptions}
+              />
+              <SectionList
+                title='Booking & Payment'
+                items={service.bookingAndPayment}
+              />
+              <SectionList title='Policies' items={service.policies} />
+              <SectionList
+                title='Families, Accessibility & Special Requests'
+                items={service.familiesAccessibilitySpecial}
+              />
+              <SectionList
+                title='Safety & Standards'
+                items={service.safetyAndStandards}
+              />
+              <SectionList
+                title='Communication & Tracking'
+                items={service.communicationAndTracking}
+              />
+              <SectionList
+                title='What to expect'
+                items={service.whatToExpect}
+                ordered
+              />
+            </div>
           </div>
 
           <div className={styles.right}>
@@ -192,46 +249,21 @@ export default function ServiceDetails({ service }: { service: Service }) {
             </div>
           </div>
         </div>
-
-        <div className={styles.details}>
-          <SectionList title='Who this is for' items={service.whoThisIsFor} />
-          <SectionList
-            title={service.coverageTitle || "Coverage & Service Area"}
-            items={service.coverageAndAirports}
-          />
-          <SectionList title='What’s included' items={service.whatsIncluded} />
-          <SectionList title='Vehicle classes' items={service.vehicleClasses} />
-          <SectionList title='Pickup options' items={service.pickupOptions} />
-          <SectionList
-            title='Booking & Payment'
-            items={service.bookingAndPayment}
-          />
-          <SectionList title='Policies' items={service.policies} />
-          <SectionList
-            title='Families, Accessibility & Special Requests'
-            items={service.familiesAccessibilitySpecial}
-          />
-          <SectionList
-            title='Safety & Standards'
-            items={service.safetyAndStandards}
-          />
-          <SectionList
-            title='Communication & Tracking'
-            items={service.communicationAndTracking}
-          />
-          <SectionList
-            title='What to expect'
-            items={service.whatToExpect}
-            ordered
-          />
-          <SectionFAQs title='FAQs' faqs={service.faqs} />
-          <SectionList title='Add-ons' items={service.addOns} />
-          <SectionList
-            title='For travel managers'
-            items={service.forTravelManagers}
-          />
-        </div>
+        {/* <SectionFAQs title='FAQs' faqs={service.faqs} /> */}
+        <Faq
+          items={(service.faqs ?? []).map((f, i) => ({
+            id: i,
+            question: f.q,
+            answer: f.a,
+          }))}
+        />
+        {/* <SectionList title='Add-ons' items={service.addOns} />
+        <SectionList
+        title='For travel managers'
+        items={service.forTravelManagers}
+        /> */}
       </LayoutWrapper>
+        <AddOns />
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
