@@ -28,7 +28,7 @@ export default function FinalCTA2() {
           </div>
         </div>
             <div className={styles.scrollContainer}>
-              <HorizontalScroll />
+              {/* <HorizontalScroll /> */}
             </div>
       </LayoutWrapper>
     </section>

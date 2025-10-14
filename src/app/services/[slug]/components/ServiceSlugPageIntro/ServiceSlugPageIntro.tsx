@@ -1,11 +1,11 @@
 "use client";
 
-import { services } from "@/lib/data"; 
+import { services } from "@/lib/data";
 import styles from "./ServiceSlugPageIntro.module.css";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "@/components/shared/Button/Button";
+import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 
 /** Exact, readonly type derived from your data */
 type Service = (typeof services)[number];
@@ -18,7 +18,6 @@ export default function ServiceSlugPageIntro({
   if (!service) {
     return (
       <section className={styles.container}>
-        {/* <Nav redLogo navItemColor='var(--red)' signUpBtnType='navRedOutline' /> */}
         <LayoutWrapper>
           <div className={styles.container}>
             <h1 className={styles.heading}>Service not found</h1>
@@ -31,17 +30,18 @@ export default function ServiceSlugPageIntro({
 
   return (
     <section className={styles.container}>
-      {/* <Nav redLogo navItemColor='var(--red)' signUpBtnType='navRedOutline' /> */}
       <LayoutWrapper>
-        <div className={styles.container}>
+        <div className={styles.content}>
           <div className={styles.top}>
+            <SectionHeading text='service' />
             <h1 className={styles.heading}>{service.title}</h1>
+            <p className={styles.copy}>{service.copy}</p>
             <div className={styles.imgContainer}>
               <Image src={service.src} fill alt='' className={styles.img} />
             </div>
           </div>
 
-          <div className={styles.bottom}>
+          {/* <div className={styles.bottom}>
             <div className={styles.b1}>
               <div className={styles.description}>Details:</div>
               <h2 className={styles.copy}>{service.copy}</h2>
@@ -74,7 +74,7 @@ export default function ServiceSlugPageIntro({
               text='Back to all services'
               btnType='red'
             />
-          </div>
+          </div> */}
         </div>
       </LayoutWrapper>
     </section>

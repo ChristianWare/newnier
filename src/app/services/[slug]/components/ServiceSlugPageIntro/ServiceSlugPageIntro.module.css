@@ -1,11 +1,7 @@
 .container {
   background-color: var(--tan);
-  margin: 1rem;
-  border-radius: 10px;
-}
-
-.content {
-  margin-top: -7rem;
+  padding: 10rem 0rem;
+  padding-bottom: 0rem;
 }
 
 .top {
@@ -17,8 +13,14 @@
 }
 
 .heading {
-  color: var(--red);
   text-align: center;
+}
+
+.copy {
+  max-width: 650px;
+  text-align: center;
+  color: var(--darkGray);
+  font-size: 1.8rem;
 }
 
 .imgContainer {
@@ -109,10 +111,10 @@
     gap: 3rem;
   }
 
-  .copy {
+  /* .copy {
     text-align: center;
     width: 100%;
-  }
+  } */
 
   .space {
     display: none;
@@ -126,9 +128,9 @@
 }
 
 @media screen and (max-width: 768px) {
-  .copy {
+  /* .copy {
     width: 100%;
-  }
+  } */
 
   .imgContainer {
     height: 300px;
@@ -148,9 +150,9 @@
     height: 250px;
   }
 
-  .copy {
+  /* .copy {
     text-align: left;
-  }
+  } */
 
   .featureContainer {
     grid-template-columns: repeat(1, 1fr);
