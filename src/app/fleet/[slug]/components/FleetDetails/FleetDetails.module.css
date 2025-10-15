@@ -6,7 +6,7 @@
 .content {
   display: grid;
   grid-template-columns: 2fr 1.5fr;
-  gap: 5rem;
+  gap: 15rem;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
@@ -15,7 +15,7 @@
 .left {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 3rem;
+  grid-gap: 4rem;
 }
 
 .top {
@@ -28,9 +28,9 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 2.5rem;
-  background-color: var(--gray);
-  padding: 2rem;
-  border-radius: 7px;
+  /* background-color: var(--gray); */
+  /* padding: 2rem; */
+  /* border-radius: 7px; */
 }
 
 .subHeading {

@@ -53,7 +53,12 @@ export default function Fleet() {
                 </div>
 
                 <div className={styles.btnContainer}>
-                  <Button href='/' btnType='black' text='Book Now' arrow />
+                  <Button
+                    href={`/fleet/${x.slug}`}
+                    btnType='black'
+                    text='Book Now'
+                    arrow
+                  />
                 </div>
               </div>
             </div>

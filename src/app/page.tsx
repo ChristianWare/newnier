@@ -1,4 +1,5 @@
 import AboutUsIntro from "@/components/HomePage/AboutUsIntro/AboutUsIntro";
+import Events from "@/components/HomePage/Events/Events";
 import Faq from "@/components/HomePage/Faq/Faq";
 import Fleet from "@/components/HomePage/Fleet/Fleet";
 import Hero from "@/components/HomePage/Hero/Hero";
@@ -20,6 +21,7 @@ export default function Home() {
       <Fleet />
       <HowItWorks />
       <Testimonials />
+      <Events />
       <Faq items={homeQuestions} />
     </main>
   );

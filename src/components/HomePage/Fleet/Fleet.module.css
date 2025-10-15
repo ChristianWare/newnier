@@ -124,17 +124,12 @@
     width: 80%;
   }
 
-  .content {
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 10rem;
-  }
-
   .card {
     grid-template-columns: repeat(1, 1fr);
   }
 
   .imgContainer {
-    height: 400px;
+    height: 200px;
   }
 
   .btnContainer {
@@ -144,6 +139,11 @@
 }
 
 @media screen and (max-width: 768px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10rem;
+  }
+
   .card {
     grid-gap: 0rem;
   }

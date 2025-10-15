@@ -32,9 +32,9 @@
 }
 
 .black:hover {
-  border: 1px solid var(--yellow);
-  background-color: var(--yellow);
-  color: var(--black);
+  border: 1px solid var(--darkGray);
+  background-color: var(--darkGray);
+  /* color: var(--black); */
 }
 
 .blackOutline {
@@ -44,12 +44,6 @@
 }
 
 .blackOutline:hover {
-  border: 1px solid var(--yellow);
-  background-color: var(--yellow);
-  color: var(--black);
-}
-
-.black:hover {
   border: 1px solid var(--yellow);
   background-color: var(--yellow);
   color: var(--black);
