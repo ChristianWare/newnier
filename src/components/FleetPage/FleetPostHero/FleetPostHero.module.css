@@ -1,0 +1,110 @@
+.container {
+  background-color: var(--tan);
+  padding: 10rem 0rem;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imgContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.digitalBox {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  transform: rotate(-90deg);
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10rem;
+  width: 100%;
+}
+
+.rightTop {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.rightBottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.imgContainerii {
+  position: relative;
+  width: 250px;
+  height: 150px;
+}
+
+.btnContainer {
+  margin-top: 2rem;
+}
+
+.copy {
+  color: var(--darkGray);
+}
+
+@media screen and (max-width: 1268px) {
+  .content {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  .content {
+    width: 100%;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3rem;
+  }
+
+  .imgContainer {
+    height: 300px;
+  }
+
+  .imgContainerii {
+    display: none;
+  }
+
+  .right {
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .heading,
+  .copy {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heading,
+  .copy {
+    width: 100%;
+  }
+}
