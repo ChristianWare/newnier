@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { fleetData } from "@/lib/data"; 
-import type { Vehicle } from "@/lib/ypes/fleet"; 
-import FleetSlugPageIntro from "./components/FleetSlugPageIntro/FleetSlugPageIntro";
+import { fleetData } from "@/lib/data";
+import type { Vehicle } from "@/lib/ypes/fleet";
+import FleetDetails from "./components/FleetDetails/FleetDetails";
 
 type Params = { slug: string };
 
@@ -27,7 +27,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   return (
     <main>
-      <FleetSlugPageIntro vehicle={vehicle} />
+      <FleetDetails vehicle={vehicle} />
     </main>
   );
 }

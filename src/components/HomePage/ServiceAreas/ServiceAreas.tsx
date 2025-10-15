@@ -3,7 +3,6 @@ import styles from "./ServiceAreas.module.css";
 import Image from "next/image";
 import Img1 from "../../../../public/images/phoenix.jpg";
 import Button from "@/components/shared/Button/Button";
-import Check from "@/components/icons/Check/Check";
 import Logo from "@/components/shared/Logo/Logo";
 
 export default function ServiceAreas() {
@@ -14,8 +13,9 @@ export default function ServiceAreas() {
           <LayoutWrapper>
             <div className={styles.leftContent}>
               <h2 className={styles.heading}>
-                No matter where you are in the Phoenix area, Nier Transportation is ready
-                to provide top-notch service to enhance your travel experience.
+                No matter where you are in the Phoenix area, Nier Transportation
+                is ready to provide top-notch service to enhance your travel
+                experience.
               </h2>
               <p className={styles.copy}>
                 We proudly serve the entire Phoenix metropolitan area, including
@@ -23,34 +23,34 @@ export default function ServiceAreas() {
               </p>
               <ul className={styles.list}>
                 <li>
-                  <Check /> Phoenix
+                  <span className={styles.dot}>•</span> Phoenix
                 </li>
                 <li>
-                  <Check /> Scottsdale
+                  <span className={styles.dot}>•</span> Scottsdale
                 </li>
                 <li>
-                  <Check /> Tempe
+                  <span className={styles.dot}>•</span> Tempe
                 </li>
                 <li>
-                  <Check /> Chandler
+                  <span className={styles.dot}>•</span> Chandler
                 </li>
                 <li>
-                  <Check /> Gilbert
+                  <span className={styles.dot}>•</span> Gilbert
                 </li>
                 <li>
-                  <Check /> Peoria
+                  <span className={styles.dot}>•</span> Peoria
                 </li>
                 <li>
-                  <Check /> Glendale
+                  <span className={styles.dot}>•</span> Glendale
                 </li>
                 <li>
-                  <Check /> Surprise
+                  <span className={styles.dot}>•</span> Surprise
                 </li>
                 <li>
-                  <Check /> Avondale
+                  <span className={styles.dot}>•</span> Avondale
                 </li>
                 <li>
-                  <Check /> Goodyear
+                  <span className={styles.dot}>•</span> Goodyear
                 </li>
                 {/* <li>And surrounding communities</li> */}
               </ul>

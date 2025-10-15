@@ -34,7 +34,8 @@
 }
 
 .list li {
-  font-size: 18px;
+  font-size: 1.6rem;
+  text-transform: uppercase;
   font-weight: 500;
   line-height: 1.2em;
   display: flex;
