@@ -1,22 +1,22 @@
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
-import styles from "./Fleet.module.css";
+import styles from "./Fleetii.module.css";
 import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import Button from "@/components/shared/Button/Button";
 import Digital from "@/components/shared/Digital/Digital";
 import { fleetData } from "@/lib/data";
 
-export default function Fleet() {
+export default function Fleetii() {
   return (
     <section className={styles.container}>
       <LayoutWrapper>
         <div className={styles.top}>
-          <h2 className={styles.heading}>Meet the Fleet</h2>
-          <p className={styles.copy}>
+          <h2 className={styles.heading}>Choose your ride</h2>
+          {/* <p className={styles.copy}>
             Choose from executive sedans with cold bottled water and phone
             chargers, sleek SUVs that swallow six roller bags, or luxury
             sprinter vans with Wi-Fi and conference seating.
-          </p>
+          </p> */}
         </div>
         <div className={styles.content}>
           {fleetData.map((x) => (
@@ -53,7 +53,12 @@ export default function Fleet() {
                 </div>
 
                 <div className={styles.btnContainer}>
-                  <Button href='/' btnType='black' text='Book Now' arrow />
+                  <Button
+                    href={`/fleet/${x.slug}`}
+                    btnType='black'
+                    text='Book Now'
+                    arrow
+                  />
                 </div>
               </div>
             </div>

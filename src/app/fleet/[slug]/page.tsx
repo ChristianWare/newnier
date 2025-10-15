@@ -1,5 +1,33 @@
-export default function FleetSlugPage() {
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { fleetData } from "@/lib/data"; 
+import type { Vehicle } from "@/lib/ypes/fleet"; 
+import FleetSlugPageIntro from "./components/FleetSlugPageIntro/FleetSlugPageIntro";
+
+type Params = { slug: string };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const v: Vehicle | undefined = fleetData.find((f) => f.slug === slug);
+  return {
+    title: v?.seo?.metaTitle ?? v?.title ?? "Vehicle",
+    description:
+      v?.seo?.metaDescription ?? v?.shortDesc ?? v?.desc ?? v?.longDesc,
+  };
+}
+
+export default async function Page({ params }: { params: Promise<Params> }) {
+  const { slug } = await params;
+  const vehicle: Vehicle | undefined = fleetData.find((f) => f.slug === slug);
+  if (!vehicle) notFound();
+
   return (
-    <div>FleetSlugPage</div>
-  )
+    <main>
+      <FleetSlugPageIntro vehicle={vehicle} />
+    </main>
+  );
 }

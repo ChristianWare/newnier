@@ -37,6 +37,7 @@ import Escalade from "../../public/images/escalade.avif";
 import Sprinter from "../../public/images/sprinter.png";
 import MercedesSedan from "../../public/images/mercedesSedan.avif";
 import PartyBus from "../../public/images/partyBusii.png";
+import { Vehicle } from "./ypes/fleet";
 
 export const reviews = [
   {
@@ -482,40 +483,6 @@ export const services = [
       },
     ],
   },
-  // {
-  //   id: 11,
-  //   title: "Secure VIP Transport",
-  //   slug: "secure-vip-transport",
-  //   copy: "Armored Suburbans, trained protection drivers, and optional armed agents for principals requiring elevated security.",
-  //   src: Vip,
-  //   src2: Vip2,
-  //   description:
-  //     "Our Secure VIP Transport offers the highest level of personal protection, featuring armored vehicles, specially trained security chauffeurs, and optional armed detail. Whether for high-net-worth individuals or diplomatic delegations, we tailor each itinerary to meet stringent safety protocols. Secure communication channels and advanced route planning ensure discretion and peace of mind.",
-  //   features: [
-  //     {
-  //       id: 1,
-  //       title: "Armored Vehicle Certification",
-  //       details: "All vehicles meet ballistic and blast protection standards.",
-  //     },
-  //     {
-  //       id: 2,
-  //       title: "Trained Protection Drivers",
-  //       details:
-  //         "Operators certified in evasive and defensive driving techniques.",
-  //     },
-  //     {
-  //       id: 3,
-  //       title: "Discrete Communications",
-  //       details:
-  //         "Encrypted radios and silent escort protocols for enhanced privacy.",
-  //     },
-  //     {
-  //       id: 4,
-  //       title: "Custom Security Planning",
-  //       details: "Risk assessments and route analysis tailored to each client.",
-  //     },
-  //   ],
-  // },
 ] as const;
 
 export const ServiceAreas = [
@@ -653,45 +620,416 @@ export const aboutQuestions = [
   },
 ] as const;
 
-export const fleetData = [
+export const fleetData: ReadonlyArray<Vehicle> = [
   {
     id: 1,
     title: "Chevy Suburban",
+    slug: "chevy-suburban",
+    class: "Full-Size SUV",
+    heroLine: "Spacious comfort for families and small groups.",
+    shortDesc:
+      "Our flagship full-size SUV with generous legroom and cargo space—ideal for airport transfers and all-day charters.",
+    longDesc:
+      "The Suburban pairs highway stability with true carry-on capacity. It’s the sweet spot for families, golf outings, or executive travel where comfort and luggage room both matter.",
     seats: "7 seater",
+    luggage: "5–7 standard bags (golf bags fit)",
     cargo: "144.7 cu ft",
+    cargoCuFt: "Up to ~145 cu ft (config-dependent)",
+    bestFor: [
+      "Airport transfers",
+      "Golf outings",
+      "Family travel",
+      "Business teams",
+    ],
+    specs: {
+      drivetrain: "RWD/AWD (fleet dependent)",
+      rideFeel: "Quiet, composed, premium SUV ride",
+      cabin: "Leather seating, rear climate controls",
+    },
+    amenities: [
+      "Bottled water",
+      "Phone chargers",
+      "Tri-zone climate",
+      "Rear climate controls",
+      "Privacy tint",
+      "Luggage assistance",
+      "Car seats by request",
+    ],
+    safetyTech: [
+      "ABS & stability control",
+      "Blind-spot monitoring",
+      "Forward collision warning",
+      "Lane-keep assist",
+      "360° camera / parking sensors",
+      "Airbags throughout",
+    ],
+    features: [
+      "Flexible seating and cargo for mixed groups",
+      "Great for FBO and commercial airport pickups",
+      "Easy in/out access for seniors and kids",
+    ],
+    availabilityNotes: "Black exterior standard.",
+    images: [
+      { src: Suburban, alt: "Chevy Suburban exterior" },
+      { src: "/images/fleet/suburban-2.jpg", alt: "Chevy Suburban interior" },
+    ],
+    rateRules: {
+      minimumHours: 2,
+      hourlyFromUSD: 115,
+      airportTransferFromUSD: 145,
+      meetAndGreetUSD: 25,
+      afterHoursSurchargePct: 20,
+      waitTimeGraceMin: 15,
+      extraStopUSD: 25,
+    },
+    policy: {
+      summary: "Free cancellation up to 12 hours before pickup.",
+      details: [
+        "Cancellations within 12 hours may incur up to 100% charge.",
+        "No-show billed in full.",
+        "Non-refundable deposits may apply for peak dates.",
+      ],
+    },
+    faqs: [
+      {
+        q: "Can you fit golf bags and luggage together?",
+        a: "Yes—please note the number of bags at booking and we’ll configure seating to maximize cargo.",
+      },
+      {
+        q: "Do you track inbound flights?",
+        a: "Yes. We monitor flight changes and include a 15-minute grace period for deplaning.",
+      },
+    ],
+    seo: {
+      metaTitle: "Chevy Suburban | Nier Transportation Fleet",
+      metaDescription:
+        "Book a spacious Chevy Suburban with professional chauffeur—ideal for families, golf trips, and airport transfers.",
+    },
     desc: "Our flagship full-size SUV pairs tri-zone climate control with class-leading leg- and luggage-room—perfect for families or small groups.",
     src: Suburban,
   },
   {
     id: 2,
     title: "Cadillac Escalade ESV",
+    slug: "cadillac-escalade-esv",
+    class: "Extended Luxury SUV",
+    heroLine: "Iconic luxury with extended cargo and elevated presence.",
+    shortDesc:
+      "The long-wheelbase Escalade ESV offers first-class comfort, premium finishes, and serious luggage capacity.",
+    longDesc:
+      "For VIP arrivals, black-tie events, or upscale business travel, the Escalade ESV delivers unmistakable presence, buttery ride quality, and an expansive cargo area for longer itineraries.",
     seats: "6 seater",
+    luggage: "5–6 standard bags",
     cargo: "121 cu ft",
+    cargoCuFt: "~121 cu ft (config-dependent)",
+    bestFor: ["VIP travel", "Events & galas", "Executive roadshows"],
+    specs: {
+      drivetrain: "RWD/AWD (fleet dependent)",
+      rideFeel: "Ultra-plush, quiet cabin",
+      cabin: "Premium leather, ambient lighting, rear climate",
+    },
+    amenities: [
+      "Bottled water",
+      "Phone chargers",
+      "Tri-zone climate",
+      "Heated/ventilated seats",
+      "Privacy tint",
+      "Ambient lighting",
+      "Luggage assistance",
+      "Car seats by request",
+    ],
+    safetyTech: [
+      "ABS & stability control",
+      "Blind-spot monitoring",
+      "Forward collision warning",
+      "Lane-keep assist",
+      "360° camera / parking sensors",
+      "Airbags throughout",
+    ],
+    features: [
+      "Extended wheelbase for added comfort and cargo",
+      "Signature luxury finishes for premium experiences",
+      "Ideal for VIP transfers and special occasions",
+    ],
+    availabilityNotes: "Black exterior, black interior.",
+    images: [
+      { src: Escalade, alt: "Cadillac Escalade ESV exterior" },
+      {
+        src: "/images/fleet/escalade-2.jpg",
+        alt: "Cadillac Escalade ESV interior",
+      },
+    ],
+    rateRules: {
+      minimumHours: 2,
+      hourlyFromUSD: 145,
+      airportTransferFromUSD: 185,
+      meetAndGreetUSD: 35,
+      afterHoursSurchargePct: 20,
+      waitTimeGraceMin: 15,
+      extraStopUSD: 35,
+    },
+    policy: {
+      summary: "Free cancellation up to 24 hours before pickup.",
+      details: [
+        "Within 24 hours, cancellation fees may apply up to the full fare.",
+        "No-show billed in full.",
+        "Peak and event dates may require a non-refundable deposit.",
+      ],
+    },
+    faqs: [
+      {
+        q: "Is this suitable for red-carpet or black-tie events?",
+        a: "Absolutely. The ESV is our go-to for elevated occasions and VIP itineraries.",
+      },
+      {
+        q: "Can you provide car seats?",
+        a: "Yes—infant, convertible, or booster seats by request. Please specify at booking.",
+      },
+    ],
+    seo: {
+      metaTitle: "Cadillac Escalade ESV | Nier Transportation Fleet",
+      metaDescription:
+        "Arrive in style with an Escalade ESV. Extended luxury SUV with premium comfort for VIP travel and events.",
+    },
     desc: "The pinnacle of luxury SUVs—premium leather, rear captain’s chairs, and magnetic ride control for a first-class travel experience.",
     src: Escalade,
   },
   {
     id: 3,
-    title: "Mercedes-Benz Sprinter (Executive)",
+    title: "Mercedes-Benz Sprinter",
+    slug: "mercedes-sprinter-executive-14",
+    class: "Executive Sprinter",
+    heroLine: "Boardroom-level comfort for groups.",
+    shortDesc:
+      "Captain’s chairs, headroom to stand, and power at every seat—group travel without compromise.",
+    longDesc:
+      "Our executive Sprinter brings business-class comfort to group itineraries. Great for team offsites, golf groups, wedding parties, and airport shuttles with luggage.",
     seats: "14 seater",
+    luggage: "Up to 12 carry-ons or mixed luggage (config-dependent)",
     cargo: "Up to 532 cu ft",
+    cargoCuFt: "Up to ~532 cu ft (config-dependent)",
+    bestFor: ["Corporate shuttles", "Team travel", "Weddings", "Golf groups"],
+    specs: {
+      drivetrain: "RWD/AWD (fleet dependent)",
+      rideFeel: "High-roof comfort, stable highway ride",
+      cabin: "Executive seating, stand-up headroom, aisle access",
+    },
+    amenities: [
+      "Bottled water",
+      "Phone chargers",
+      "Wi-Fi (when available)",
+      "220V/USB power",
+      "Rear climate controls",
+      "Privacy tint",
+      "Luggage assistance",
+    ],
+    safetyTech: [
+      "ABS & stability control",
+      "Blind-spot monitoring",
+      "Forward collision warning",
+      "Lane-keep assist",
+      "360° camera / parking sensors",
+      "Airbags throughout",
+    ],
+    features: [
+      "Executive captain’s chairs",
+      "Overhead storage (select models)",
+      "Ideal for roadshows, offsites, and wedding parties",
+    ],
+    availabilityNotes: "Black exterior; conference layout varies by unit.",
+    images: [
+      { src: Sprinter, alt: "Executive Sprinter exterior" },
+      {
+        src: "/images/fleet/sprinter-exec-2.jpg",
+        alt: "Executive Sprinter interior",
+      },
+    ],
+    rateRules: {
+      minimumHours: 3,
+      hourlyFromUSD: 165,
+      airportTransferFromUSD: 225,
+      meetAndGreetUSD: 45,
+      afterHoursSurchargePct: 25,
+      waitTimeGraceMin: 15,
+      extraStopUSD: 45,
+    },
+    policy: {
+      summary: "Free cancellation up to 48 hours before pickup.",
+      details: [
+        "Within 48 hours, cancellation fees may apply up to the full fare.",
+        "Event dates and peak weekends may require non-refundable deposits.",
+      ],
+    },
+    faqs: [
+      {
+        q: "Can we hold a brief meeting onboard?",
+        a: "Yes—many groups use the Sprinter for mobile briefings.",
+      },
+      {
+        q: "Is there space for golf bags?",
+        a: "Yes—please specify group size and luggage counts at booking.",
+      },
+    ],
+    seo: {
+      metaTitle: "Mercedes Sprinter Executive (14) | Nier Transportation Fleet",
+      metaDescription:
+        "Executive Sprinter with captain’s chairs and power at every seat—premium group travel for teams and events.",
+    },
     desc: "Lounge-style cabin with stand-up headroom, USB-C charging at every seat, and onboard Wi-Fi—ideal for corporate teams and golf outings.",
     src: Sprinter,
   },
   {
     id: 4,
     title: "Mercedes-Benz E-Class Sedan",
+    slug: "mercedes-e-class-sedan",
+    class: "Executive Sedan",
+    heroLine: "Executive comfort with a discreet profile.",
+    shortDesc:
+      "A refined executive sedan for one to three passengers who value a quiet, comfortable ride.",
+    longDesc:
+      "Ideal for airport runs and business dinners when a full-size SUV isn’t necessary. The E-Class blends comfort, technology, and a smaller footprint for effortless city travel.",
     seats: "3 seater",
+    luggage: "2–3 standard bags",
     cargo: "19 cu ft",
+    cargoCuFt: "~19 cu ft",
+    bestFor: ["Airport transfers", "Business travel", "Evenings out"],
+    specs: {
+      drivetrain: "RWD/AWD (fleet dependent)",
+      rideFeel: "Smooth and quiet",
+      cabin: "Leather seating, excellent sound insulation",
+    },
+    amenities: [
+      "Bottled water",
+      "Phone chargers",
+      "Privacy tint",
+      "Heated/ventilated seats (select trims)",
+      "Luggage assistance",
+      "Car seats by request",
+    ],
+    safetyTech: [
+      "ABS & stability control",
+      "Blind-spot monitoring",
+      "Forward collision warning",
+      "Lane-keep assist",
+      "360° camera / parking sensors (select trims)",
+      "Airbags throughout",
+    ],
+    features: [
+      "Discreet arrival and easy city maneuvering",
+      "Comfortable for two with room for carry-ons",
+      "Great cabin quietness for calls on the go",
+    ],
+    availabilityNotes: "Black exterior, black interior.",
+    images: [
+      { src: MercedesSedan, alt: "Mercedes E-Class exterior" },
+      { src: "/images/fleet/eclass-2.jpg", alt: "Mercedes E-Class interior" },
+    ],
+    rateRules: {
+      minimumHours: 2,
+      hourlyFromUSD: 95,
+      airportTransferFromUSD: 125,
+      meetAndGreetUSD: 20,
+      afterHoursSurchargePct: 20,
+      waitTimeGraceMin: 15,
+      extraStopUSD: 20,
+    },
+    policy: {
+      summary: "Free cancellation up to 12 hours before pickup.",
+      details: [
+        "Within 12 hours, cancellation fees may apply.",
+        "No-show billed in full.",
+      ],
+    },
+    faqs: [
+      {
+        q: "Is there trunk space for larger suitcases?",
+        a: "Two standard bags fit comfortably; note oversized items when you book.",
+      },
+    ],
+    seo: {
+      metaTitle: "Mercedes-Benz E-Class | Nier Transportation Fleet",
+      metaDescription:
+        "Executive sedan for efficient city travel and airport transfers. Comfortable, quiet, and discreet.",
+    },
     desc: "A refined executive sedan for solo travelers or couples who value discreet style, quiet comfort, and advanced safety tech.",
     src: MercedesSedan,
   },
   {
     id: 5,
     title: "Mini Party Bus",
+    slug: "mini-party-bus-20",
+    class: "Party/Limo Bus",
+    heroLine: "Group celebrations with room to move.",
+    shortDesc:
+      "Open-plan seating, standing room, and lighting for a celebratory atmosphere—perfect for nights out and weddings.",
+    longDesc:
+      "Designed for celebrations and group fun with safety at the forefront. Great for bachelor/ette parties, concert nights, and wedding guest moves.",
     seats: "20 seater",
+    luggage: "By request (best for people-moving)",
     cargo: "Ample cabin storage",
+    cargoCuFt: "Config-dependent",
+    bestFor: ["Weddings", "Concerts", "Bachelor/ette", "Birthdays"],
+    specs: {
+      drivetrain: "RWD",
+      rideFeel: "Comfortable and social",
+      cabin: "Open plan with standing room",
+    },
+    amenities: [
+      "Bottled water",
+      "Phone chargers",
+      "Privacy tint",
+      "Ambient lighting",
+      "Bluetooth audio",
+    ],
+    safetyTech: [
+      "ABS & stability control",
+      "Forward collision warning",
+      "Parking sensors",
+      "Airbags where equipped",
+    ],
+    features: [
+      "Open-plan seating and lighting",
+      "Ideal for venue hops and celebration loops",
+      "Coordinated drop-offs and pickup windows",
+    ],
+    availabilityNotes:
+      "Alcohol policy varies by event—confirm at booking. No glass containers permitted.",
+    images: [
+      { src: PartyBus, alt: "Mini party bus exterior" },
+      { src: "/images/fleet/partybus-2.jpg", alt: "Mini party bus interior" },
+    ],
+    rateRules: {
+      minimumHours: 4,
+      hourlyFromUSD: 195,
+      meetAndGreetUSD: 0,
+      afterHoursSurchargePct: 25,
+      waitTimeGraceMin: 10,
+      extraStopUSD: 45,
+    },
+    policy: {
+      summary: "Free cancellation up to 72 hours before pickup.",
+      details: [
+        "Within 72 hours, cancellation fees may apply up to the full fare.",
+        "Security deposit may be required.",
+        "Spill/cleaning fees may apply if needed.",
+      ],
+    },
+    faqs: [
+      {
+        q: "Can we bring drinks onboard?",
+        a: "Policies vary by event—please confirm during booking. No glass containers are permitted.",
+      },
+      {
+        q: "Do you allow venue loops?",
+        a: "Yes—share your schedule and we’ll build a safe loop with planned stops.",
+      },
+    ],
+    seo: {
+      metaTitle: "Mini Party Bus (20) | Nier Transportation Fleet",
+      metaDescription:
+        "Celebrate safely with a mini party bus—perfect for weddings, concerts, and group nights out.",
+    },
     desc: "Color-changing LED lights, Bluetooth sound, and wrap-around seating keep the celebration rolling from door to door.",
     src: PartyBus,
   },
-];
+] as const;
