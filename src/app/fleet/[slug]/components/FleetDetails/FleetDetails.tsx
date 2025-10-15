@@ -10,14 +10,13 @@ import Button from "@/components/shared/Button/Button";
 import Image from "next/image";
 import ImgFallback from "../../../../../../public/images/vip.jpg";
 
-
 type Vehicle = (typeof fleetData)[number];
 
 export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
   const heroImg =
     (vehicle.images?.[0]?.src as any) || (vehicle.src as any) || ImgFallback;
   const heroAlt = vehicle.images?.[0]?.alt ?? vehicle.title;
-  const lead = vehicle.shortDesc ?? vehicle.desc ?? vehicle.longDesc ?? "";
+  // const lead = vehicle.shortDesc ?? vehicle.desc ?? vehicle.longDesc ?? "";
 
   return (
     <section className={styles.container}>
@@ -26,16 +25,16 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
           <div className={styles.left}>
             {vehicle.longDesc && (
               <article className={styles.top}>
-                <h1 className={styles.heading}>{vehicle.title}</h1>
+                <h2 className={styles.heading}>Vehicle Details</h2>
 
                 <br />
                 <p className={styles.copy}>
-                  {lead}
+                  {/* {lead} */}
                   {vehicle.longDesc}
                 </p>
               </article>
             )}
-            <article className={styles.section}>
+            {/* <article className={styles.section}>
               <h3 className={`${styles.subHeading} h5`}>Best for</h3>
               <ul>
                 <li>
@@ -43,7 +42,7 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
                   {(vehicle.bestFor ?? []).join(" • ") || "General travel"}
                 </li>
               </ul>
-            </article>
+            </article> */}
             <article className={styles.section}>
               <h3 className={`${styles.subHeading} h5`}>Amenities</h3>
               <ul>

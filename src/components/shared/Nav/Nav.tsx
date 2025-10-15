@@ -10,13 +10,13 @@ import Img1 from "../../../../public/images/road.jpg";
 import { usePathname } from "next/navigation";
 import Logo from "../Logo/Logo";
 
-export default function Nav({
-  color = "",
-  hamburgerColor = "",
-}: {
+export interface NavProps {
+  navItemColor?: string;
   color?: string;
   hamburgerColor?: string;
-}) {
+}
+
+export default function Nav({ color = "", hamburgerColor = "" }: NavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showNav, setShowNav] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -52,7 +52,8 @@ export default function Nav({
       const max = doc.scrollHeight - window.innerHeight;
       const p =
         max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
-      if (navRef.current) navRef.current.style.setProperty("--progress", `${p}%`);
+      if (navRef.current)
+        navRef.current.style.setProperty("--progress", `${p}%`);
     };
 
     const handleScroll = () => {
@@ -107,18 +108,26 @@ export default function Nav({
 
   return (
     <header
-      className={`${styles.header} ${scrolled ? styles.scrolled : styles.transparent} ${
-        showNav || isOpen ? styles.show : styles.hide
-      } ${isOpen ? styles.open : ""}`}
+      className={`${styles.header} ${
+        scrolled ? styles.scrolled : styles.transparent
+      } ${showNav || isOpen ? styles.show : styles.hide} ${
+        isOpen ? styles.open : ""
+      }`}
       ref={navRef}
     >
       <nav className={styles.navbar}>
         <Link
-          href="/"
-          className={`${styles.logoContainer} ${shouldBlend ? styles.blend : ""}`}
+          href='/'
+          className={`${styles.logoContainer} ${
+            shouldBlend ? styles.blend : ""
+          }`}
         >
-          <Logo className={`${styles.logo} ${shouldBlend ? styles.blend : ""}`} />
-          <span className={`${styles.logoText} ${shouldBlend ? styles.blend : ""}`}>
+          <Logo
+            className={`${styles.logo} ${shouldBlend ? styles.blend : ""}`}
+          />
+          <span
+            className={`${styles.logoText} ${shouldBlend ? styles.blend : ""}`}
+          >
             Nier Transportation
           </span>
         </Link>
@@ -146,7 +155,7 @@ export default function Nav({
           })}
 
           <div className={styles.menuImage}>
-            <Image src={Img1} alt="Menu image" fill className={styles.img} />
+            <Image src={Img1} alt='Menu image' fill className={styles.img} />
             <div className={styles.menuImageOverlay}>
               <Logo className={styles.logoii} />
             </div>
@@ -154,9 +163,9 @@ export default function Nav({
 
           <div className={styles.btnContainerii}>
             <Button
-              href="/"
-              text="Book your Ride"
-              btnType="navYellowBlackOutline"
+              href='/'
+              text='Book your Ride'
+              btnType='navYellowBlackOutline'
               arrow
               onClick={closeMenu}
             />
@@ -171,9 +180,9 @@ export default function Nav({
 
         <div className={styles.btnContainer}>
           <Button
-            href="/"
-            text="Book your Ride"
-            btnType="navYellowBlackOutline"
+            href='/'
+            text='Book your Ride'
+            btnType='navYellowBlackOutline'
             arrow
           />
         </div>
@@ -184,7 +193,7 @@ export default function Nav({
           }
           onClick={handleHamburgerClick}
           aria-expanded={isOpen}
-          role="button"
+          role='button'
         >
           <span
             className={`${styles.whiteBar} ${styles[hamburgerColor]} ${

@@ -6,13 +6,15 @@
   width: 100%;
   margin: 0 auto;
   z-index: 9999;
-  transition: transform 0.35s ease-in-out, opacity 0.25s ease-in-out,
+  background-color: var(--tan);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+  /* transition: transform 0.35s ease-in-out, opacity 0.25s ease-in-out,
     box-shadow 0.25s ease-in-out, background-color 0.25s ease-in-out,
     border-color 0.25s ease-in-out;
-  will-change: transform, opacity, background-color, border-color;
+  will-change: transform, opacity, background-color, border-color; */
 }
 
-.header.transparent {
+/* .header.transparent {
   background-color: transparent;
   box-shadow: none;
   border: 1px solid transparent;
@@ -29,7 +31,7 @@
 .header.open {
   transform: translateY(0%);
   opacity: 1;
-}
+} */
 
 .navbar {
   margin: 0 auto;

@@ -9,9 +9,9 @@ export default function FleetPageIntro() {
         <div className={styles.left}>
           <LayoutWrapper>
             <div className={styles.leftContent}>
-              <h1 className={styles.heading}>
-                Comfortable, impeccably maintained vehicles{" "}
-                <br className={styles.br} /> for all your needs.
+              <h1 className={`${styles.heading} h2`}>
+                Comfortable, impeccably <br className={styles.br} /> maintained
+                vehicles <br className={styles.br} /> for all your needs.
               </h1>
               <p className={styles.copy}>
                 From executive sedans to extended SUVs and premium Sprinters,

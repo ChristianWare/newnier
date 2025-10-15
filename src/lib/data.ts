@@ -699,6 +699,22 @@ export const fleetData: ReadonlyArray<Vehicle> = [
         q: "Do you track inbound flights?",
         a: "Yes. We monitor flight changes and include a 15-minute grace period for deplaning.",
       },
+      {
+        q: "Can you provide child seats?",
+        a: "Yes—infant, convertible, or booster seats are available by request. Add them during booking so we can stage the vehicle.",
+      },
+      {
+        q: "Is meet-and-greet service available inside the terminal?",
+        a: "Yes—add Meet & Greet at checkout and your chauffeur will greet you with a sign in baggage claim or at the designated area.",
+      },
+      {
+        q: "What if my group or luggage exceeds expectations on the day?",
+        a: "Tell us as soon as possible. We can reconfigure seats or dispatch an additional vehicle, subject to availability and any fare difference.",
+      },
+      {
+        q: "Do after-hours pickups cost more?",
+        a: "Yes—rides outside standard hours include a 20% after-hours surcharge as listed in Rate Rules.",
+      },
     ],
     seo: {
       metaTitle: "Chevy Suburban | Nier Transportation Fleet",
@@ -785,6 +801,22 @@ export const fleetData: ReadonlyArray<Vehicle> = [
         q: "Can you provide car seats?",
         a: "Yes—infant, convertible, or booster seats by request. Please specify at booking.",
       },
+      {
+        q: "How many passengers can ride comfortably with full luggage?",
+        a: "Four to five riders with 5–6 standard bags is the comfortable max. For six riders with heavy luggage, consider a second vehicle.",
+      },
+      {
+        q: "Can we request a specific seating layout?",
+        a: "Yes—captain’s chairs in the second row are standard on most units. Tell us your preference during booking and we’ll confirm availability.",
+      },
+      {
+        q: "Is smoking or vaping allowed?",
+        a: "No—our vehicles are strictly non-smoking. Cleaning fees apply for violations.",
+      },
+      {
+        q: "Do you offer discreet pickups for VIPs?",
+        a: "Yes—coordinate with our dispatch team for low-profile pickup points and direct-to-door service.",
+      },
     ],
     seo: {
       metaTitle: "Cadillac Escalade ESV | Nier Transportation Fleet",
@@ -869,6 +901,22 @@ export const fleetData: ReadonlyArray<Vehicle> = [
         q: "Is there space for golf bags?",
         a: "Yes—please specify group size and luggage counts at booking.",
       },
+      {
+        q: "Does the vehicle have Wi-Fi and power at every seat?",
+        a: "USB/AC power is standard; Wi-Fi is available on select units. Request it at booking so we can assign the right vehicle.",
+      },
+      {
+        q: "Is there a restroom onboard?",
+        a: "No—our 14-passenger executive Sprinters do not include restrooms. We’re happy to plan brief comfort stops for longer trips.",
+      },
+      {
+        q: "Can we load banners or small signage for corporate groups?",
+        a: "Yes—window clings or small removable signs are fine with prior approval. No adhesives that leave residue.",
+      },
+      {
+        q: "What’s the best passenger/luggage mix?",
+        a: "For 12–14 passengers with significant luggage, consider a luggage trailer or a second vehicle. Share your counts and we’ll advise.",
+      },
     ],
     seo: {
       metaTitle: "Mercedes Sprinter Executive (14) | Nier Transportation Fleet",
@@ -944,6 +992,26 @@ export const fleetData: ReadonlyArray<Vehicle> = [
       {
         q: "Is there trunk space for larger suitcases?",
         a: "Two standard bags fit comfortably; note oversized items when you book.",
+      },
+      {
+        q: "Is meet-and-greet available?",
+        a: "Yes—add it at checkout for a curbside sign or terminal meet per airport policy.",
+      },
+      {
+        q: "Can three adults ride comfortably?",
+        a: "Yes for shorter city trips. For longer rides or extra luggage, we recommend moving up to an SUV.",
+      },
+      {
+        q: "Do you have charging ports in the rear seats?",
+        a: "Yes—USB charging is available. If you need USB-C specifically, mention it and we’ll assign a suitable unit.",
+      },
+      {
+        q: "Is the ride quiet enough for calls?",
+        a: "Yes—the E-Class is known for excellent cabin isolation, making it ideal for calls and focused work.",
+      },
+      {
+        q: "Can you provide a child seat for the sedan?",
+        a: "Yes—add your request at booking and we’ll pre-install before pickup.",
       },
     ],
     seo: {
@@ -1023,6 +1091,22 @@ export const fleetData: ReadonlyArray<Vehicle> = [
         q: "Do you allow venue loops?",
         a: "Yes—share your schedule and we’ll build a safe loop with planned stops.",
       },
+      {
+        q: "Is there a restroom onboard?",
+        a: "No—mini party buses do not include restrooms. We can schedule brief stops as needed.",
+      },
+      {
+        q: "Can we play our own music and lights?",
+        a: "Yes—Bluetooth audio is available and ambient lighting is included. Share any special requests in advance.",
+      },
+      {
+        q: "Are decorations allowed?",
+        a: "Light, removable décor is fine with prior approval. No adhesives that leave residue, glitter, or confetti.",
+      },
+      {
+        q: "Is gratuity included?",
+        a: "Gratuity is optional unless specified for certain events. You can add it during checkout or after the ride.",
+      },
     ],
     seo: {
       metaTitle: "Mini Party Bus (20) | Nier Transportation Fleet",
@@ -1033,3 +1117,4 @@ export const fleetData: ReadonlyArray<Vehicle> = [
     src: PartyBus,
   },
 ] as const;
+

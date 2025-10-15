@@ -113,6 +113,10 @@ textarea:focus {
   font-weight: 600;
 }
 
+.h2 {
+  font-size: 4.4rem;
+}
+
 .h3 {
   font-size: 3.6rem;
   font-weight: 500;
@@ -192,6 +196,10 @@ textarea:focus {
   }
 
   h1 {
+    font-size: 9vw;
+  }
+
+  .h2 {
     font-size: 9vw;
   }
 

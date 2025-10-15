@@ -18,9 +18,9 @@
   grid-gap: 4rem;
 }
 
-.top {
+/* .top {
   margin-bottom: 10rem;
-}
+} */
 
 .section {
   display: flex;
@@ -56,7 +56,7 @@
 }
 
 .rightContent {
-  background-color: var(--yellow);
+  background-color: var(--gray);
   border-radius: 7px;
   padding: 3rem;
   align-self: flex-start;

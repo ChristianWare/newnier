@@ -8,6 +8,7 @@ import Button from "@/components/shared/Button/Button";
 import type { Vehicle } from "@/lib/ypes/fleet";
 // optional fallback image if none in data:
 import ImgFallback from "../../../../../../public/images/vip.jpg";
+import Digital from "@/components/shared/Digital/Digital";
 
 export default function FleetSlugPageIntro({ vehicle }: { vehicle: Vehicle }) {
   const heroImg =
@@ -20,15 +21,32 @@ export default function FleetSlugPageIntro({ vehicle }: { vehicle: Vehicle }) {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.left}>
-            <h1 className={styles.heading}>{vehicle.title}</h1>
-            <p className={styles.copy}>{lead}</p>
-            <div className={styles.btnContainer}>
-              <Button href='/' text='Book your ride' btnType='yellow' arrow />
+            <div className={styles.imgContainer}>
+              <Image src={heroImg} alt={heroAlt} fill className={styles.img} />
+              <div className={styles.digitalBox}>
+                <Digital color='black' />
+              </div>
             </div>
           </div>
           <div className={styles.right}>
-            <div className={styles.imgContainer}>
-              <Image src={heroImg} alt={heroAlt} fill className={styles.img} />
+            <h1 className={styles.heading}>{vehicle.title}</h1>
+            <p className={styles.copy}>{lead}</p>
+            <article className={styles.section}>
+              <ul className={styles.list}>
+                {(vehicle.bestFor && vehicle.bestFor.length > 0
+                  ? vehicle.bestFor
+                  : ["General travel"]
+                ).map((item, i) => (
+                  <li key={i} className={styles.listItem}>
+                    <span className={styles.dot} aria-hidden='true' />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </article>
+
+            <div className={styles.btnContainer}>
+              <Button href='/' text='Book your ride' btnType='yellow' arrow />
             </div>
           </div>
         </div>
