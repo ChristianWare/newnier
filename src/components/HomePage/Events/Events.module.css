@@ -1,5 +1,7 @@
 .container {
-  background-color: var(--tan);
+  background-color: var(--tanii);
+  background: #F3F2E1;
+background: linear-gradient(180deg, rgba(243, 242, 225, 1) 50%, rgba(248, 247, 236, 1) 100%);
   padding: 10rem 0;
 }
 
@@ -205,6 +207,10 @@
 }
 
 @media screen and (max-width: 568px) {
+  .container {
+    background-color: var(--tan);
+  }
+
   .mapDataContainer {
     grid-gap: 5rem;
   }
@@ -220,7 +226,7 @@
   }
 
   .imgContainer {
-    order: -1
+    order: -1;
   }
 
   .heading {

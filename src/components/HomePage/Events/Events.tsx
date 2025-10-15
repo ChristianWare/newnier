@@ -56,6 +56,8 @@ export default function Events() {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
+            <SectionHeading text='Local Events' />
+
             <div className={styles.iconContainer}>
               <Stariii className={styles.icon} />
               <Cog className={styles.icon} />
