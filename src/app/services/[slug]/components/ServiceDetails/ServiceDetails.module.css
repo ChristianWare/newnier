@@ -1,17 +1,10 @@
-.container,
-.content,
-.right {
-  overflow: visible !important; /* Ensure no hidden overflow */
-}
-
 .container {
   background-color: var(--tan);
-  /* padding-bottom: 0rem; */
 }
 
 .content {
   display: grid;
-  grid-template-columns: 2fr 2fr;
+  grid-template-columns: 4fr 2fr;
   gap: 5rem;
   width: 80%;
   margin-left: auto;
@@ -96,8 +89,9 @@
 }
 
 .right {
-  overflow: visible !important; /* Ensure no hidden overflow */
-  contain: none; transform: none; filter: none;
+  overflow: visible !important;
+  transform: none;
+  filter: none;
 }
 
 .rightContent {
@@ -152,7 +146,7 @@
 @media screen and (max-width: 1068px) {
   .content {
     grid-template-columns: 1fr;
-    gap: 5rem;
+    gap: 2.5rem;
   }
 
   .details {
@@ -160,9 +154,18 @@
   }
 
   .rightContent {
-    position: static;
+    /* position: relative; */
     top: auto;
     height: auto;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rightContent {
+    width: 100%;
   }
 }
 
@@ -177,5 +180,9 @@
 
   .imgContainer {
     height: 250px;
+  }
+
+  .rightContent {
+    padding-top: 7rem;
   }
 }

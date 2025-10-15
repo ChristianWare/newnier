@@ -15,7 +15,6 @@ import Golf from "../../public/images/golf.jpg";
 import Golf2 from "../../public/images/golf2.jpg";
 import CherylC from "../../public/images/CherylC.jpg";
 import JimConnie from "../../public/images/Jim&Connie.jpg";
-// import Adam from "../../public/images/Adam.jpg";
 import Lynn from "../../public/images/lynn.jpg";
 import Lady from "../../public/images/lady.jpg";
 import Corporate from "../../public/images/corporateii.jpg";
@@ -24,8 +23,6 @@ import Hourly from "../../public/images/sand.jpg";
 import Hourly2 from "../../public/images/hourly2.jpg";
 import Point from "../../public/images/point.jpg";
 import Point2 from "../../public/images/point2.jpg";
-// import Vip from "../public/images/vip.jpg";
-// import Vip2 from "../public/images/vip2.jpg";
 import Wedding from "../../public/images/wedding.jpg";
 import Wedding2 from "../../public/images/wedding2.jpg";
 import ImgScottsdale from "../../public/images/scottsdaleii.jpg";
@@ -35,6 +32,11 @@ import ImgTempe from "../../public/images/tempe.jpg";
 import ImgWestValley from "../../public/images/westValleyiii.jpg";
 import ImgCasaGrande from "../../public/images/casaGrandeii.jpg";
 import ImgMaricopa from "../../public/images/maricopaii.jpg";
+import Suburban from "../../public/images/taho.png";
+import Escalade from "../../public/images/escalade.avif";
+import Sprinter from "../../public/images/sprinter.png";
+import MercedesSedan from "../../public/images/mercedesSedan.avif";
+import PartyBus from "../../public/images/partyBusii.png";
 
 export const reviews = [
   {
@@ -650,3 +652,46 @@ export const aboutQuestions = [
       "Yes—teams of five or more traveling together, or accounts with recurring ride volume, qualify for custom corporate pricing and priority booking. Contact our sales team for a tailored rate sheet and service agreement.",
   },
 ] as const;
+
+export const fleetData = [
+  {
+    id: 1,
+    title: "Chevy Suburban",
+    seats: "7 seater",
+    cargo: "144.7 cu ft",
+    desc: "Our flagship full-size SUV pairs tri-zone climate control with class-leading leg- and luggage-room—perfect for families or small groups.",
+    src: Suburban,
+  },
+  {
+    id: 2,
+    title: "Cadillac Escalade ESV",
+    seats: "6 seater",
+    cargo: "121 cu ft",
+    desc: "The pinnacle of luxury SUVs—premium leather, rear captain’s chairs, and magnetic ride control for a first-class travel experience.",
+    src: Escalade,
+  },
+  {
+    id: 3,
+    title: "Mercedes-Benz Sprinter (Executive)",
+    seats: "14 seater",
+    cargo: "Up to 532 cu ft",
+    desc: "Lounge-style cabin with stand-up headroom, USB-C charging at every seat, and onboard Wi-Fi—ideal for corporate teams and golf outings.",
+    src: Sprinter,
+  },
+  {
+    id: 4,
+    title: "Mercedes-Benz E-Class Sedan",
+    seats: "3 seater",
+    cargo: "19 cu ft",
+    desc: "A refined executive sedan for solo travelers or couples who value discreet style, quiet comfort, and advanced safety tech.",
+    src: MercedesSedan,
+  },
+  {
+    id: 5,
+    title: "Mini Party Bus",
+    seats: "20 seater",
+    cargo: "Ample cabin storage",
+    desc: "Color-changing LED lights, Bluetooth sound, and wrap-around seating keep the celebration rolling from door to door.",
+    src: PartyBus,
+  },
+];
