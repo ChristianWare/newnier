@@ -1,5 +1,9 @@
+import ContactPageIntro from "@/components/ContactPage/ContactPageIntro/ContactPageIntro";
+
 export default function ContactPage() {
   return (
-    <div>page</div>
-  )
+    <main>
+      <ContactPageIntro />
+    </main>
+  );
 }
