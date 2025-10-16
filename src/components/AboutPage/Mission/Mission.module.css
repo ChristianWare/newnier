@@ -59,8 +59,11 @@
 }
 
 .icon {
-  color: var(--yellow);
+  color: var(--black);
   font-size: 4rem;
+  padding: 0.8rem;
+  background-color: var(--yellow);
+  border-radius: 5px;
 }
 
 .desc {
@@ -81,8 +84,8 @@
     align-items: flex-start;
     justify-content: flex-start;
   }
-  
-    .mapDataContainer {
+
+  .mapDataContainer {
     grid-template-columns: 1fr;
   }
 

@@ -4,12 +4,11 @@
 }
 
 .content {
-  display: grid;
-  grid-template-columns: 2fr 1.5fr;
+  grid-template-columns: 4fr 2fr;
   gap: 15rem;
-  width: 80%;
   margin-left: auto;
   margin-right: auto;
+  display: grid;
 }
 
 .left {
@@ -21,6 +20,12 @@
 /* .top {
   margin-bottom: 10rem;
 } */
+
+.copy {
+  color: var(--darkGray);
+  font-size: 1.8rem;
+  font-weight: 500;
+}
 
 .section {
   display: flex;
@@ -64,7 +69,6 @@
   display: inline-block;
   flex: 0 0 8px;
 }
-
 
 .rightContent {
   background-color: var(--gray);
