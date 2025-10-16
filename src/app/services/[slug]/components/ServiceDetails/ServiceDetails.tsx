@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
+import styles from "./ServiceDetails.module.css";
 import React from "react";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
-import styles from "./ServiceDetails.module.css";
 import Link from "next/link";
 import Image from "next/image";
 import Button from "@/components/shared/Button/Button";
@@ -64,7 +64,7 @@ function SectionList({
       <ListTag className={styles.list}>
         {items.map((item, i) => (
           <li key={i} className={styles.listItem}>
-            <span className={styles.dot}>•</span> {item}
+            <span className={styles.dot} /> {item}
           </li>
         ))}
       </ListTag>

@@ -50,10 +50,21 @@
   color: var(--darkGray);
   line-height: 1.4em;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   gap: 2rem;
 }
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--yellow);
+  border: 1px solid var(--yellowii);
+  display: inline-block;
+  flex: 0 0 8px;
+}
+
 
 .rightContent {
   background-color: var(--gray);

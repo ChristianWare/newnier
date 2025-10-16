@@ -26,7 +26,6 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
             {vehicle.longDesc && (
               <article className={styles.top}>
                 <h2 className={styles.heading}>Vehicle Details</h2>
-
                 <br />
                 <p className={styles.copy}>
                   {/* {lead} */}
@@ -34,21 +33,13 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
                 </p>
               </article>
             )}
-            {/* <article className={styles.section}>
-              <h3 className={`${styles.subHeading} h5`}>Best for</h3>
-              <ul>
-                <li>
-                  <span className={styles.dot}>•</span>
-                  {(vehicle.bestFor ?? []).join(" • ") || "General travel"}
-                </li>
-              </ul>
-            </article> */}
+
             <article className={styles.section}>
               <h3 className={`${styles.subHeading} h5`}>Amenities</h3>
               <ul>
                 {(vehicle.amenities ?? []).map((a) => (
                   <li key={a}>
-                    <span className={styles.dot}>•</span> {a}
+                    <span className={styles.dot} /> {a}
                   </li>
                 ))}
               </ul>
@@ -60,7 +51,7 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
               <ul>
                 {(vehicle.safetyTech ?? []).map((s) => (
                   <li key={s}>
-                    <span className={styles.dot}>•</span>
+                    <span className={styles.dot} />
                     {s}
                   </li>
                 ))}
@@ -71,25 +62,25 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
               <ul>
                 {vehicle.specs?.drivetrain && (
                   <li>
-                    <span className={styles.dot}>•</span>Drivetrain:{" "}
+                    <span className={styles.dot} />Drivetrain:{" "}
                     {vehicle.specs.drivetrain}
                   </li>
                 )}
                 {vehicle.specs?.rideFeel && (
                   <li>
-                    <span className={styles.dot}>•</span>Ride feel:{" "}
+                    <span className={styles.dot} />Ride feel:{" "}
                     {vehicle.specs.rideFeel}
                   </li>
                 )}
                 {vehicle.specs?.cabin && (
                   <li>
-                    <span className={styles.dot}>•</span>Cabin:{" "}
+                    <span className={styles.dot} />Cabin:{" "}
                     {vehicle.specs.cabin}
                   </li>
                 )}
                 {vehicle.cargoCuFt && (
                   <li>
-                    <span className={styles.dot}>•</span>Cargo capacity:{" "}
+                    <span className={styles.dot} />Cargo capacity:{" "}
                     {vehicle.cargoCuFt}
                   </li>
                 )}
@@ -102,7 +93,7 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
                   {vehicle.features.map((f) => (
                     <li key={f}>
                       {" "}
-                      <span className={styles.dot}>•</span>
+                      <span className={styles.dot} />
                       {f}
                     </li>
                   ))}
@@ -117,43 +108,43 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
                 <ul>
                   {vehicle.rateRules.hourlyFromUSD && (
                     <li>
-                      <span className={styles.dot}>•</span>Hourly from $
+                      <span className={styles.dot} />Hourly from $
                       {vehicle.rateRules.hourlyFromUSD}/hr
                     </li>
                   )}
                   {vehicle.rateRules.airportTransferFromUSD && (
                     <li>
-                      <span className={styles.dot}>•</span>Airport transfers
+                      <span className={styles.dot} />Airport transfers
                       from ${vehicle.rateRules.airportTransferFromUSD}
                     </li>
                   )}
                   {vehicle.rateRules.minimumHours && (
                     <li>
-                      <span className={styles.dot}>•</span>
+                      <span className={styles.dot} />
                       Minimum {vehicle.rateRules.minimumHours} hours (hourly)
                     </li>
                   )}
                   {vehicle.rateRules.meetAndGreetUSD && (
                     <li>
-                      <span className={styles.dot}>•</span>Meet & greet: $
+                      <span className={styles.dot} />Meet & greet: $
                       {vehicle.rateRules.meetAndGreetUSD}
                     </li>
                   )}
                   {vehicle.rateRules.afterHoursSurchargePct && (
                     <li>
-                      <span className={styles.dot}>•</span>After-hours
+                      <span className={styles.dot} />After-hours
                       surcharge: {vehicle.rateRules.afterHoursSurchargePct}%
                     </li>
                   )}
                   {vehicle.rateRules.waitTimeGraceMin && (
                     <li>
-                      <span className={styles.dot}>•</span>
+                      <span className={styles.dot} />
                       Grace period: {vehicle.rateRules.waitTimeGraceMin} minutes
                     </li>
                   )}
                   {vehicle.rateRules.extraStopUSD && (
                     <li>
-                      <span className={styles.dot}>•</span>
+                      <span className={styles.dot} />
                       Extra stop: ${vehicle.rateRules.extraStopUSD}
                     </li>
                   )}
@@ -167,7 +158,7 @@ export default function FleetDetails({ vehicle }: { vehicle: Vehicle }) {
                 <ul>
                   {(vehicle.policy.details ?? []).map((d, i) => (
                     <li key={i}>
-                      <span className={styles.dot}>•</span>
+                      <span className={styles.dot} />
 
                       {d}
                     </li>
