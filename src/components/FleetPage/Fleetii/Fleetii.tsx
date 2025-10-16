@@ -56,7 +56,7 @@ export default function Fleetii() {
                   <Button
                     href={`/fleet/${x.slug}`}
                     btnType='black'
-                    text='Book Now'
+                    text='More details'
                     arrow
                   />
                 </div>
