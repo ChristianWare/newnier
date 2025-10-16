@@ -1,5 +1,9 @@
+import BlogPageIntro from "@/components/BlogPage/BlogPageIntro/BlogPageIntro";
+
 export default function BlogPage() {
   return (
-    <div>BlogPage</div>
-  )
+    <main>
+      <BlogPageIntro />
+    </main>
+  );
 }

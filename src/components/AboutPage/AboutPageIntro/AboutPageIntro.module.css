@@ -35,6 +35,7 @@
   color: var(--darkGray);
   max-width: 550px;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1268px) {

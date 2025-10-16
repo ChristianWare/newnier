@@ -25,6 +25,7 @@
   color: var(--darkGray);
   max-width: 450px;
   font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .btnClusterContainer {

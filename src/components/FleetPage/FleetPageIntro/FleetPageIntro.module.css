@@ -19,7 +19,8 @@
 
 .copy {
   font-size: 1.8rem;
-  width: 80%;
+  width: 65%;
+  font-weight: 500;
 }
 
 .btnContainer {
