@@ -1,0 +1,81 @@
+.container {
+  background-color: var(--black);
+  padding: 10rem 0rem;
+  position: relative;
+}
+
+.digitalBox {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  grid-gap: 15rem;
+}
+
+.heading {
+  color: var(--tan);
+  width: 80%;
+}
+
+.copy {
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: var(--gray);
+  width: 70%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.mapDataContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 2rem;
+  border-bottom: 1px solid var(--yellowii);
+  padding: 2rem 0rem;
+  width: 100%;
+}
+
+.title,
+.index {
+  color: var(--yellow);
+  font-weight: 600;
+}
+
+.btnContainer {
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 1268px) {
+  .content {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5rem;
+  }
+
+  .heading {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 1068px) {
+  .content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
