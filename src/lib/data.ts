@@ -19,7 +19,7 @@ import Lynn from "../../public/images/lynn.jpg";
 import Lady from "../../public/images/lady.jpg";
 import Corporate from "../../public/images/corporateii.jpg";
 import Corporate3 from "../../public/images/corporate.jpg";
-import Hourly from "../../public/images/sand.jpg";
+import Hourly from "../../public/images/hourly.jpg";
 import Hourly2 from "../../public/images/hourly2.jpg";
 import Point from "../../public/images/point.jpg";
 import Point2 from "../../public/images/point2.jpg";

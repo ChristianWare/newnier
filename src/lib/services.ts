@@ -4,7 +4,7 @@ import Airport2 from "../../public/images/airport2.jpg";
 import Golf from "../../public/images/golf.jpg";
 import Golf2 from "../../public/images/golf2.jpg";
 import Corporate from "../../public/images/corporateii.jpg";
-import Hourly from "../../public/images/sand.jpg";
+import Hourly from "../../public/images/hourly4.jpg";
 import Hourly2 from "../../public/images/hourly2.jpg";
 import Wedding from "../../public/images/wedding.jpg";
 
