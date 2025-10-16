@@ -1,15 +1,14 @@
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./AboutUsIntro.module.css";
-
-import Cog from "@/components/icons/Cog/Cog";
-import Deposit from "@/components/icons/Deposit/Deposit";
-import Multiple from "@/components/icons/Multiple/Multiple";
-import Rebooking from "@/components/icons/Rebooking/Rebooking";
-import Support from "@/components/icons/Support/Support";
-import Hosting from "@/components/icons/Hosting/Hosting";
-import Stariii from "@/components/icons/Stariii/Stariii";
 import CountUp from "@/components/shared/CountUp/CountUp";
 import Logo from "@/components/shared/Logo/Logo";
+import Plane from "@/components/icons/Plane/Plane";
+import Clock from "@/components/icons/Clock/Clock";
+import Location from "@/components/icons/Location/Location";
+import Golf from "@/components/icons/Golf/Golf";
+import Business from "@/components/icons/Business/Business";
+import Luxury from "@/components/icons/Luxury/Luxury";
+import Party from "@/components/icons/Party/Party";
 
 const data = [
   { id: 1, number: "22", detail: "Years of Experience" },
@@ -36,13 +35,13 @@ export default function AboutUsIntro() {
           <div className={styles.top}>
             <Logo className={styles.logo} />
             <div className={styles.iconContainer}>
-              <Stariii className={styles.icon} />
-              <Cog className={styles.icon} />
-              <Deposit className={styles.icon} />
-              <Multiple className={styles.icon} />
-              <Rebooking className={styles.icon} />
-              <Support className={styles.icon} />
-              <Hosting className={styles.icon} />
+              <Plane className={styles.icon} />
+              <Clock className={styles.icon} />
+              <Location className={styles.icon} />
+              <Golf className={styles.icon} />
+              <Business className={styles.icon} />
+              <Luxury className={styles.icon} />
+              <Party className={styles.icon} />
             </div>
             <h3 className={styles.heading}>
               With a passion <span className={styles.spanImage} /> for providing

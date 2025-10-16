@@ -101,9 +101,7 @@ export default function AllServices() {
     <section className={styles.container}>
       <LayoutWrapper>
         <div className={styles.top}>
-          <h3 className={styles.heading}>
-            Services we offer
-          </h3>
+          <h3 className={styles.heading}>Services we offer</h3>
         </div>
         <div className={styles.bottom}>
           {data.map((x) => (
@@ -112,7 +110,7 @@ export default function AllServices() {
                 <Digital />
               </div>
               <div className={styles.cardTop}>
-                <h3 className={`${styles.title} h5`}>{x.title}</h3>
+                <h3 className={styles.title}>{x.title}</h3>
                 <div className={styles.iconBox}>{x.icon}</div>
               </div>
               <div>

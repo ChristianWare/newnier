@@ -1,17 +1,17 @@
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import styles from "./AboutServicesPreview.module.css";
-import Cog from "@/components/icons/Cog/Cog";
-import Deposit from "@/components/icons/Deposit/Deposit";
-import Multiple from "@/components/icons/Multiple/Multiple";
-import Rebooking from "@/components/icons/Rebooking/Rebooking";
-import Support from "@/components/icons/Support/Support";
-import Hosting from "@/components/icons/Hosting/Hosting";
-import Stariii from "@/components/icons/Stariii/Stariii";
 import Logo from "@/components/shared/Logo/Logo";
 import { services } from "@/lib/data";
 import Image from "next/image";
 import Button from "@/components/shared/Button/Button";
 import Digital from "@/components/shared/Digital/Digital";
+import Plane from "@/components/icons/Plane/Plane";
+import Clock from "@/components/icons/Clock/Clock";
+import Location from "@/components/icons/Location/Location";
+import Golf from "@/components/icons/Golf/Golf";
+import Business from "@/components/icons/Business/Business";
+import Luxury from "@/components/icons/Luxury/Luxury";
+import Party from "@/components/icons/Party/Party";
 
 export default function AboutServicesPreview() {
   return (
@@ -21,13 +21,13 @@ export default function AboutServicesPreview() {
           <div className={styles.top}>
             <Logo className={styles.logo} />
             <div className={styles.iconContainer}>
-              <Stariii className={styles.icon} />
-              <Cog className={styles.icon} />
-              <Deposit className={styles.icon} />
-              <Multiple className={styles.icon} />
-              <Rebooking className={styles.icon} />
-              <Support className={styles.icon} />
-              <Hosting className={styles.icon} />
+              <Plane className={styles.icon} />
+              <Clock className={styles.icon} />
+              <Location className={styles.icon} />
+              <Golf className={styles.icon} />
+              <Business className={styles.icon} />
+              <Luxury className={styles.icon} />
+              <Party className={styles.icon} />
             </div>
             <h2 className={styles.heading}>
               The most common services <br className={styles.br} /> we offer at
@@ -39,7 +39,7 @@ export default function AboutServicesPreview() {
               {services.slice(0, 4).map((x) => (
                 <div key={x.id} className={styles.card}>
                   <div className={styles.cardLeft}>
-                    <h3 className={`${styles.title} h5`}>{x.title}</h3>
+                    <h3 className={`${styles.title} h6`}>{x.title}</h3>
                     <div className={styles.circleBtnContainer}>
                       <Button
                         btnType='arrowBtn'
