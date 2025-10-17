@@ -6,6 +6,7 @@
 .content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 5rem;
 }
 
 .right {
@@ -15,7 +16,6 @@
   justify-content: flex-start;
   gap: 2rem;
 }
-
 
 .heading2 {
   font-weight: 700;
@@ -41,21 +41,18 @@
 
 @media screen and (max-width: 1068px) {
   .copy {
-    width: 80%;
+    max-width: 600px;
   }
 
   .content {
     grid-template-columns: 1fr;
     gap: 5rem;
   }
-}
 
-@media screen and (max-width: 768px) {
-  .copy {
-    width: 100%;
+  .right {
+    order: -1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
-
-  /* .imgContainer {
-    margin-top: 0rem;
-  } */
 }

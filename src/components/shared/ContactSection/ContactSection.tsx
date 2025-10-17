@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import styles from "./ContactSection.module.css";
-import LayoutWrapper from "../LayoutWrapper";
 // import toast from "react-hot-toast";
 // import { useForm, SubmitHandler } from "react-hook-form";
 // import Location from "@/components/icons/Location/Location";
@@ -49,113 +48,108 @@ export default function ContactSection() {
 
   return (
     <section className={styles.container}>
-      <LayoutWrapper>
-        <div className={styles.content}>
-          <div className={styles.right}>
-            {/* <form className={styles.form} onSubmit={handleSubmit(onSubmit)}> */}
-            <form className={styles.form}>
-              <div className={styles.namesContainer}>
-                <div className={styles.labelInputBox}>
-                  <label htmlFor='firstName'>
-                    First Name <span className={styles.required}>*</span>
-                  </label>
-                  <input
-                    id='firstName'
-                    type='text'
-                    // {...register("firstName", { required: true })}
-                  />
-                  {/* {errors.firstName && (
+      <div className={styles.content}>
+        <div className={styles.right}>
+          {/* <form className={styles.form} onSubmit={handleSubmit(onSubmit)}> */}
+          <form className={styles.form}>
+            <div className={styles.namesContainer}>
+              <div className={styles.labelInputBox}>
+                <label htmlFor='firstName'>
+                  First Name <span className={styles.required}>*</span>
+                </label>
+                <input
+                  id='firstName'
+                  type='text'
+                  // {...register("firstName", { required: true })}
+                />
+                {/* {errors.firstName && (
                       <span className={styles.error}>
                         *** First Name is required
                       </span>
                     )} */}
-                </div>
-                <div className={styles.labelInputBox}>
-                  <label htmlFor='lastName'>
-                    Last Name <span className={styles.required}>*</span>
-                  </label>
-                  <input
-                    id='lastName'
-                    type='text'
-                    // {...register("lastName", { required: true })}
-                  />
-                  {/* {errors.lastName && (
+              </div>
+              <div className={styles.labelInputBox}>
+                <label htmlFor='lastName'>
+                  Last Name <span className={styles.required}>*</span>
+                </label>
+                <input
+                  id='lastName'
+                  type='text'
+                  // {...register("lastName", { required: true })}
+                />
+                {/* {errors.lastName && (
                       <span className={styles.error}>
                         *** Last Name is required
                       </span>
                     )} */}
-                </div>
               </div>
-              <div className={styles.everythingElse}>
-                <div className={styles.labelInputBox}>
-                  <label htmlFor='senderEmail'>
-                    Email <span className={styles.required}>*</span>
-                  </label>
-                  <input
-                    id='senderEmail'
-                    type='email'
-                    // {...register("senderEmail", {
-                    //   required: true,
-                    //   pattern: {
-                    //     value: /\S+@\S+\.\S+/,
-                    //     message: "Entered value does not match email format",
-                    //   },
-                    // })}
-                    placeholder='So we can respond. We won&#39;t send you spam.'
-                    maxLength={500}
-                  />
-                  {/* {errors.senderEmail && (
+            </div>
+            <div className={styles.everythingElse}>
+              <div className={styles.labelInputBox}>
+                <label htmlFor='senderEmail'>
+                  Email <span className={styles.required}>*</span>
+                </label>
+                <input
+                  id='senderEmail'
+                  type='email'
+                  // {...register("senderEmail", {
+                  //   required: true,
+                  //   pattern: {
+                  //     value: /\S+@\S+\.\S+/,
+                  //     message: "Entered value does not match email format",
+                  //   },
+                  // })}
+                  placeholder='So we can respond. We won&#39;t send you spam.'
+                  maxLength={500}
+                />
+                {/* {errors.senderEmail && (
                       <span className={styles.error}>
                         *** Email is required
                       </span>
                     )} */}
-                </div>
-                <div className={styles.labelInputBox}>
-                  <label htmlFor='companyName'>Group Size</label>
-                  <input
-                    id='companyName'
-                    type='text'
-                    // {...register("companyName")}
-                  />
-                </div>
-                <div className={styles.labelInputBox}>
-                  <label htmlFor='currentWebsiteUrl'>Length of Stay</label>
-                  <input
-                    id='currentWebsiteUrl'
-                    type='text'
-                    // {...register("currentWebsiteUrl")}
-                  />
-                </div>
-                <div className={styles.labelInputBox}>
-                  <label htmlFor='message'>
-                    Message <span className={styles.required}>*</span>
-                  </label>
-                  <textarea
-                    id='message'
-                    // {...register("message", { required: true })}
-                    maxLength={5000}
-                    placeholder='No solicitations, please.'
-                  />
-                  {/* {errors.message && (
+              </div>
+              <div className={styles.labelInputBox}>
+                <label htmlFor='companyName'>Group Size</label>
+                <input
+                  id='companyName'
+                  type='text'
+                  // {...register("companyName")}
+                />
+              </div>
+              <div className={styles.labelInputBox}>
+                <label htmlFor='currentWebsiteUrl'>Length of Stay</label>
+                <input
+                  id='currentWebsiteUrl'
+                  type='text'
+                  // {...register("currentWebsiteUrl")}
+                />
+              </div>
+              <div className={styles.labelInputBox}>
+                <label htmlFor='message'>
+                  Message <span className={styles.required}>*</span>
+                </label>
+                <textarea
+                  id='message'
+                  // {...register("message", { required: true })}
+                  maxLength={5000}
+                  placeholder='No solicitations, please.'
+                />
+                {/* {errors.message && (
                       <span className={styles.error}>
                         *** Message is required
                       </span>
                     )} */}
-                </div>
               </div>
-              <div className={styles.btnBtnContainer}>
-                {/* <button className={styles.btn} type='submit'>
+            </div>
+            <div className={styles.btnBtnContainer}>
+              {/* <button className={styles.btn} type='submit'>
                     {loading ? "Sending..." : "Submit"}
                   </button> */}
-                <Button
-                  text={loading ? "Sending..." : "Submit"}
-                  btnType='red'
-                />
-              </div>
-            </form>
-          </div>
+              <Button text={loading ? "Sending..." : "Submit"} btnType='red' />
+            </div>
+          </form>
         </div>
-      </LayoutWrapper>
+      </div>
     </section>
   );
 }
