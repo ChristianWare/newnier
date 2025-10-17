@@ -165,17 +165,27 @@
   height: 100%;
 }
 
+/* .titleDescBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+} */
+
 .card:nth-child(even) .cardRight {
   order: -1;
 }
 
 .title {
   font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .desc {
   color: var(--darkGray);
   font-size: 1.4rem;
+  
 }
 
 .btnContainer {

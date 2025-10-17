@@ -72,16 +72,18 @@ export default function ServicesPreview() {
                   </div>
                 </div>
                 <div className={styles.cardRight}>
+                  <div className={styles.titleDescBox}>
                     <h3 className={styles.title}>{x.title}</h3>
                     <p className={styles.desc}>{x.copy}</p>
-                    <div className={styles.btnContainer}>
-                      <Button
-                        text='Learn More'
-                        btnType='navGray'
-                        href={`/services/${x.slug}`}
-                        arrow
-                      />
-                    </div>
+                  </div>
+                  <div className={styles.btnContainer}>
+                    <Button
+                      text='Learn More'
+                      btnType='navGray'
+                      href={`/services/${x.slug}`}
+                      arrow
+                    />
+                  </div>
                 </div>
               </div>
             ))}
