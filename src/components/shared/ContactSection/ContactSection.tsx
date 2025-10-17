@@ -141,11 +141,15 @@ export default function ContactSection() {
                     )} */}
               </div>
             </div>
-            <div className={styles.btnBtnContainer}>
+            <div className={styles.btnContainer}>
               {/* <button className={styles.btn} type='submit'>
                     {loading ? "Sending..." : "Submit"}
                   </button> */}
-              <Button text={loading ? "Sending..." : "Submit"} btnType='red' />
+              <Button
+                text={loading ? "Sending..." : "Submit"}
+                btnType='navYellowBlackOutline'
+                arrow
+              />
             </div>
           </form>
         </div>

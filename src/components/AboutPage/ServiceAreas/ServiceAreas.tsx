@@ -200,7 +200,7 @@ export default function ServiceAreas() {
                       className={styles.imgii}
                     />
                   </div>
-                  <h3 className={`${styles.city} h5`}>{city.city}</h3>
+                  <h3 className={`${styles.city} h2`}>{city.city}</h3>
                   <p className={styles.desc}>{city.desc}</p>
                 </div>
               ))}

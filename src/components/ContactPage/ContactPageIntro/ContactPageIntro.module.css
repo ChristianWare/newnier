@@ -6,7 +6,7 @@
 .content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-gap: 5rem;
+  grid-gap: 15rem;
 }
 
 .right {
@@ -37,7 +37,14 @@
 
 .img {
   object-fit: contain;
-}
+  }
+
+  @media screen and (max-width: 1268px) {
+    .content {
+      gap: 5rem;
+    } 
+  }
+
 
 @media screen and (max-width: 1068px) {
   .copy {
