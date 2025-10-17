@@ -4,6 +4,7 @@ import Button from "@/components/shared/Button/Button";
 import Image from "next/image";
 import { services } from "@/lib/data";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
+import Digital from "@/components/shared/Digital/Digital";
 
 export default function ServicesPreview() {
   return (
@@ -65,13 +66,13 @@ export default function ServicesPreview() {
                       fill
                       className={styles.img}
                     />
+                    <div className={styles.digitalBox}>
+                      <Digital color='gray' />
+                    </div>
                   </div>
                 </div>
                 <div className={styles.cardRight}>
-                  <div className={styles.cardRightTop}>
                     <h3 className={styles.title}>{x.title}</h3>
-                  </div>
-                  <div>
                     <p className={styles.desc}>{x.copy}</p>
                     <div className={styles.btnContainer}>
                       <Button
@@ -81,7 +82,6 @@ export default function ServicesPreview() {
                         arrow
                       />
                     </div>
-                  </div>
                 </div>
               </div>
             ))}

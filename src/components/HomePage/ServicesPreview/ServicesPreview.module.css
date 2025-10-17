@@ -104,16 +104,16 @@
   padding: 1rem;
   background-color: var(--gray);
   border-radius: 10px;
-  border-top-left-radius: 300px;
-  border-bottom-left-radius: 300px;
+  /* border-top-left-radius: 300px;
+  border-bottom-left-radius: 300px; */
 }
 
 .card:nth-child(even) {
   grid-template-columns: 2fr 1.5fr;
-  border-top-right-radius: 300px;
+  /* border-top-right-radius: 300px;
   border-top-left-radius: 15px;
   border-bottom-right-radius: 300px;
-  border-bottom-left-radius: 15px;
+  border-bottom-left-radius: 15px; */
 }
 
 .card:nth-child(odd) .cardRight {
@@ -131,19 +131,27 @@
   height: 100%;
 }
 
-.img {
-  object-fit: cover;
-  border-radius: 15px;
-  border-top-left-radius: 300px;
-  border-bottom-left-radius: 300px;
+.digitalBox {
+  position: absolute;
+  content: "";
+  top: -1px;
+  right: -1px;
 }
 
-.card:nth-child(even) .img {
+.img {
+  object-fit: cover;
+  border-radius: 10px;
+  /* border-radius: 15px;
+  border-top-left-radius: 300px;
+  border-bottom-left-radius: 300px; */
+}
+
+/* .card:nth-child(even) .img {
+  border-top-left-radius: 15px;
   border-top-right-radius: 300px;
   border-bottom-right-radius: 300px;
-  border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
-}
+} */
 
 .cardRight {
   background-color: var(--tan);
@@ -167,6 +175,7 @@
 
 .desc {
   color: var(--darkGray);
+  font-size: 1.4rem;
 }
 
 .btnContainer {
@@ -248,7 +257,7 @@
   }
 }
 
-@media screen and (max-width: 668px) {
+@media screen and (max-width: 568px) {
   .bottom {
     grid-gap: 5rem;
   }
@@ -259,28 +268,28 @@
   }
 
   .imgContainer {
-    height: 300px;
+    height: 250px;
   }
-
+  /* 
   .card:nth-child(odd),
   .card:nth-child(even) {
     border-top-left-radius: 300px;
     border-top-right-radius: 300px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-  }
+  } */
 
   .card:nth-child(even) .cardRight {
     order: 1;
   }
-
+  /* 
   .card:nth-child(even) .img,
   .card:nth-child(odd) .img {
     border-top-right-radius: 300px;
     border-top-left-radius: 300px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
-  }
+  } */
 
   .card:nth-child(odd) .cardRight {
     align-items: center;
@@ -312,7 +321,22 @@
     text-align: left;
   } */
 
+  .heading,
+  .desc {
+    text-align: center;
+    width: 95%;
+  }
+
+  .card:nth-child(odd) .cardRight .title,
+  .card:nth-child(odd) .cardRight .desc {
+    text-align: center;
+  }
+
   .break {
     display: none;
+  }
+
+  .cardRight {
+    gap: 2rem;
   }
 }
