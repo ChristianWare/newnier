@@ -23,9 +23,40 @@
 
 .copy {
   color: var(--darkGray);
-  /* width: 60%; */
   font-weight: 500;
   font-size: 1.8rem;
+}
+
+.mapDataContainer {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 2rem;
+  margin-top: 5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--darkGrayii);
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+
+.icon {
+  background-color: var(--yellow);
+  color: var(--black);
+  border-radius: 5px;
+  padding: 0.8rem;
+  font-size: 4rem;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+  word-break: break-all;
+  text-align: left;
 }
 
 .imgContainer {
@@ -37,14 +68,13 @@
 
 .img {
   object-fit: contain;
-  }
+}
 
-  @media screen and (max-width: 1268px) {
-    .content {
-      gap: 5rem;
-    } 
+@media screen and (max-width: 1268px) {
+  .content {
+    gap: 5rem;
   }
-
+}
 
 @media screen and (max-width: 1068px) {
   .copy {

@@ -4,6 +4,27 @@ import Suburban from "../../../../public/images/taho.png";
 import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import ContactSection from "@/components/shared/ContactSection/ContactSection";
+import Location from "@/components/icons/Location/Location";
+import Phone from "@/components/icons/Phone/Phone";
+import Email from "@/components/icons/Email/Email";
+
+const data = [
+  {
+    id: 1,
+    title: "Scottsdale, AZ",
+    icon: <Location className={styles.icon} />,
+  },
+  {
+    id: 2,
+    title: "480-300-6003",
+    icon: <Phone className={styles.icon} />,
+  },
+  {
+    id: 3,
+    title: "reservations@niertransportation.com",
+    icon: <Email className={styles.icon} />,
+  },
+];
 
 export default function ContactPageIntro() {
   return (
@@ -24,6 +45,14 @@ export default function ContactPageIntro() {
               our locally based support team is always on duty. Expect clear
               answers, honest pricing, and zero phone-tree frustration.
             </p>
+            <div className={styles.mapDataContainer}>
+              {data.map((item) => (
+                <div key={item.id} className={styles.card}>
+                  {item.icon}
+                  <span className={styles.title}>{item.title}</span>
+                </div>
+              ))}
+            </div>
             <div className={styles.imgContainer}>
               <Image
                 src={Suburban}
