@@ -13,6 +13,14 @@ import ImgTempe from "../../../../public/images/tempe.jpg";
 import ImgWestValley from "../../../../public/images/westValleyiii.jpg";
 import ImgCasaGrande from "../../../../public/images/casaGrandeii.jpg";
 import ImgMaricopa from "../../../../public/images/maricopaii.jpg";
+import Chandler from "../../../../public/images/chandler.jpg";
+import Gilbert from "../../../../public/images/gilbert.webp";
+import Tucson from "../../../../public/images/tucson.webp";
+import Flagstaff from "../../../../public/images/flagstaff.jpg";
+import Yuma from "../../../../public/images/yuma.jpg";
+import Prescott from "../../../../public/images/prescott.webp";
+import Lake from "../../../../public/images/lake.jpg";
+import Sedona from "../../../../public/images/sedona.jpg";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 
 const data = [
@@ -57,6 +65,55 @@ const data = [
     city: "Maricopa",
     desc: "Maricopa is a fast‑growing, family‑friendly city set against the natural beauty of the Sonoran Desert.",
     src: ImgMaricopa,
+  },
+  {
+    id: 16,
+    city: "Chandler",
+    desc: "A growing tech and business center with family neighborhoods, parks, and a lively downtown.",
+    src: Chandler,
+  },
+  {
+    id: 17,
+    city: "Gilbert",
+    desc: "Known for excellent schools, family-friendly suburbs, and a charming downtown light rail corridor.",
+    src: Gilbert,
+  },
+  {
+    id: 18,
+    city: "Tucson",
+    desc: "Southern Arizona's cultural hub with a rich history, the University of Arizona, and desert scenery.",
+    src: Tucson,
+  },
+  {
+    id: 19,
+    city: "Flagstaff",
+    desc: "A mountain town near the Grand Canyon with outdoor recreation, skiing, and a cool pine-forest climate.",
+    src: Flagstaff,
+  },
+  {
+    id: 20,
+    city: "Yuma",
+    desc: "Southwestern city on the Colorado River, known for winter sunshine, agriculture, and historic sites.",
+    src: Yuma,
+  },
+  {
+    id: 21,
+    city: "Prescott",
+    desc: "Historic downtown, Whiskey Row, and access to forests and lakes make Prescott a popular mountain escape.",
+    src: Prescott,
+  },
+  {
+    id: 22,
+    city: "Lake Havasu City",
+    desc: "Famous for its lake recreation, boating, and the London Bridge attraction.",
+    src: Lake,
+  },
+
+  {
+    id: 24,
+    city: "Sedona",
+    desc: "Renowned for red-rock formations, hiking, vortex sites, and a thriving arts community.",
+    src: Sedona,
   },
 ];
 
