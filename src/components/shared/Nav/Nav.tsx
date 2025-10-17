@@ -96,11 +96,11 @@ export default function Nav({ color = "", hamburgerColor = "" }: NavProps) {
 
   const items = [
     { text: "Home", href: "/" },
-    { text: "Reservations", href: "/reservations" },
     { text: "Services", href: "/services" },
     { text: "Fleet", href: "/fleet" },
     { text: "About", href: "/about" },
     { text: "Blog", href: "/blog" },
+    { text: "My Account", href: "/reservations" },
     { text: "Contact", href: "/contact" },
   ];
 

@@ -3,13 +3,17 @@ import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import Suburban from "../../../../public/images/taho.png";
 import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
+import ContactSection from "@/components/shared/ContactSection/ContactSection";
 
 export default function ContactPageIntro() {
   return (
     <section className={styles.container}>
       <LayoutWrapper>
         <div className={styles.content}>
-          <div className={styles.top}>
+          <div className={styles.left}>
+            <ContactSection />
+          </div>
+          <div className={styles.right}>
             <SectionHeading text='Contact' />
             <h1 className={styles.heading}>Lets Get In touch</h1>
             <h2 className={`${styles.heading2} h6`}>
