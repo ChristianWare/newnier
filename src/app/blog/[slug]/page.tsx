@@ -12,6 +12,9 @@ import { notFound } from "next/navigation";
 import MoreInsights from "@/components/BlogPage/MoreInsights/MoreInsights";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
+import Nav from "@/components/shared/Nav/Nav";
+import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
+import Footer from "@/components/shared/Footer/Footer";
 
 type Post = {
   _id: string;
@@ -200,56 +203,61 @@ export default async function BlogPostPage({
     : undefined;
 
   return (
-    <main className={styles.container}>
-      <LayoutWrapper>
-        <div className={styles.top}>
-          <div className={styles.left}>
-            {/* <SectionIntroii title={prettyDate} /> */}
-            <SectionHeading text={prettyDate} />
-            <h1 className={styles.heading}>{post!.title}</h1>
-            {post?.tags?.length ? (
-              <ul className={styles.tags}>
-                {post.tags.map((t) => (
-                  <li key={t._id}>
-                    {t.slug?.current ? (
-                      <SectionHeading text={t.name} />
-                    ) : (
-                      <SectionHeading text='Fonts & Footers' />
-                    )}
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </div>
-          <div className={styles.right}>
-            {coverSrc && (
-              <div className={styles.imgContainer}>
-                <Image
-                  src={coverSrc}
-                  alt={post?.coverImage?.alt || post!.title}
-                  fill
-                  priority
-                  className={styles.img}
-                />
-              </div>
-            )}
-          </div>
-        </div>
-        <article className={styles.article}>
-          <SectionHeading text='Written by Chris Ware, CEO' />
-          <header className={styles.header}>
-            {post?.excerpt ? (
-              <p className={styles.introText}>{post.excerpt}</p>
-            ) : null}
-          </header>
-          {post?.body?.length ? (
-            <div className={styles.body}>
-              <PortableText value={post.body} components={ptComponents} />
+    <>
+      <Nav />
+      <main className={styles.container}>
+        <LayoutWrapper>
+          <div className={styles.top}>
+            <div className={styles.left}>
+              {/* <SectionIntroii title={prettyDate} /> */}
+              <SectionHeading text={prettyDate} />
+              <h1 className={styles.heading}>{post!.title}</h1>
+              {post?.tags?.length ? (
+                <ul className={styles.tags}>
+                  {post.tags.map((t) => (
+                    <li key={t._id}>
+                      {t.slug?.current ? (
+                        <SectionHeading text={t.name} />
+                      ) : (
+                        <SectionHeading text='Fonts & Footers' />
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
             </div>
-          ) : null}
-        </article>
-      </LayoutWrapper>
-      <MoreInsights currentSlug={post!.slug.current} />
-    </main>
+            <div className={styles.right}>
+              {coverSrc && (
+                <div className={styles.imgContainer}>
+                  <Image
+                    src={coverSrc}
+                    alt={post?.coverImage?.alt || post!.title}
+                    fill
+                    priority
+                    className={styles.img}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          <article className={styles.article}>
+            <SectionHeading text='Written by Chris Ware, CEO' />
+            <header className={styles.header}>
+              {post?.excerpt ? (
+                <p className={styles.introText}>{post.excerpt}</p>
+              ) : null}
+            </header>
+            {post?.body?.length ? (
+              <div className={styles.body}>
+                <PortableText value={post.body} components={ptComponents} />
+              </div>
+            ) : null}
+          </article>
+        </LayoutWrapper>
+        <MoreInsights currentSlug={post!.slug.current} />
+      </main>
+      <FinalCTA2 />
+      <Footer />
+    </>
   );
 }

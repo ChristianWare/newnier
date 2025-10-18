@@ -5,11 +5,15 @@ import Mission from "@/components/AboutPage/Mission/Mission";
 import ServiceAreas from "@/components/AboutPage/ServiceAreas/ServiceAreas";
 import Story from "@/components/AboutPage/Story/Story";
 import Faq from "@/components/HomePage/Faq/Faq";
+import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
+import Footer from "@/components/shared/Footer/Footer";
+import Nav from "@/components/shared/Nav/Nav";
 import { aboutQuestions } from "@/lib/data";
 
 export default function AboutPage() {
   return (
     <main>
+      <Nav />
       <AboutPageIntro />
       <AboutNumbers />
       <Story />
@@ -17,6 +21,8 @@ export default function AboutPage() {
       <Mission />
       <ServiceAreas />
       <Faq items={aboutQuestions} />
+      <FinalCTA2 />
+      <Footer />
     </main>
   );
 }
