@@ -9,10 +9,10 @@ import Hosting from "@/components/icons/Hosting/Hosting";
 import Stariii from "@/components/icons/Stariii/Stariii";
 import Button from "@/components/shared/Button/Button";
 import Image from "next/image";
-import Img1 from "../../../../public/images/airport.jpg";
-import Img2 from "../../../../public/images/airport2.jpg";
-import Img3 from "../../../../public/images/brewery.jpg";
-import Img4 from "../../../../public/images/casaGrande.jpg";
+import Img1 from "../../../../public/images/john.jpg";
+import Img2 from "../../../../public/images/jazz.jpg";
+import Img3 from "../../../../public/images/rock.jpg";
+import Img4 from "../../../../public/images/food.jpg";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 
 const data = [

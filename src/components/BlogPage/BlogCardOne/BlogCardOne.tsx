@@ -1,12 +1,12 @@
-import styles from "./BlogCardTwo.module.css";
+import styles from "./BlogCardOne.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import SectionIntroii from "../SectionIntroii/SectionIntroii";
+import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 
 type CardPost = {
   title: string;
   href: string;
-  date: string; // ISO datetime
+  date: string;
   excerpt: string;
   imageUrl?: string;
   imageAlt?: string;
@@ -16,7 +16,7 @@ interface Props {
   post: CardPost;
 }
 
-export default function BlogCardTwo({ post }: Props) {
+export default function BlogCardOne({ post }: Props) {
   const prettyDate = new Date(post.date).toLocaleDateString("en-US", {
     month: "long",
     day: "2-digit",
@@ -34,7 +34,8 @@ export default function BlogCardTwo({ post }: Props) {
                 alt={post.imageAlt || "Blog Image"}
                 fill
                 className={styles.img}
-                sizes='(max-width: 1024px) 100vw, 33vw'
+                sizes='(max-width: 1024px) 100vw, 50vw'
+                priority
               />
             ) : (
               <div className={styles.imgFallback} />
@@ -42,7 +43,7 @@ export default function BlogCardTwo({ post }: Props) {
           </div>
         </div>
         <div className={styles.bottom}>
-          <SectionIntroii title={prettyDate} />
+          <SectionHeading text={prettyDate} />
           <h5 className={styles.title}>{post.title}</h5>
           <p className={`${styles.desc} subheading`}>{post.excerpt}</p>
         </div>

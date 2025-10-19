@@ -1,7 +1,7 @@
 import styles from "./MoreInsights.module.css";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
-import SectionIntroii from "@/components/shared/SectionIntroii/SectionIntroii";
-import BlogCardTwo from "@/components/shared/BlogCardTwo/BlogCardTwo";
+import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
+import BlogCardTwo from "../BlogCardTwo/BlogCardTwo";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
 import Button from "@/components/shared/Button/Button";
@@ -46,7 +46,7 @@ export default async function MoreInsights({
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
-            <SectionIntroii title='More Insights' />
+            <SectionHeading text='More Insights' />
           </div>
           <div className={styles.bottom}>
             {posts.map((p) => (
@@ -70,7 +70,7 @@ export default async function MoreInsights({
             ))}
           </div>
           <div className={styles.btnContainer}>
-            <Button href='/blog' btnType='lime' text='See all blog posts' />
+            <Button href='/blog' btnType='black' text='See all blog posts' />
           </div>
         </div>
       </LayoutWrapper>

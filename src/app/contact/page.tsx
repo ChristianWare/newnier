@@ -1,3 +1,4 @@
+import BlogSection from "@/components/BlogPage/BlogSection/BlogSection";
 import ContactPageIntro from "@/components/ContactPage/ContactPageIntro/ContactPageIntro";
 import HowItWorks from "@/components/HomePage/HowItWorks/HowItWorks";
 import Testimonials from "@/components/HomePage/Testimonials/Testimonials";
@@ -12,6 +13,7 @@ export default function ContactPage() {
       <ContactPageIntro />
       <HowItWorks />
       <Testimonials />
+      <BlogSection />
       <FinalCTA2 />
       <Footer />
     </main>

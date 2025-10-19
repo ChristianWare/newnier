@@ -1,3 +1,4 @@
+import BlogSection from "@/components/BlogPage/BlogSection/BlogSection";
 import AboutUsIntro from "@/components/HomePage/AboutUsIntro/AboutUsIntro";
 import Events from "@/components/HomePage/Events/Events";
 import Faq from "@/components/HomePage/Faq/Faq";
@@ -27,6 +28,7 @@ export default function Home() {
       <Testimonials />
       <Events />
       <Faq items={homeQuestions} />
+      <BlogSection />
       <FinalCTA2 />
       <Footer />
     </main>

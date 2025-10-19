@@ -1,4 +1,5 @@
 import AboutNumbers from "@/components/AboutPage/AboutNumbers/AboutNumbers";
+import BlogSection from "@/components/BlogPage/BlogSection/BlogSection";
 import Fleetii from "@/components/FleetPage/Fleetii/Fleetii";
 import FleetPageIntro from "@/components/FleetPage/FleetPageIntro/FleetPageIntro";
 import FleetPostHero from "@/components/FleetPage/FleetPostHero/FleetPostHero";
@@ -17,6 +18,7 @@ export default function FleetPage() {
       <Fleetii />
       <Faq items={homeQuestions} />
       <AboutNumbers />
+      <BlogSection />
       <FinalCTA2 />
       <Footer />
     </main>

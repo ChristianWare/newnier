@@ -4,6 +4,7 @@ import AboutServicesPreview from "@/components/AboutPage/AboutServicesPreview/Ab
 import Mission from "@/components/AboutPage/Mission/Mission";
 import ServiceAreas from "@/components/AboutPage/ServiceAreas/ServiceAreas";
 import Story from "@/components/AboutPage/Story/Story";
+import BlogSection from "@/components/BlogPage/BlogSection/BlogSection";
 import Faq from "@/components/HomePage/Faq/Faq";
 import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
 import Footer from "@/components/shared/Footer/Footer";
@@ -21,6 +22,7 @@ export default function AboutPage() {
       <Mission />
       <ServiceAreas />
       <Faq items={aboutQuestions} />
+      <BlogSection />
       <FinalCTA2 />
       <Footer />
     </main>
