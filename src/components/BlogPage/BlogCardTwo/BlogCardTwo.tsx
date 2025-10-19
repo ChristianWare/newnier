@@ -6,7 +6,7 @@ import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 type CardPost = {
   title: string;
   href: string;
-  date: string; // ISO datetime
+  date: string;
   excerpt: string;
   imageUrl?: string;
   imageAlt?: string;
