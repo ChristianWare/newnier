@@ -7,14 +7,18 @@ import Image from "next/image";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import type { ServiceShape as Service } from "@/lib/services"; // ← unify here
 
-export default function ServiceSlugPageIntro({ service }: { service: Service }) {
+export default function ServiceSlugPageIntro({
+  service,
+}: {
+  service: Service;
+}) {
   if (!service) {
     return (
       <section className={styles.container}>
         <LayoutWrapper>
           <div className={styles.container}>
             <h1 className={styles.heading}>Service not found</h1>
-            <Link href="/services">Back to services</Link>
+            <Link href='/services'>Back to services</Link>
           </div>
         </LayoutWrapper>
       </section>
@@ -26,14 +30,12 @@ export default function ServiceSlugPageIntro({ service }: { service: Service }) 
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
-            <SectionHeading text="service" />
+            <SectionHeading text='service' />
             <h1 className={styles.heading}>{service.title}</h1>
             <p className={styles.copy}>{service.copy}</p>
-
-            {/* Guard in case some services don't have an image */}
             {service.src && (
               <div className={styles.imgContainer}>
-                <Image src={service.src} fill alt="" className={styles.img} />
+                <Image src={service.src} fill alt='' className={styles.img} />
               </div>
             )}
           </div>

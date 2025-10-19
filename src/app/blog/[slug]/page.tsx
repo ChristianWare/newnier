@@ -7,8 +7,6 @@ import { urlFor } from "@/sanity/lib/image";
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-// import SectionIntroii from "@/components/shared/SectionIntroii/SectionIntroii";
-// import SectionIntro from "@/components/shared/SectionIntro/SectionIntro";
 import MoreInsights from "@/components/BlogPage/MoreInsights/MoreInsights";
 import type { Metadata } from "next";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
@@ -209,9 +207,6 @@ export default async function BlogPostPage({
         <LayoutWrapper>
           <div className={styles.top}>
             <div className={styles.left}>
-              {/* <SectionIntroii title={prettyDate} /> */}
-              <SectionHeading text={prettyDate} />
-              <h1 className={styles.heading}>{post!.title}</h1>
               {post?.tags?.length ? (
                 <ul className={styles.tags}>
                   {post.tags.map((t) => (
@@ -225,6 +220,8 @@ export default async function BlogPostPage({
                   ))}
                 </ul>
               ) : null}
+              <h1 className={`${styles.heading} h3`}>{post!.title}</h1>
+              <p className={styles.copy}>{post!.excerpt}</p>
             </div>
             <div className={styles.right}>
               {coverSrc && (
@@ -241,7 +238,7 @@ export default async function BlogPostPage({
             </div>
           </div>
           <article className={styles.article}>
-            <SectionHeading text='Written by Chris Ware, CEO' />
+            <span className={styles.date}>{prettyDate}</span>
             <header className={styles.header}>
               {post?.excerpt ? (
                 <p className={styles.introText}>{post.excerpt}</p>

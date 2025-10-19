@@ -1,15 +1,6 @@
 .container {
   background-color: var(--tan);
-  background-image: radial-gradient(#efeded 2px, transparent 2px);
-  background-size: calc(10 * 2px) calc(10 * 2px);
-  padding-top: 4rem;
-}
-
-.article {
-  max-width: 900px;
-  margin: 0 auto;
-  border-top: 1px solid var(--gray);
-  padding-top: 2rem;
+  padding: 10rem 0rem;
 }
 
 .top {
@@ -27,10 +18,15 @@
   justify-content: center;
 }
 
+.copy {
+  color: var(--darkGray);
+  width: 90%;
+}
+
 .imgContainer {
   position: relative;
   width: 100%;
-  height: 90vh;
+  height: 500px;
 }
 
 .img {
@@ -38,6 +34,18 @@
   width: 100%;
   height: auto;
   border-radius: 16px;
+}
+
+.article {
+  max-width: 900px;
+  margin: 0 auto;
+  border-top: 1px solid var(--gray);
+  padding-top: 2rem;
+}
+
+.date {
+  font-weight: 700;
+  color: var(--darkGray);
 }
 
 .tags {
@@ -133,7 +141,7 @@
   color: var(--muted-foreground);
 }
 
-@media screen and (max-width: 1068px) {
+@media screen and (max-width: 1268px) {
   .container {
     padding-top: 10rem;
   }
@@ -142,14 +150,32 @@
     grid-template-columns: repeat(1, 1fr);
   }
 
+  .left {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .heading {
+    text-align: center;
+  }
+
+  .copy {
+    text-align: center;
+    width: 80%;
+  }
+
   .imgContainer {
-    height: 60vh;
+    height: 550px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .imgContainer {
     height: 40vh;
+  }
+
+  .copy {
+    width: 95%;
   }
 }
 
