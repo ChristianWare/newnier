@@ -1,9 +1,10 @@
+// components/BlogPage/AllBlogsPosts/AllBlogsPosts.tsx
 import { client } from "@/sanity/lib/client";
 import styles from "./AllBlogsPosts.module.css";
-import BlogCardTwo from "../BlogCardTwo/BlogCardTwo";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
-import { urlFor } from "@/sanity/lib/image";
+import AllBlogsPostsClient from "../AllBlogsPostsClient/AllBlogsPostsClient";
 
+type Tag = { _id: string; name: string; slug: { current: string } };
 type Post = {
   _id: string;
   title: string;
@@ -15,50 +16,42 @@ type Post = {
     asset: { _ref: string; _type: "reference" };
     alt?: string;
   };
+  tags?: Tag[];
 };
 
 async function getPosts(): Promise<Post[]> {
   const query = `
-    *[_type == "post"] | order(publishedAt desc) 
-    {
+    *[_type == "post"] | order(publishedAt desc) {
       _id,
       title,
       slug,
       publishedAt,
       excerpt,
-      coverImage{asset, alt, _type}
+      coverImage{asset, alt, _type},
+      tags[]->{ _id, name, slug }
+    }
+  `;
+  return client.fetch(query, {}, { next: { revalidate: 60 } });
+}
+
+async function getAllTags(): Promise<Tag[]> {
+  const query = `
+    *[_type == "tag"] | order(name asc) {
+      _id,
+      name,
+      slug
     }
   `;
   return client.fetch(query, {}, { next: { revalidate: 60 } });
 }
 
 export default async function AllBlogsPosts() {
-  const posts = await getPosts();
+  const [posts, tags] = await Promise.all([getPosts(), getAllTags()]);
 
   return (
     <section className={styles.container}>
       <LayoutWrapper>
-        <div className={styles.content}>
-          {posts.map((p) => (
-            <BlogCardTwo
-              key={p._id}
-              post={{
-                title: p.title,
-                href: `/blog/${p.slug.current}`,
-                date: p.publishedAt,
-                excerpt: p.excerpt ?? "",
-                imageUrl: p.coverImage
-                  ? urlFor(p.coverImage)
-                      .width(800)
-                      .height(600)
-                      .fit("crop")
-                      .url()
-                  : undefined,
-                imageAlt: p.coverImage?.alt ?? p.title,
-              }}
-            />
-          ))}
-        </div>
+        <AllBlogsPostsClient posts={posts} tags={tags} />
       </LayoutWrapper>
     </section>
   );
