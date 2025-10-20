@@ -29,11 +29,14 @@ type EventPost = {
 
 async function getThisMonthsEventPosts(): Promise<EventPost[]> {
   const now = new Date();
-  const start = new Date(now.getFullYear(), now.getMonth(), 1);
-  const end = new Date(now.getFullYear(), now.getMonth() + 1, 1);
-
-  const startStr = start.toISOString().slice(0, 10); // YYYY-MM-DD
-  const endStr = end.toISOString().slice(0, 10); // YYYY-MM-DD
+  const start = new Date(
+    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1, 0, 0, 0)
+  );
+  const end = new Date(
+    Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1, 0, 0, 0)
+  );
+  const startISO = start.toISOString();
+  const endISO = end.toISOString();
 
   const query = `
     *[
@@ -42,9 +45,9 @@ async function getThisMonthsEventPosts(): Promise<EventPost[]> {
         "events" in tags[]->slug.current ||
         "events" in tags
       ) &&
-      coalesce(eventDate, publishedAt) >= $startStr &&
-      coalesce(eventDate, publishedAt) < $endStr
-    ] | order(coalesce(eventDate, publishedAt) asc) {
+      coalesce(dateTime(eventDate), publishedAt) >= $startISO &&
+      coalesce(dateTime(eventDate), publishedAt) < $endISO
+    ] | order(coalesce(dateTime(eventDate), publishedAt) asc) {
       _id,
       title,
       slug,
@@ -54,10 +57,9 @@ async function getThisMonthsEventPosts(): Promise<EventPost[]> {
       coverImage{asset, alt, _type}
     }
   `;
-
   return client.fetch(
     query,
-    { startStr, endStr },
+    { startISO, endISO },
     { next: { revalidate: 60 } }
   );
 }
@@ -70,7 +72,7 @@ export default async function Events() {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
-            <SectionHeading text='Local Events for this month' />
+            <SectionHeading text='Local Events' />
             <div className={styles.iconContainer}>
               <Stariii className={styles.icon} />
               <Cog className={styles.icon} />
@@ -85,12 +87,13 @@ export default async function Events() {
               upcoming events in Phoenix and Beyond
             </h3>
           </div>
-
           <div className={styles.bottom}>
             <div className={styles.mapDataContainer}>
               {posts.map((event) => {
-                const dateSource = event.eventDate ?? event.publishedAt;
-                const dateStr = dateSource?.slice(0, 10);
+                const dateStr = (event.eventDate ?? event.publishedAt).slice(
+                  0,
+                  10
+                );
                 const img = event.coverImage
                   ? urlFor(event.coverImage)
                       .width(1200)
@@ -98,7 +101,6 @@ export default async function Events() {
                       .fit("crop")
                       .url()
                   : undefined;
-
                 return (
                   <div key={event._id} className={styles.card}>
                     <div className={styles.cardLeft}>
@@ -143,7 +145,6 @@ export default async function Events() {
                 );
               })}
             </div>
-
             <div className={styles.btnContainer}>
               <Button
                 href='/blog?tag=events'

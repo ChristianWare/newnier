@@ -166,11 +166,12 @@
 
   .heading {
     text-align: center;
+    width: 70%;
   }
 
   .copy {
     text-align: center;
-    width: 80%;
+    width: 60%;
   }
 
   .imgContainer {

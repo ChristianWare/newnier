@@ -1,3 +1,4 @@
+// schemas/post.ts
 import { Rule } from "sanity";
 
 export const post = {
@@ -31,8 +32,6 @@ export const post = {
       validation: (Rule: Rule) =>
         Rule.max(200).warning("Shorter excerpt is usually better"),
     },
-
-    // ✅ Bring this back:
     {
       name: "body",
       title: "Body",
@@ -46,21 +45,24 @@ export const post = {
         },
       ],
     },
-
     {
       name: "coverImage",
       title: "Cover Image",
       type: "image",
       options: { hotspot: true },
       fields: [{ name: "alt", title: "Alt text", type: "string" }],
-      // optional: make it required if you want
-      // validation: (Rule: Rule) => Rule.required().error("Cover image is required"),
     },
     {
       name: "tags",
       title: "Tags",
       type: "array",
       of: [{ type: "reference", to: { type: "tag" } }],
+    },
+    {
+      name: "eventDate",
+      title: "Event Date",
+      type: "date",
+      options: { dateFormat: "YYYY-MM-DD", calendarTodayLabel: "Today" },
     },
   ],
   orderings: [

@@ -25,7 +25,7 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: var(--grayii);
+  color: var(--darkGray);
   font-size: 1.4rem;
 }
 
