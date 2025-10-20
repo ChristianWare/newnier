@@ -4,6 +4,7 @@ import { fleetData } from "@/lib/data";
 import type { Vehicle } from "@/lib/ypes/fleet";
 import FleetDetails from "./components/FleetDetails/FleetDetails";
 import FleetSlugPageIntro from "./components/FleetSlugPageIntro/FleetSlugPageIntro";
+import Nav from "@/components/shared/Nav/Nav";
 
 type Params = { slug: string };
 
@@ -28,6 +29,7 @@ export default async function Page({ params }: { params: Promise<Params> }) {
 
   return (
     <main>
+      <Nav />
       <FleetSlugPageIntro vehicle={vehicle} />
       <FleetDetails vehicle={vehicle} />
     </main>
