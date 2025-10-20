@@ -5,6 +5,8 @@ import type { Vehicle } from "@/lib/ypes/fleet";
 import FleetDetails from "./components/FleetDetails/FleetDetails";
 import FleetSlugPageIntro from "./components/FleetSlugPageIntro/FleetSlugPageIntro";
 import Nav from "@/components/shared/Nav/Nav";
+import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
+import Footer from "@/components/shared/Footer/Footer";
 
 type Params = { slug: string };
 
@@ -32,6 +34,8 @@ export default async function Page({ params }: { params: Promise<Params> }) {
       <Nav />
       <FleetSlugPageIntro vehicle={vehicle} />
       <FleetDetails vehicle={vehicle} />
+      <FinalCTA2 />
+      <Footer />
     </main>
   );
 }
