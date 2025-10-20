@@ -65,7 +65,7 @@ export default function AllBlogsPostsClient({
   }
 
   return (
-    <>
+    <section>
       <ul className={styles.tags}>
         {tagOptions.map((t) => (
           <li key={t._id}>
@@ -77,7 +77,7 @@ export default function AllBlogsPostsClient({
                 selectedSlug === t.slug.current ? styles.tagChipActive : "",
               ].join(" ")}
             >
-              #{t.name}
+              {t.name}
             </button>
           </li>
         ))}
@@ -100,6 +100,6 @@ export default function AllBlogsPostsClient({
           />
         ))}
       </div>
-    </>
+    </section>
   );
 }

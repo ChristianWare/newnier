@@ -36,6 +36,14 @@
   border-radius: 16px;
 }
 
+.digitalBox {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+
 .article {
   max-width: 900px;
   margin: 0 auto;
@@ -186,10 +194,11 @@
     justify-content: flex-start;
   }
 
-  .heading, .copy {
+  .heading,
+  .copy {
     text-align: left;
   }
-  
+
   .imgContainer {
     height: 30vh;
   }

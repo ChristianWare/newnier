@@ -3,6 +3,32 @@
   background-color: var(--tan);
 }
 
+.tags {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.tagChip {
+  background-color: var(--yellow);
+  color: var(--black);
+  font-weight: 600;
+  padding: 1rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.tagChipActive, .tagChip:hover {
+  background-color: var(--black);
+  color: var(--yellow);
+}
+
 .top {
   border-top: 1px solid var(--gray);
   padding-top: 2rem;
@@ -14,6 +40,8 @@
   grid-template-columns: repeat(3, 1fr);
   grid-column-gap: 2rem;
   grid-row-gap: 10rem;
+  border-top: 1px solid var(--darkGrayii);
+  padding-top: 2rem;
 }
 
 .filter {

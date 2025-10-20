@@ -13,6 +13,7 @@ import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 import Nav from "@/components/shared/Nav/Nav";
 import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
 import Footer from "@/components/shared/Footer/Footer";
+import Digital from "@/components/shared/Digital/Digital";
 
 type Post = {
   _id: string;
@@ -226,6 +227,9 @@ export default async function BlogPostPage({
             <div className={styles.right}>
               {coverSrc && (
                 <div className={styles.imgContainer}>
+                  <div className={styles.digitalBox}>
+                    <Digital size="large" />
+                  </div>
                   <Image
                     src={coverSrc}
                     alt={post?.coverImage?.alt || post!.title}

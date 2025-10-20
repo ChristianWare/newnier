@@ -2,6 +2,7 @@ import styles from "./BlogCardTwo.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
+import Digital from "@/components/shared/Digital/Digital";
 
 type CardPost = {
   title: string;
@@ -28,6 +29,9 @@ export default function BlogCardTwo({ post }: Props) {
       <Link href={post.href} className={styles.link} aria-label={post.title}>
         <div className={styles.top}>
           <div className={styles.imgContainer}>
+            <div className={styles.digitalBox}>
+              <Digital />
+            </div>
             {post.imageUrl ? (
               <Image
                 src={post.imageUrl}
