@@ -184,6 +184,10 @@
     height: 40vh;
   }
 
+  .heading {
+    width: 100%;
+  }
+
   .copy {
     width: 95%;
   }
