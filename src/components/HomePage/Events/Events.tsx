@@ -29,12 +29,8 @@ type EventPost = {
 
 async function getThisMonthsEventPosts(): Promise<EventPost[]> {
   const now = new Date();
-  const start = new Date(
-    Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1, 0, 0, 0)
-  );
-  const end = new Date(
-    Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1, 0, 0, 0)
-  );
+  const start = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1, 0, 0, 0));
+  const end = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 1, 0, 0, 0));
   const startISO = start.toISOString();
   const endISO = end.toISOString();
 
@@ -57,11 +53,7 @@ async function getThisMonthsEventPosts(): Promise<EventPost[]> {
       coverImage{asset, alt, _type}
     }
   `;
-  return client.fetch(
-    query,
-    { startISO, endISO },
-    { next: { revalidate: 60 } }
-  );
+  return client.fetch(query, { startISO, endISO }, { next: { revalidate: 60 } });
 }
 
 export default async function Events() {
@@ -72,7 +64,7 @@ export default async function Events() {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
-            <SectionHeading text='Local Events' />
+            <SectionHeading text="Local Events" />
             <div className={styles.iconContainer}>
               <Stariii className={styles.icon} />
               <Cog className={styles.icon} />
@@ -83,24 +75,14 @@ export default async function Events() {
               <Hosting className={styles.icon} />
             </div>
             <h3 className={styles.heading}>
-              We provide transportation to all <br className={styles.br} />{" "}
-              upcoming events in Phoenix and Beyond
+              We provide transportation to all <br className={styles.br} /> upcoming events in Phoenix and Beyond
             </h3>
           </div>
           <div className={styles.bottom}>
             <div className={styles.mapDataContainer}>
               {posts.map((event) => {
-                const dateStr = (event.eventDate ?? event.publishedAt).slice(
-                  0,
-                  10
-                );
-                const img = event.coverImage
-                  ? urlFor(event.coverImage)
-                      .width(1200)
-                      .height(800)
-                      .fit("crop")
-                      .url()
-                  : undefined;
+                const dateStr = (event.eventDate ?? event.publishedAt).slice(0, 10);
+                const img = event.coverImage ? urlFor(event.coverImage).width(1200).height(800).fit("crop").url() : undefined;
                 return (
                   <div key={event._id} className={styles.card}>
                     <div className={styles.cardLeft}>
@@ -121,24 +103,13 @@ export default async function Events() {
                     <div className={styles.cardRight}>
                       <div className={styles.meta}>
                         <h4 className={styles.title}>{event.title}</h4>
-                        {event.excerpt ? (
-                          <p className={styles.desc}>{event.excerpt}</p>
-                        ) : null}
+                        {event.excerpt ? <p className={styles.desc}>{event.excerpt}</p> : null}
                       </div>
                       <div className={styles.circlBtnContainer}>
-                        <Button
-                          btnType='arrowBtn'
-                          arrow
-                          href={`/blog/${event.slug.current}`}
-                        />
+                        <Button btnType="arrowBtn" arrow href={`/blog/${event.slug.current}`} />
                       </div>
                       <div className={styles.btnContainerii}>
-                        <Button
-                          href={`/blog/${event.slug.current}`}
-                          text='More details'
-                          btnType='navGray'
-                          arrow
-                        />
+                        <Button href={`/blog/${event.slug.current}`} text="More details" btnType="navGray" arrow />
                       </div>
                     </div>
                   </div>
@@ -146,12 +117,7 @@ export default async function Events() {
               })}
             </div>
             <div className={styles.btnContainer}>
-              <Button
-                href='/blog?tag=events'
-                text='See all events'
-                btnType='black'
-                arrow
-              />
+              <Button href="/blog?tag=events" text="See all events" btnType="black" arrow />
             </div>
           </div>
         </div>
