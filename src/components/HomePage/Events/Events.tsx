@@ -110,7 +110,12 @@ export default function Events() {
               ))}
             </div>
             <div className={styles.btnContainer}>
-              <Button href='/' text='See all events' btnType='black' arrow />
+              <Button
+                href='/blog?tag=events'
+                text='See all events'
+                btnType='black'
+                arrow
+              />
             </div>
           </div>
         </div>

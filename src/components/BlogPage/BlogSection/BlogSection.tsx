@@ -45,7 +45,7 @@ export default async function BlogSection() {
       <LayoutWrapper>
         <div className={styles.content}>
           <div className={styles.top}>
-            <h2 className={styles.heading}>Latest insights</h2>
+            <h2 className={`${styles.heading} h4`}>Latest insights</h2>
           </div>
 
           <div className={styles.bottom}>
