@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter_Tight } from "next/font/google";
+import { Inter_Tight, Sofia_Sans_Extra_Condensed } from "next/font/google";
 import "./globals.css";
 // import Nav from "@/components/shared/Nav/Nav";
 // import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
@@ -7,6 +7,12 @@ import "./globals.css";
 
 const InterTight = Inter_Tight({
   variable: "--interTight",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "800", "900"],
+});
+
+const sofia = Sofia_Sans_Extra_Condensed({
+  variable: "--sofia",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "800", "900"],
 });
@@ -23,12 +29,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${InterTight.variable}`}>
+      <body className={`${InterTight.variable} ${sofia.variable}`}>
         {/* <Nav /> */}
         {children}
         {/* <FinalCTA2 /> */}
         {/* <Footer /> */}
-        </body>
+      </body>
     </html>
   );
 }
