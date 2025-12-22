@@ -1,36 +1,41 @@
 // auth.ts
 import NextAuth, { type DefaultSession } from "next-auth";
+import { JWT } from "next-auth/jwt";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 
-import authConfig from "./auth.config"; // <- the lean config
+import authConfig from "./auth.config";
 import { db } from "@/lib/db";
 import { getUserByEmail } from "@/lib/user";
 import { LoginSchema } from "@/schemas/LoginSchema";
 import bcryptjs from "bcryptjs";
 
+export type AppRole = "USER" | "ADMIN" | "DRIVER";
+
 declare module "next-auth" {
   interface Session {
     user: {
-      role?: "USER" | "ADMIN";
+      role?: AppRole;
       userId?: string;
+      emailVerified?: Date | null;
     } & DefaultSession["user"];
   }
 }
 
-declare module "next-auth" {
+declare module "next-auth/jwt" {
   interface JWT {
-    role?: "USER" | "ADMIN";
+    role?: AppRole;
     userId?: string;
+    emailVerified?: Date | null;
   }
 }
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  // Spread the light options first
+  // Light options (used by middleware) first
   ...authConfig,
 
-  // Heavy stuff stays here (Node runtime)
+  // Heavy options (Node runtime)
   adapter: PrismaAdapter(db),
 
   providers: [
@@ -41,13 +46,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
     Credentials({
       name: "Credentials",
-      // Optional: define credentials fields for type safety/UI
-      // credentials: { email: {}, password: {} },
       authorize: async (credentials) => {
         const parsed = LoginSchema.safeParse(credentials);
         if (!parsed.success) return null;
 
         const { email, password } = parsed.data;
+
         const user = await getUserByEmail(email);
         if (!user || !user.password) return null;
 
@@ -62,6 +66,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
   events: {
     async linkAccount({ user }) {
+      // When Google is linked, mark verified
       await db.user.update({
         where: { id: user.id },
         data: { emailVerified: new Date() },
@@ -70,21 +75,32 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 
   callbacks: {
-    // This one CAN query the DB because it's in Node runtime (not middleware)
+    /**
+     * Server-side JWT callback (Node runtime) — allowed to hit the DB.
+     * We standardize token fields here so middleware & server agree:
+     * - token.userId
+     * - token.role
+     * - token.emailVerified
+     */
     async jwt({ token }) {
       if (!token.email) return token;
 
       const user = await getUserByEmail(token.email);
       if (!user) return token;
 
-      token.role = user.role as "USER" | "ADMIN";
       token.userId = user.id;
+      token.role = user.role as AppRole;
+      token.emailVerified = user.emailVerified ?? null;
+
       return token;
     },
 
     async session({ session, token }) {
-      if (token.role) session.user.role = token.role as "USER" | "ADMIN";
-      if (token.userId) session.user.userId = token.userId as string; // <-- fixed typo (was userID)
+      if (token.userId) session.user.userId = token.userId;
+      if (token.role) session.user.role = token.role;
+      if ("emailVerified" in token)
+        session.user.emailVerified = token.emailVerified ?? null;
+
       return session;
     },
   },

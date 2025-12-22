@@ -6,13 +6,15 @@ import authConfig from "./auth.config";
 
 export const { auth: withAuth } = NextAuth(authConfig);
 
-function getRole(req: any): "USER" | "ADMIN" | "DRIVER" | undefined {
-  // NextAuth v5 middleware attaches auth to req.auth
-  // Depending on config, role can be in req.auth.user.role or token-like fields.
+type AppRole = "USER" | "ADMIN" | "DRIVER";
+
+function getRole(req: any): AppRole | undefined {
+  // With the updated auth.config.ts we standardize on token.userId + token.role
+  // Role typically appears here in middleware:
   return (
     req?.auth?.user?.role ??
     req?.auth?.role ??
-    req?.auth?.user?.token?.role ??
+    req?.auth?.token?.role ??
     undefined
   );
 }
