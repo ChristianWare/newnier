@@ -100,7 +100,7 @@ export default function Nav({ color = "", hamburgerColor = "" }: NavProps) {
     { text: "Fleet", href: "/fleet" },
     { text: "About", href: "/about" },
     { text: "Blog", href: "/blog" },
-    { text: "My Account", href: "/reservations" },
+    { text: "My Account", href: "/account" },
     { text: "Contact", href: "/contact" },
   ];
 
@@ -163,7 +163,7 @@ export default function Nav({ color = "", hamburgerColor = "" }: NavProps) {
 
           <div className={styles.btnContainerii}>
             <Button
-              href='/'
+              href='/book'
               text='Book your Ride'
               btnType='navYellowBlackOutline'
               arrow
@@ -180,7 +180,7 @@ export default function Nav({ color = "", hamburgerColor = "" }: NavProps) {
 
         <div className={styles.btnContainer}>
           <Button
-            href='/'
+            href='/book'
             text='Book your Ride'
             btnType='navYellowBlackOutline'
             arrow
