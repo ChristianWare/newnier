@@ -121,7 +121,11 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 2rem 0rem;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--yellow600);
+}
+
+.card:nth-last-child(1) {
+  border-bottom: none;
 }
 
 .btnContainer {

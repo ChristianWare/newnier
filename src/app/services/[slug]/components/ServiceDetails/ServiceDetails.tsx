@@ -117,7 +117,7 @@ export default function ServiceDetails({ service }: { service: Service }) {
         <div className={styles.content}>
           <div className={styles.left}>
             <div className={styles.serviceoverview}>
-              <h2 className={`${styles.heading} h3`}>Service overview</h2>
+              <h2 className={styles.heading}>Service overview</h2>
               {service.description && (
                 <p className={styles.desc}>{service.description}</p>
               )}

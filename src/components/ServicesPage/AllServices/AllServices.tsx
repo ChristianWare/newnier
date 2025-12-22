@@ -12,6 +12,8 @@ import Rebooking from "@/components/icons/Rebooking/Rebooking";
 import LongDistance from "@/components/icons/LongDistance/LongDistance";
 import Wedding from "@/components/icons/Wedding/Wedding";
 import Golf from "@/components/icons/Golf/Golf";
+import Img1 from "../../../../public/images/airport.jpg";
+import Image from "next/image";
 
 const data = [
   {
@@ -113,6 +115,9 @@ export default function AllServices() {
                 <h3 className={styles.title}>{x.title}</h3>
                 <div className={styles.iconBox}>{x.icon}</div>
               </div>
+                <div className={styles.imgContainer}>
+                  <Image src={Img1} alt={x.title} fill className={styles.img} />
+                </div>
               <div>
                 <p className={styles.desc}>{x.description}</p>
                 <div className={styles.btnContainer}>

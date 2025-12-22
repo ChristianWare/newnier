@@ -20,6 +20,9 @@
 .heading {
   color: var(--tan);
   width: 80%;
+  font-family: var(--interTight);
+  text-transform: none;
+  letter-spacing: normal;
 }
 
 .mapDataContainer {
@@ -43,6 +46,7 @@
   font-size: 6.5rem;
   color: var(--yellow);
   font-weight: 600;
+  font-family: var(--sofia);
 }
 
 .cardRight {
