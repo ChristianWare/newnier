@@ -1,5 +1,6 @@
 .container {
   padding: 10rem 0rem;
+  padding-bottom: 0rem;
   background-color: var(--tan);
 }
 
@@ -34,7 +35,8 @@
   gap: 0.75rem;
 }
 
-.heading {
+.heading,
+.copy {
   color: var(--tan);
 }
 
@@ -55,7 +57,7 @@
     gap: 2rem;
   }
 
-  .heading {
+  .heading, .copy {
     text-align: center;
   }
 }

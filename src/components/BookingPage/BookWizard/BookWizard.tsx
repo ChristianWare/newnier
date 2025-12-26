@@ -1,9 +1,11 @@
 "use client";
 
+import styles from "./BookingWizard.module.css";
 import { useMemo, useState } from "react";
 import RoutePicker, { RoutePickerValue } from "../RoutePicker/RoutePicker";
 import { createBookingRequest } from "../../../../actions/bookings/createBookingRequest";
 import { useRouter } from "next/navigation";
+import LayoutWrapper from "@/components/shared/LayoutWrapper";
 
 type ServiceTypeDTO = {
   id: string;
@@ -127,7 +129,6 @@ export default function BookWizard({
 
   const pickupAtISO = useMemo(() => {
     if (!pickupDate || !pickupTime) return null;
-    // This creates a Date in local time
     const d = new Date(`${pickupDate}T${pickupTime}:00`);
     if (isNaN(d.getTime())) return null;
     return d.toISOString();
@@ -149,7 +150,6 @@ export default function BookWizard({
     if (!step2Ready || !service || !selectedVehicle || !route || !pickupAtISO)
       return;
 
-    // ✅ TS guard
     if (!route.pickup || !route.dropoff) return;
 
     const res = await createBookingRequest({
@@ -177,338 +177,228 @@ export default function BookWizard({
     router.push("/account");
   }
 
-
   return (
-    <div
-      style={{
-        border: "1px solid rgba(0,0,0,0.12)",
-        borderRadius: 16,
-        padding: "1rem",
-        maxWidth: 1100,
-      }}
-    >
-      {/* Step indicator */}
-      <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
-        {[1, 2, 3].map((n) => (
-          <div
-            key={n}
-            style={{
-              padding: "6px 10px",
-              borderRadius: 999,
-              border: "1px solid rgba(0,0,0,0.15)",
-              opacity: step === n ? 1 : 0.55,
-              fontSize: 13,
-            }}
-          >
-            Step {n}
-          </div>
-        ))}
-      </div>
-
-      {/* STEP 1 */}
-      {step === 1 && (
-        <div style={{ display: "grid", gap: 14 }}>
-          <h2 style={{ fontSize: 18, margin: 0 }}>Trip details</h2>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr 1fr 1fr",
-              gap: 12,
-            }}
-          >
-            <div style={{ display: "grid", gap: 6 }}>
-              <label style={{ fontSize: 12, opacity: 0.8 }}>Service</label>
-              <select
-                value={serviceTypeId}
-                onChange={(e) => setServiceTypeId(e.target.value)}
-                style={{
-                  padding: "0.7rem",
-                  borderRadius: 10,
-                  border: "1px solid rgba(0,0,0,0.15)",
-                }}
-              >
-                {serviceTypes.map((s) => (
-                  <option key={s.id} value={s.id}>
-                    {s.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div style={{ display: "grid", gap: 6 }}>
-              <label style={{ fontSize: 12, opacity: 0.8 }}>Pickup date</label>
-              <input
-                type='date'
-                value={pickupDate}
-                onChange={(e) => setPickupDate(e.target.value)}
-                style={{
-                  padding: "0.7rem",
-                  borderRadius: 10,
-                  border: "1px solid rgba(0,0,0,0.15)",
-                }}
-              />
-            </div>
-
-            <div style={{ display: "grid", gap: 6 }}>
-              <label style={{ fontSize: 12, opacity: 0.8 }}>Pickup time</label>
-              <input
-                type='time'
-                value={pickupTime}
-                onChange={(e) => setPickupTime(e.target.value)}
-                style={{
-                  padding: "0.7rem",
-                  borderRadius: 10,
-                  border: "1px solid rgba(0,0,0,0.15)",
-                }}
-              />
-            </div>
-
-            <div style={{ display: "grid", gap: 6 }}>
-              <label style={{ fontSize: 12, opacity: 0.8 }}>
-                Passengers / Luggage
-              </label>
+    <section className={styles.container}>
+      <LayoutWrapper>
+        <div className={styles.content}>
+          <div className={styles.stepIndicator}>
+            {[1, 2, 3].map((n) => (
               <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
-                  gap: 8,
-                }}
+                key={n}
+                className={`${styles.stepPill} ${
+                  step === n ? styles.stepPillActive : styles.stepPillInactive
+                }`}
               >
-                <input
-                  type='number'
-                  min={1}
-                  value={passengers}
-                  onChange={(e) => setPassengers(Number(e.target.value))}
-                  style={{
-                    padding: "0.7rem",
-                    borderRadius: 10,
-                    border: "1px solid rgba(0,0,0,0.15)",
-                  }}
-                />
-                <input
-                  type='number'
-                  min={0}
-                  value={luggage}
-                  onChange={(e) => setLuggage(Number(e.target.value))}
-                  style={{
-                    padding: "0.7rem",
-                    borderRadius: 10,
-                    border: "1px solid rgba(0,0,0,0.15)",
-                  }}
-                />
+                Step {n}
               </div>
-            </div>
+            ))}
           </div>
 
-          <RoutePicker value={route} onChange={setRoute} />
+          {step === 1 && (
+            <div className={styles.stepWrap}>
+              <h2 className={styles.h2}>Trip details</h2>
 
-          <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
-            <button
-              disabled={!step1Ready}
-              onClick={() => setStep(2)}
-              style={{
-                padding: "0.8rem 1rem",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.15)",
-                cursor: step1Ready ? "pointer" : "not-allowed",
-                opacity: step1Ready ? 1 : 0.5,
-              }}
-            >
-              Continue
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* STEP 2 */}
-      {step === 2 && (
-        <div style={{ display: "grid", gap: 14 }}>
-          <h2 style={{ fontSize: 18, margin: 0 }}>Choose vehicle</h2>
-
-          <div style={{ display: "grid", gap: 10 }}>
-            {eligibleVehicles.length === 0 && (
-              <div
-                style={{
-                  padding: "0.75rem",
-                  border: "1px solid rgba(0,0,0,0.12)",
-                  borderRadius: 12,
-                }}
-              >
-                No vehicles match your passenger/luggage count.
-              </div>
-            )}
-
-            {eligibleVehicles.map((v) => {
-              const isSelected = v.id === vehicleId;
-              const est =
-                route && service
-                  ? estimateCents({
-                      service,
-                      vehicle: v,
-                      miles: route.miles ?? null,
-                      minutes: route.minutes ?? null,
-                    })
-                  : null;
-
-              return (
-                <button
-                  key={v.id}
-                  onClick={() => setVehicleId(v.id)}
-                  style={{
-                    textAlign: "left",
-                    padding: "0.9rem",
-                    borderRadius: 14,
-                    border: isSelected
-                      ? "2px solid #111"
-                      : "1px solid rgba(0,0,0,0.12)",
-                    background: "white",
-                    cursor: "pointer",
-                    display: "grid",
-                    gap: 6,
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: 12,
-                    }}
+              <div className={styles.grid4}>
+                <div className={styles.field}>
+                  <label className={styles.label}>Service</label>
+                  <select
+                    value={serviceTypeId}
+                    onChange={(e) => setServiceTypeId(e.target.value)}
+                    className={styles.control}
                   >
-                    <div style={{ fontWeight: 600 }}>{v.name}</div>
-                    <div style={{ fontWeight: 600, opacity: 0.9 }}>
-                      {est == null ? "—" : `${centsToUsd(est)} (est.)`}
-                    </div>
+                    {serviceTypes.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className={styles.field}>
+                  <label className={styles.label}>Pickup date</label>
+                  <input
+                    type='date'
+                    value={pickupDate}
+                    onChange={(e) => setPickupDate(e.target.value)}
+                    className={styles.control}
+                  />
+                </div>
+
+                <div className={styles.field}>
+                  <label className={styles.label}>Pickup time</label>
+                  <input
+                    type='time'
+                    value={pickupTime}
+                    onChange={(e) => setPickupTime(e.target.value)}
+                    className={styles.control}
+                  />
+                </div>
+
+                <div className={styles.field}>
+                  <label className={styles.label}>Passengers / Luggage</label>
+                  <div className={styles.grid2}>
+                    <input
+                      type='number'
+                      min={1}
+                      value={passengers}
+                      onChange={(e) => setPassengers(Number(e.target.value))}
+                      className={styles.control}
+                    />
+                    <input
+                      type='number'
+                      min={0}
+                      value={luggage}
+                      onChange={(e) => setLuggage(Number(e.target.value))}
+                      className={styles.control}
+                    />
                   </div>
-                  <div style={{ fontSize: 13, opacity: 0.75 }}>
-                    Capacity: {v.capacity} • Luggage: {v.luggageCapacity}
-                    {v.description ? ` • ${v.description}` : ""}
-                  </div>
+                </div>
+              </div>
+
+              <RoutePicker value={route} onChange={setRoute} />
+
+              <div className={styles.actionsEnd}>
+                <button
+                  disabled={!step1Ready}
+                  onClick={() => setStep(2)}
+                  className={`${styles.button} ${
+                    step1Ready ? styles.buttonEnabled : styles.buttonDisabled
+                  }`}
+                >
+                  Continue
                 </button>
-              );
-            })}
-          </div>
+              </div>
+            </div>
+          )}
 
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 10,
-            }}
-          >
-            <button
-              onClick={() => setStep(1)}
-              style={{
-                padding: "0.8rem 1rem",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.15)",
-                cursor: "pointer",
-              }}
-            >
-              Back
-            </button>
+          {step === 2 && (
+            <div className={styles.stepWrap}>
+              <h2 className={styles.h2}>Choose vehicle</h2>
 
-            <button
-              disabled={!step2Ready}
-              onClick={() => setStep(3)}
-              style={{
-                padding: "0.8rem 1rem",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.15)",
-                cursor: step2Ready ? "pointer" : "not-allowed",
-                opacity: step2Ready ? 1 : 0.5,
-              }}
-            >
-              Continue
-            </button>
-          </div>
+              <div className={styles.stack}>
+                {eligibleVehicles.length === 0 && (
+                  <div className={styles.emptyBox}>
+                    No vehicles match your passenger/luggage count.
+                  </div>
+                )}
+
+                {eligibleVehicles.map((v) => {
+                  const isSelected = v.id === vehicleId;
+                  const est =
+                    route && service
+                      ? estimateCents({
+                          service,
+                          vehicle: v,
+                          miles: route.miles ?? null,
+                          minutes: route.minutes ?? null,
+                        })
+                      : null;
+
+                  return (
+                    <button
+                      key={v.id}
+                      onClick={() => setVehicleId(v.id)}
+                      className={`${styles.vehicleCard} ${
+                        isSelected ? styles.vehicleCardSelected : ""
+                      }`}
+                      type='button'
+                    >
+                      <div className={styles.vehicleRow}>
+                        <div className={styles.vehicleName}>{v.name}</div>
+                        <div className={styles.vehiclePrice}>
+                          {est == null ? "—" : `${centsToUsd(est)} (est.)`}
+                        </div>
+                      </div>
+                      <div className={styles.vehicleMeta}>
+                        Capacity: {v.capacity} • Luggage: {v.luggageCapacity}
+                        {v.description ? ` • ${v.description}` : ""}
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className={styles.actionsBetween}>
+                <button
+                  onClick={() => setStep(1)}
+                  className={styles.button}
+                  type='button'
+                >
+                  Back
+                </button>
+
+                <button
+                  disabled={!step2Ready}
+                  onClick={() => setStep(3)}
+                  className={`${styles.button} ${
+                    step2Ready ? styles.buttonEnabled : styles.buttonDisabled
+                  }`}
+                  type='button'
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className={styles.stepWrap}>
+              <h2 className={styles.h2}>Confirm request</h2>
+
+              <div className={styles.summaryCard}>
+                <div className={styles.summaryTitle}>{service?.name}</div>
+                <div className={styles.summaryLine}>
+                  {route?.pickup?.address} → {route?.dropoff?.address}
+                </div>
+                <div className={styles.summaryLine}>
+                  {route?.miles ?? "—"} mi • {route?.minutes ?? "—"} min •{" "}
+                  {passengers} passengers • {luggage} luggage
+                </div>
+                <div className={styles.summaryLine}>
+                  Vehicle: {selectedVehicle?.name ?? "—"} •{" "}
+                  {estimatedPrice == null
+                    ? "—"
+                    : `${centsToUsd(estimatedPrice)} (est.)`}
+                </div>
+                <div className={styles.summaryNote}>
+                  Dispatcher approval required. You’ll receive a payment link
+                  once approved.
+                </div>
+              </div>
+
+              <div className={styles.field}>
+                <label className={styles.label}>
+                  Special requests (child seat, wheelchair, extra stops, etc.)
+                </label>
+                <textarea
+                  value={specialRequests}
+                  onChange={(e) => setSpecialRequests(e.target.value)}
+                  rows={5}
+                  className={styles.textarea}
+                />
+              </div>
+
+              <div className={styles.actionsBetween}>
+                <button
+                  onClick={() => setStep(2)}
+                  className={styles.button}
+                  type='button'
+                >
+                  Back
+                </button>
+
+                <button
+                  onClick={submitBooking}
+                  className={styles.button}
+                  type='button'
+                >
+                  Submit request
+                </button>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-
-      {/* STEP 3 */}
-      {step === 3 && (
-        <div style={{ display: "grid", gap: 14 }}>
-          <h2 style={{ fontSize: 18, margin: 0 }}>Confirm request</h2>
-
-          <div
-            style={{
-              padding: "0.9rem",
-              borderRadius: 14,
-              border: "1px solid rgba(0,0,0,0.12)",
-              display: "grid",
-              gap: 6,
-            }}
-          >
-            <div style={{ fontWeight: 600 }}>{service?.name}</div>
-            <div style={{ fontSize: 13, opacity: 0.8 }}>
-              {route?.pickup?.address} → {route?.dropoff?.address}
-            </div>
-            <div style={{ fontSize: 13, opacity: 0.8 }}>
-              {route?.miles ?? "—"} mi • {route?.minutes ?? "—"} min •{" "}
-              {passengers} passengers • {luggage} luggage
-            </div>
-            <div style={{ fontSize: 13, opacity: 0.8 }}>
-              Vehicle: {selectedVehicle?.name ?? "—"} •{" "}
-              {estimatedPrice == null
-                ? "—"
-                : `${centsToUsd(estimatedPrice)} (est.)`}
-            </div>
-            <div style={{ fontSize: 12, opacity: 0.7 }}>
-              Dispatcher approval required. You’ll receive a payment link once
-              approved.
-            </div>
-          </div>
-
-          <div style={{ display: "grid", gap: 6 }}>
-            <label style={{ fontSize: 12, opacity: 0.8 }}>
-              Special requests (child seat, wheelchair, extra stops, etc.)
-            </label>
-            <textarea
-              value={specialRequests}
-              onChange={(e) => setSpecialRequests(e.target.value)}
-              rows={5}
-              style={{
-                padding: "0.8rem",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.15)",
-                resize: "vertical",
-              }}
-            />
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              gap: 10,
-            }}
-          >
-            <button
-              onClick={() => setStep(2)}
-              style={{
-                padding: "0.8rem 1rem",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.15)",
-                cursor: "pointer",
-              }}
-            >
-              Back
-            </button>
-
-            <button
-              onClick={submitBooking}
-              style={{
-                padding: "0.8rem 1rem",
-                borderRadius: 12,
-                border: "1px solid rgba(0,0,0,0.15)",
-                cursor: "pointer",
-              }}
-            >
-              Submit request
-            </button>
-          </div>
-        </div>
-      )}
-    </div>
+      </LayoutWrapper>
+    </section>
   );
 }

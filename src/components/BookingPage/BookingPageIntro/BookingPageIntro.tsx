@@ -19,9 +19,11 @@ export default function BookingPageIntro() {
           />
           <div className={styles.overlay} />
           <div className={styles.content}>
-            <SectionHeading text='Nier Transportation' color="tan" />
-
+            <SectionHeading text='Nier Transportation' color='tan' />
             <h1 className={styles.heading}>Book A ride </h1>
+            <p className={styles.copy}>
+              Request a ride. A dispatcher will confirm and send a payment link.
+            </p>
           </div>
         </div>
       </LayoutWrapper>

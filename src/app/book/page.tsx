@@ -50,11 +50,6 @@ export default async function BookPage() {
     <main>
       <Nav />
       <BookingPageIntro />
-      <h1 style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>Book a Ride</h1>
-      <p style={{ opacity: 0.75, marginBottom: "1.5rem" }}>
-        Request a ride. A dispatcher will confirm and send a payment link.
-      </p>
-
       <BookWizard serviceTypes={serviceTypes} vehicles={vehicles} />
     </main>
   );
