@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter_Tight, Sofia_Sans_Extra_Condensed } from "next/font/google";
 import "./globals.css";
-// import Nav from "@/components/shared/Nav/Nav";
+import Nav from "@/components/shared/Nav/Nav";
 // import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
 // import Footer from "@/components/shared/Footer/Footer";
 
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body className={`${InterTight.variable} ${sofia.variable}`}>
-        {/* <Nav /> */}
+        <Nav />
         {children}
         {/* <FinalCTA2 /> */}
         {/* <Footer /> */}

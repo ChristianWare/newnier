@@ -203,7 +203,6 @@ export default async function BlogPostPage({
 
   return (
     <>
-      <Nav />
       <main className={styles.container}>
         <LayoutWrapper>
           <div className={styles.top}>
@@ -228,7 +227,7 @@ export default async function BlogPostPage({
               {coverSrc && (
                 <div className={styles.imgContainer}>
                   <div className={styles.digitalBox}>
-                    <Digital size="large" />
+                    <Digital size='large' />
                   </div>
                   <Image
                     src={coverSrc}

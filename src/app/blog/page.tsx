@@ -8,7 +8,6 @@ import Nav from "@/components/shared/Nav/Nav";
 export default function BlogPage() {
   return (
     <main>
-      <Nav />
       <BlogPageIntro />
       {/* Anything that renders a client component using useSearchParams must be inside Suspense */}
       <Suspense

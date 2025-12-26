@@ -17,7 +17,6 @@ export default function ServiceDetailsClient({
 }) {
   return (
     <main>
-      <Nav />
       <ServiceSlugPageIntro service={service} />
       <ServiceDetails service={service} />
       <FinalCTA2 />

@@ -12,7 +12,6 @@ import { homeQuestions } from "@/lib/data";
 export default function FleetPage() {
   return (
     <main>
-      <Nav />
       <FleetPageIntro />
       <FleetPostHero />
       <Fleetii />

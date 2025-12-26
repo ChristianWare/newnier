@@ -9,7 +9,6 @@ import Nav from "@/components/shared/Nav/Nav";
 export default function ContactPage() {
   return (
     <main>
-      <Nav />
       <ContactPageIntro />
       <HowItWorks />
       <Testimonials />

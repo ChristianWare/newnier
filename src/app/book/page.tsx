@@ -48,7 +48,6 @@ export default async function BookPage() {
 
   return (
     <main>
-      <Nav />
       <BookingPageIntro />
       <BookWizard serviceTypes={serviceTypes} vehicles={vehicles} />
     </main>

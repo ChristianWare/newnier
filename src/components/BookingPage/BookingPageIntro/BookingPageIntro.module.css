@@ -17,6 +17,9 @@
 .img {
   object-fit: cover;
   z-index: 0;
+  object-fit: cover;
+  z-index: 0;
+  object-position: top;
 }
 
 .overlay {

@@ -11,7 +11,6 @@ import Nav from "@/components/shared/Nav/Nav";
 export default function ServicesPage() {
   return (
     <main>
-      <Nav />
       <ServicePageIntro />
       <ServicesPostHero />
       <AllServices />

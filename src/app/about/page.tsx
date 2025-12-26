@@ -14,7 +14,6 @@ import { aboutQuestions } from "@/lib/data";
 export default function AboutPage() {
   return (
     <main>
-      <Nav />
       <AboutPageIntro />
       <AboutNumbers />
       <Story />
