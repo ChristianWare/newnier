@@ -7,8 +7,8 @@ import Alert from "@/components/shared/Alert/Alert";
 import Button from "@/components/shared/Button/Button";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import Image from "next/image";
-import Yay from "../../../../public/images/yay.png";
-import Angry from "../../../../public/images/angry.png";
+import Yay from "../../../../public/images/areas.jpg";
+import Angry from "../../../../public/images/brewery.jpg";
 
 type Props = { token?: string };
 
