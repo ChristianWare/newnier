@@ -27,6 +27,7 @@ enum Role {
 
 enum BookingStatus {
   DRAFT
+  PENDING_REVIEW
   PENDING_PAYMENT
   CONFIRMED
   ASSIGNED
