@@ -128,7 +128,7 @@ function StatusTabs({ active }: { active: StatusFilter }) {
             ? "/admin/bookings?status=ALL"
             : `/admin/bookings?status=${s}`;
         return (
-          <a
+          <Link
             key={s}
             href={href}
             style={{
@@ -142,7 +142,7 @@ function StatusTabs({ active }: { active: StatusFilter }) {
             }}
           >
             {s}
-          </a>
+          </Link>
         );
       })}
     </div>
