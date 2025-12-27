@@ -258,7 +258,7 @@ model Booking {
   id String @id @default(cuid())
 
   userId String
-  user   User @relation("UserBookings", fields: [userId], references: [id], onDelete: Cascade)
+  user   User   @relation("UserBookings", fields: [userId], references: [id], onDelete: Cascade)
 
   serviceTypeId String
   serviceType   ServiceType @relation(fields: [serviceTypeId], references: [id])
@@ -271,8 +271,8 @@ model Booking {
 
   // Trip details
   pickupAt   DateTime
-  passengers Int @default(1)
-  luggage    Int @default(0)
+  passengers Int      @default(1)
+  luggage    Int      @default(0)
 
   pickupAddress String
   pickupPlaceId String?
@@ -322,7 +322,7 @@ model BookingAddon {
 
   type     AddonType
   label    String?
-  quantity Int @default(1)
+  quantity Int       @default(1)
 
   unitPriceCents  Int @default(0)
   totalPriceCents Int @default(0)
@@ -356,19 +356,21 @@ model Payment {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  checkoutUrl String?
 }
 
 model Assignment {
   id String @id @default(cuid())
 
-  bookingId String @unique
+  bookingId String  @unique
   booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
 
   driverId String
-  driver   User @relation("DriverAssignments", fields: [driverId], references: [id], onDelete: Cascade)
+  driver   User   @relation("DriverAssignments", fields: [driverId], references: [id], onDelete: Cascade)
 
   assignedById String?
-  assignedBy   User? @relation("AssignedByAdmin", fields: [assignedById], references: [id], onDelete: SetNull)
+  assignedBy   User?   @relation("AssignedByAdmin", fields: [assignedById], references: [id], onDelete: SetNull)
 
   // ✅ Optional: specific vehicle unit assigned for this trip
   vehicleUnitId String?
@@ -382,14 +384,14 @@ model Assignment {
 }
 
 model BookingStatusEvent {
-  id        String @id @default(cuid())
+  id        String  @id @default(cuid())
   bookingId String
   booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
 
   status BookingStatus
 
   createdById String?
-  createdBy   User? @relation("StatusEventsCreated", fields: [createdById], references: [id], onDelete: SetNull)
+  createdBy   User?   @relation("StatusEventsCreated", fields: [createdById], references: [id], onDelete: SetNull)
 
   createdAt DateTime @default(now())
 
