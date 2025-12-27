@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 import { welcomeHtml, welcomeText } from "./templates/welcome";
 
-const BRAND = process.env.BRAND_NAME || "Fonts & Footers";
+const BRAND = process.env.BRAND_NAME || "Nier Transportation";
 const CONTACT_FROM = process.env.CONTACT_FROM || process.env.SMTP_USER;
 
 function requireEnv(name: string) {
@@ -30,7 +30,7 @@ export async function sendWelcomeEmail(to: string, name?: string | null) {
   await transporter.sendMail({
     from: `${BRAND} <${CONTACT_FROM}>`,
     to,
-    subject: "Welcome to Fonts & Footers 🎉",
+    subject: "Welcome to Nier Transportation 🎉",
     html: welcomeHtml(name),
     text: welcomeText(name),
     headers: {

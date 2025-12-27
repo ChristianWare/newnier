@@ -70,7 +70,7 @@ export async function generateMetadata({
   // Sensible fallbacks if not found (lets the 404 page still have metadata)
   if (!post?._id) {
     return {
-      title: "Post not found | Fonts & Footers",
+      title: "Post not found | Nier Transportation",
       robots: { index: false },
     };
   }
@@ -78,7 +78,7 @@ export async function generateMetadata({
   const title = `${post.title}`;
   const description =
     post.excerpt ||
-    "Read this article from Fonts & Footers on direct-booking websites and growth for service businesses.";
+    "Read this article from Nier Transportation on direct-booking websites and growth for service businesses.";
   const ogImage = post.coverImage
     ? urlFor(post.coverImage).width(1200).height(630).fit("crop").url()
     : `${SITE_URL}/og-image.png`;
@@ -214,7 +214,7 @@ export default async function BlogPostPage({
                       {t.slug?.current ? (
                         <SectionHeading text={t.name} />
                       ) : (
-                        <SectionHeading text='Fonts & Footers' />
+                        <SectionHeading text='Nier Transportation' />
                       )}
                     </li>
                   ))}

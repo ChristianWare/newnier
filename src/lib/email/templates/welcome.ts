@@ -1,4 +1,4 @@
-const BRAND = process.env.BRAND_NAME || "Fonts & Footers";
+const BRAND = process.env.BRAND_NAME || "Nier Transportation";
 
 export function welcomeHtml(name?: string | null) {
   const sand = "#f4efe7";

@@ -33,7 +33,7 @@ export const generatePasswordResetToken = async (email: string) => {
   });
 };
 
-const BRAND = process.env.BRAND_NAME || "Fonts & Footers";
+const BRAND = process.env.BRAND_NAME || "Nier Transportation";
 const BASE_URL = process.env.BASE_URL || "";
 const RAW_FROM = (
   process.env.RESEND_FROM ||

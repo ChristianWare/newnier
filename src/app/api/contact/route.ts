@@ -16,7 +16,7 @@ type ContactPayload = {
   services?: string[];
 };
 
-const BRAND = process.env.BRAND_NAME || "Fonts & Footers";
+const BRAND = process.env.BRAND_NAME || "Nier Transportation";
 const CONTACT_TO = process.env.CONTACT_TO || process.env.SMTP_USER;
 const CONTACT_FROM = process.env.CONTACT_FROM || process.env.SMTP_USER;
 
