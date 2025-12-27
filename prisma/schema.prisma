@@ -162,10 +162,6 @@ model PasswordResetToken {
  * =========================
  */
 
-/**
- * Vehicle = VEHICLE CATEGORY (what customers pick)
- * Examples: "SUV", "Van", "Bus"
- */
 model Vehicle {
   id              String  @id @default(cuid())
   name            String
@@ -174,7 +170,10 @@ model Vehicle {
   luggageCapacity Int
   imageUrl        String?
 
-  // Pricing knobs (in cents) for category-level estimates
+  // ✅ NEW: category-level hourly minimums (SUV=2, Van/Bus=3)
+  minHours Int @default(0)
+
+  // Pricing knobs (in cents)
   baseFareCents  Int @default(0)
   perMileCents   Int @default(0)
   perMinuteCents Int @default(0)
@@ -183,49 +182,13 @@ model Vehicle {
   active    Boolean @default(true)
   sortOrder Int     @default(0)
 
-  // Relations
   bookings Booking[]
-  units    VehicleUnit[] // ✅ Individual vehicles under this category
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([active])
   @@index([sortOrder])
-}
-
-/**
- * VehicleUnit = INDIVIDUAL VEHICLE (what dispatch assigns)
- * Examples: "Escalade #1", "Sprinter #2"
- */
-model VehicleUnit {
-  id String @id @default(cuid())
-
-  name String
-
-  plate String?
-  vin   String?
-
-  notes String? @db.Text
-
-  // Belongs to a category
-  categoryId String
-  category   Vehicle @relation(fields: [categoryId], references: [id], onDelete: Cascade)
-
-  // Optional overrides (inherit from category if null)
-  capacityOverride        Int?
-  luggageCapacityOverride Int?
-
-  active Boolean @default(true)
-
-  // Which assignments used this unit
-  assignments Assignment[]
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@index([categoryId])
-  @@index([active])
 }
 
 model ServiceType {
@@ -263,7 +226,6 @@ model Booking {
   serviceTypeId String
   serviceType   ServiceType @relation(fields: [serviceTypeId], references: [id])
 
-  // Customer selects a VEHICLE CATEGORY (Vehicle)
   vehicleId String?
   vehicle   Vehicle? @relation(fields: [vehicleId], references: [id])
 
@@ -273,6 +235,9 @@ model Booking {
   pickupAt   DateTime
   passengers Int      @default(1)
   luggage    Int      @default(0)
+
+  // ✅ NEW: for HOURLY charters (optional so P2P doesn’t break)
+  charterHours Int?
 
   pickupAddress String
   pickupPlaceId String?
@@ -284,7 +249,7 @@ model Booking {
   dropoffLat     Decimal? @db.Decimal(10, 7)
   dropoffLng     Decimal? @db.Decimal(10, 7)
 
-  // Route estimates
+  // Route estimates (store what you calculate server-side)
   distanceMiles   Decimal? @db.Decimal(8, 2)
   durationMinutes Int?
 
@@ -356,8 +321,6 @@ model Payment {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  checkoutUrl String?
 }
 
 model Assignment {
@@ -372,15 +335,10 @@ model Assignment {
   assignedById String?
   assignedBy   User?   @relation("AssignedByAdmin", fields: [assignedById], references: [id], onDelete: SetNull)
 
-  // ✅ Optional: specific vehicle unit assigned for this trip
-  vehicleUnitId String?
-  vehicleUnit   VehicleUnit? @relation(fields: [vehicleUnitId], references: [id], onDelete: SetNull)
-
   assignedAt DateTime @default(now())
 
   @@index([driverId])
   @@index([assignedById])
-  @@index([vehicleUnitId])
 }
 
 model BookingStatusEvent {

@@ -45,7 +45,7 @@ export default async function AdminServicesPage() {
                     <form
                       action={async () => {
                         "use server";
-                        await toggleService(s.id, !s.active);
+                        await toggleService(s.id);
                       }}
                     >
                       <button type='submit' style={{ cursor: "pointer" }}>
@@ -70,6 +70,7 @@ function Th({ children }: { children: React.ReactNode }) {
     </th>
   );
 }
+
 function Td({
   children,
   style,

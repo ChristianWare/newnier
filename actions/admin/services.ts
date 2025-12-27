@@ -1,85 +1,172 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { db } from "@/lib/db";
 import { auth } from "../../auth";
-import { z } from "zod";
+import { slugify } from "@/lib/slugify";
+import { ServicePricingStrategy } from "@prisma/client";
 
-const ServiceSchema = z.object({
-  id: z.string().optional(),
-  name: z.string().min(2),
-  slug: z.string().min(2),
-  pricingStrategy: z.enum(["POINT_TO_POINT", "HOURLY", "FLAT"]),
-  minFareCents: z.coerce.number().int().min(0),
-  baseFeeCents: z.coerce.number().int().min(0),
-  perMileCents: z.coerce.number().int().min(0),
-  perMinuteCents: z.coerce.number().int().min(0),
-  perHourCents: z.coerce.number().int().min(0),
-  sortOrder: z.coerce.number().int().min(0),
-  active: z.coerce.boolean(),
-});
+function moneyToCents(v: FormDataEntryValue | null) {
+  const s = typeof v === "string" ? v.trim() : "";
+  if (!s) return 0;
+  const n = Number(s);
+  if (!Number.isFinite(n)) return 0;
+  return Math.round(n * 100);
+}
+
+function intFromForm(v: FormDataEntryValue | null) {
+  const s = typeof v === "string" ? v.trim() : "";
+  if (!s) return 0;
+  const n = parseInt(s, 10);
+  return Number.isFinite(n) ? n : 0;
+}
 
 async function requireAdmin() {
   const session = await auth();
-  if (!session?.user?.userId || session.user.role !== "ADMIN") {
-    throw new Error("Unauthorized");
-  }
-  return session;
+  const userId = session?.user?.userId;
+  if (!userId) throw new Error("Unauthorized");
+
+  const me = await db.user.findUnique({
+    where: { id: userId },
+    select: { role: true },
+  });
+
+  if (!me || me.role !== "ADMIN") throw new Error("Forbidden");
+  return { userId };
 }
 
 export async function createService(formData: FormData) {
-  await requireAdmin();
+  try {
+    await requireAdmin();
 
-  const parsed = ServiceSchema.safeParse(Object.fromEntries(formData));
-  if (!parsed.success) return { error: "Invalid service data." };
+    const name = String(formData.get("name") ?? "").trim();
+    if (!name) return { error: "Name is required." };
 
-  const data = parsed.data;
-  await db.serviceType.create({
-    data: {
-      name: data.name,
-      slug: data.slug,
-      pricingStrategy: data.pricingStrategy,
-      minFareCents: data.minFareCents,
-      baseFeeCents: data.baseFeeCents,
-      perMileCents: data.perMileCents,
-      perMinuteCents: data.perMinuteCents,
-      perHourCents: data.perHourCents,
-      sortOrder: data.sortOrder,
-      active: data.active,
-    },
-  });
+    const rawSlug = String(formData.get("slug") ?? "").trim();
+    const slug = rawSlug ? slugify(rawSlug) : slugify(name);
+    if (!slug) return { error: "Could not generate a slug." };
 
-  return { success: true };
+    const pricingStrategy = String(
+      formData.get("pricingStrategy") ?? "POINT_TO_POINT"
+    ) as ServicePricingStrategy;
+
+    const minFareCents = moneyToCents(formData.get("minFare"));
+    const baseFeeCents = moneyToCents(formData.get("baseFee"));
+    const perMileCents = moneyToCents(formData.get("perMile"));
+    const perMinuteCents = moneyToCents(formData.get("perMinute"));
+    const perHourCents = moneyToCents(formData.get("perHour"));
+
+    const sortOrder = intFromForm(formData.get("sortOrder"));
+    const active = formData.get("active") === "on";
+
+    const existing = await db.serviceType.findUnique({ where: { slug } });
+    if (existing) return { error: "That slug is already in use." };
+
+    await db.serviceType.create({
+      data: {
+        name,
+        slug,
+        pricingStrategy,
+        minFareCents,
+        baseFeeCents,
+        perMileCents,
+        perMinuteCents,
+        perHourCents,
+        sortOrder,
+        active,
+      },
+    });
+
+    revalidatePath("/admin/services");
+    return { success: "service added" };
+  } catch (e: any) {
+    return { error: e?.message ?? "Something went wrong." };
+  }
 }
 
-export async function updateService(formData: FormData) {
-  await requireAdmin();
+export async function updateService(serviceId: string, formData: FormData) {
+  try {
+    await requireAdmin();
 
-  const parsed = ServiceSchema.safeParse(Object.fromEntries(formData));
-  if (!parsed.success || !parsed.data.id)
-    return { error: "Invalid service data." };
+    const name = String(formData.get("name") ?? "").trim();
+    if (!name) return { error: "Name is required." };
 
-  const data = parsed.data;
-  await db.serviceType.update({
-    where: { id: data.id },
-    data: {
-      name: data.name,
-      slug: data.slug,
-      pricingStrategy: data.pricingStrategy,
-      minFareCents: data.minFareCents,
-      baseFeeCents: data.baseFeeCents,
-      perMileCents: data.perMileCents,
-      perMinuteCents: data.perMinuteCents,
-      perHourCents: data.perHourCents,
-      sortOrder: data.sortOrder,
-      active: data.active,
-    },
-  });
+    const rawSlug = String(formData.get("slug") ?? "").trim();
+    const slug = rawSlug ? slugify(rawSlug) : slugify(name);
+    if (!slug) return { error: "Could not generate a slug." };
 
-  return { success: true };
+    const pricingStrategy = String(
+      formData.get("pricingStrategy") ?? "POINT_TO_POINT"
+    ) as ServicePricingStrategy;
+
+    const minFareCents = moneyToCents(formData.get("minFare"));
+    const baseFeeCents = moneyToCents(formData.get("baseFee"));
+    const perMileCents = moneyToCents(formData.get("perMile"));
+    const perMinuteCents = moneyToCents(formData.get("perMinute"));
+    const perHourCents = moneyToCents(formData.get("perHour"));
+
+    const sortOrder = intFromForm(formData.get("sortOrder"));
+    const active = formData.get("active") === "on";
+
+    const existing = await db.serviceType.findUnique({ where: { slug } });
+    if (existing && existing.id !== serviceId) {
+      return { error: "That slug is already in use." };
+    }
+
+    await db.serviceType.update({
+      where: { id: serviceId },
+      data: {
+        name,
+        slug,
+        pricingStrategy,
+        minFareCents,
+        baseFeeCents,
+        perMileCents,
+        perMinuteCents,
+        perHourCents,
+        sortOrder,
+        active,
+      },
+    });
+
+    revalidatePath("/admin/services");
+    revalidatePath(`/admin/services/${serviceId}`);
+    return { success: "service updated" };
+  } catch (e: any) {
+    return { error: e?.message ?? "Something went wrong." };
+  }
 }
 
-export async function toggleService(id: string, active: boolean) {
-  await requireAdmin();
-  await db.serviceType.update({ where: { id }, data: { active } });
-  return { success: true };
+// Keep toggle behavior (page.tsx calls with only the id)
+export async function toggleService(serviceId: string) {
+  try {
+    await requireAdmin();
+
+    const current = await db.serviceType.findUnique({
+      where: { id: serviceId },
+      select: { active: true },
+    });
+    if (!current) return { error: "Service not found." };
+
+    await db.serviceType.update({
+      where: { id: serviceId },
+      data: { active: !current.active },
+    });
+
+    revalidatePath("/admin/services");
+    return { success: "service updated" };
+  } catch (e: any) {
+    return { error: e?.message ?? "Something went wrong." };
+  }
+}
+
+export async function deleteService(serviceId: string) {
+  try {
+    await requireAdmin();
+    await db.serviceType.delete({ where: { id: serviceId } });
+    revalidatePath("/admin/services");
+    return { success: "service deleted" };
+  } catch (e: any) {
+    return { error: e?.message ?? "Something went wrong." };
+  }
 }
