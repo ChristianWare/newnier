@@ -2,8 +2,6 @@ import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import BookWizard from "@/components/BookingPage/BookWizard/BookWizard";
-import Nav from "@/components/shared/Nav/Nav";
-import Hero from "@/components/HomePage/Hero/Hero";
 import BookingPageIntro from "@/components/BookingPage/BookingPageIntro/BookingPageIntro";
 
 export const runtime = "nodejs";
@@ -39,6 +37,10 @@ export default async function BookPage() {
       capacity: true,
       luggageCapacity: true,
       imageUrl: true,
+
+      // ✅ needed for HOURLY pricing min enforcement
+      minHours: true,
+
       baseFareCents: true,
       perMileCents: true,
       perMinuteCents: true,

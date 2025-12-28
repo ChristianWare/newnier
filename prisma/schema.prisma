@@ -191,7 +191,6 @@ model Vehicle {
   @@index([sortOrder])
 }
 
-
 model ServiceType {
   id   String @id @default(cuid())
   name String
@@ -236,6 +235,10 @@ model Booking {
   pickupAt   DateTime
   passengers Int      @default(1)
   luggage    Int      @default(0)
+
+  // Hourly services
+  hoursRequested Int?
+  hoursBilled    Int?
 
   // ✅ NEW: for HOURLY charters (optional so P2P doesn’t break)
   charterHours Int?

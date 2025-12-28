@@ -1,101 +1,111 @@
 "use server";
 
-import { auth } from "../../auth";
 import { db } from "@/lib/db";
-import { Prisma } from "@prisma/client";
+import { auth } from "../../auth";
+import { calcQuoteCents } from "@/lib/pricing/calcQuote";
+import { BookingStatus } from "@prisma/client";
 
-type LatLng = { lat: number; lng: number };
-
-export type CreateBookingRequestInput = {
+type CreateBookingRequestInput = {
   serviceTypeId: string;
-  pickupAtISO: string; // ISO string from client
+  vehicleId?: string | null;
+
+  pickupAt: string; // ISO
   passengers: number;
   luggage: number;
 
   pickupAddress: string;
   pickupPlaceId?: string | null;
-  pickupLocation: LatLng;
+  pickupLat?: number | null;
+  pickupLng?: number | null;
 
   dropoffAddress: string;
   dropoffPlaceId?: string | null;
-  dropoffLocation: LatLng;
+  dropoffLat?: number | null;
+  dropoffLng?: number | null;
 
   distanceMiles?: number | null;
   durationMinutes?: number | null;
 
-  vehicleId: string;
+  // NEW for hourly
+  hoursRequested?: number | null;
 
   specialRequests?: string | null;
 };
 
 export async function createBookingRequest(input: CreateBookingRequestInput) {
   const session = await auth();
-  if (!session?.user?.userId) {
-    return { error: "You must be signed in to book." };
-  }
+  const userId = session?.user?.userId;
+  if (!userId) return { error: "Unauthorized" as const };
 
-  const pickupAt = new Date(input.pickupAtISO);
-  if (isNaN(pickupAt.getTime())) return { error: "Invalid pickup date/time." };
-
-  // Basic validation
-  if (!input.pickupAddress || !input.dropoffAddress) {
-    return { error: "Pickup and dropoff are required." };
-  }
-
-  // Capacity check (server-truth)
-  const vehicle = await db.vehicle.findUnique({
-    where: { id: input.vehicleId },
+  const service = await db.serviceType.findUnique({
+    where: { id: input.serviceTypeId },
   });
-  if (!vehicle || !vehicle.active) return { error: "Vehicle not available." };
+  if (!service || !service.active)
+    return { error: "Service not available" as const };
 
-  if (input.passengers > vehicle.capacity) {
-    return { error: "Selected vehicle does not support that many passengers." };
+  const vehicle = input.vehicleId
+    ? await db.vehicle.findUnique({ where: { id: input.vehicleId } })
+    : null;
+
+  // If they selected a vehicle, ensure active
+  if (input.vehicleId && (!vehicle || !vehicle.active)) {
+    return { error: "Vehicle not available" as const };
   }
-  if (input.luggage > vehicle.luggageCapacity) {
-    return { error: "Selected vehicle does not support that much luggage." };
-  }
+
+  const quote = calcQuoteCents({
+    pricingStrategy: service.pricingStrategy,
+    distanceMiles: input.distanceMiles ?? null,
+    durationMinutes: input.durationMinutes ?? null,
+    hoursRequested: input.hoursRequested ?? null,
+    vehicleMinHours: vehicle?.minHours ?? 0,
+
+    serviceMinFareCents: service.minFareCents,
+    serviceBaseFeeCents: service.baseFeeCents,
+    servicePerMileCents: service.perMileCents,
+    servicePerMinuteCents: service.perMinuteCents,
+    servicePerHourCents: service.perHourCents,
+
+    vehicleBaseFareCents: vehicle?.baseFareCents ?? 0,
+    vehiclePerMileCents: vehicle?.perMileCents ?? 0,
+    vehiclePerMinuteCents: vehicle?.perMinuteCents ?? 0,
+    vehiclePerHourCents: vehicle?.perHourCents ?? 0,
+  });
 
   const booking = await db.booking.create({
     data: {
-      userId: session.user.userId,
-      serviceTypeId: input.serviceTypeId,
-      vehicleId: input.vehicleId,
+      userId,
+      serviceTypeId: service.id,
+      vehicleId: vehicle?.id ?? null,
 
-      status: "PENDING_REVIEW",
+      status: BookingStatus.PENDING_REVIEW,
 
-      pickupAt,
+      pickupAt: new Date(input.pickupAt),
       passengers: input.passengers,
       luggage: input.luggage,
 
       pickupAddress: input.pickupAddress,
       pickupPlaceId: input.pickupPlaceId ?? null,
-      pickupLat: new Prisma.Decimal(input.pickupLocation.lat),
-      pickupLng: new Prisma.Decimal(input.pickupLocation.lng),
+      pickupLat: input.pickupLat ?? null,
+      pickupLng: input.pickupLng ?? null,
 
       dropoffAddress: input.dropoffAddress,
       dropoffPlaceId: input.dropoffPlaceId ?? null,
-      dropoffLat: new Prisma.Decimal(input.dropoffLocation.lat),
-      dropoffLng: new Prisma.Decimal(input.dropoffLocation.lng),
+      dropoffLat: input.dropoffLat ?? null,
+      dropoffLng: input.dropoffLng ?? null,
 
-      distanceMiles:
-        typeof input.distanceMiles === "number"
-          ? new Prisma.Decimal(input.distanceMiles)
-          : null,
-      durationMinutes:
-        typeof input.durationMinutes === "number"
-          ? input.durationMinutes
-          : null,
+      distanceMiles: input.distanceMiles ?? null,
+      durationMinutes: input.durationMinutes ?? null,
+
+      // NEW: hourly tracking
+      hoursRequested: quote.requestedHours ?? input.hoursRequested ?? null,
+      hoursBilled: quote.billedHours ?? null,
 
       specialRequests: input.specialRequests ?? null,
 
-      // totals are dispatcher-set in Phase 1
-      subtotalCents: 0,
-      feesCents: 0,
-      taxesCents: 0,
-      totalCents: 0,
+      subtotalCents: quote.subtotalCents,
+      totalCents: quote.totalCents,
     },
-    select: { id: true },
   });
 
-  return { success: true, bookingId: booking.id };
+  return { success: true as const, bookingId: booking.id };
 }

@@ -13,8 +13,14 @@ export type RoutePickerPlace = {
 export type RoutePickerValue = {
   pickup: RoutePickerPlace | null;
   dropoff: RoutePickerPlace | null;
+
+  // ✅ keep existing names (your app already uses these)
   miles: number | null;
   minutes: number | null;
+
+  // ✅ aliases so the booking wizard can use them too
+  distanceMiles?: number | null;
+  durationMinutes?: number | null;
 };
 
 declare global {
@@ -25,12 +31,14 @@ declare global {
 
 const loadGoogleMaps = (browserKey: string) => {
   return new Promise<void>((resolve, reject) => {
-    if (window.google?.maps?.places && window.google?.maps?.geometry)
+    if (window.google?.maps?.places && window.google?.maps?.geometry) {
       return resolve();
+    }
 
     const existing = document.querySelector<HTMLScriptElement>(
       'script[data-google-maps="1"]'
     );
+
     if (existing) {
       existing.addEventListener("load", () => resolve());
       existing.addEventListener("error", () =>
@@ -75,11 +83,18 @@ export default function RoutePicker({
   const [error, setError] = useState("");
   const [loadingRoute, setLoadingRoute] = useState(false);
 
+  // ✅ keep latest value in a ref to avoid stale closures inside listeners
+  const latestValueRef = useRef<RoutePickerValue | null>(value);
+  useEffect(() => {
+    latestValueRef.current = value;
+  }, [value]);
+
   const pickup = value?.pickup ?? null;
   const dropoff = value?.dropoff ?? null;
 
   const canRoute = useMemo(() => !!pickup && !!dropoff, [pickup, dropoff]);
 
+  // Init maps + autocomplete (runs once when key exists)
   useEffect(() => {
     if (!browserKey) {
       setError("Missing NEXT_PUBLIC_GOOGLE_MAPS_BROWSER_KEY");
@@ -97,7 +112,7 @@ export default function RoutePicker({
 
         if (!mapInstance.current && mapRef.current) {
           mapInstance.current = new google.maps.Map(mapRef.current, {
-            center: { lat: 33.4484, lng: -112.074 },
+            center: { lat: 33.4484, lng: -112.074 }, // Phoenix
             zoom: 10,
             mapTypeControl: false,
             streetViewControl: false,
@@ -105,6 +120,7 @@ export default function RoutePicker({
           });
         }
 
+        // Pickup autocomplete
         if (pickupRef.current) {
           const ac = new google.maps.places.Autocomplete(pickupRef.current, {
             fields: ["place_id", "formatted_address", "geometry"],
@@ -116,19 +132,28 @@ export default function RoutePicker({
             const loc = place?.geometry?.location;
             if (!place?.place_id || !place?.formatted_address || !loc) return;
 
+            const latest = latestValueRef.current;
+
             onChange({
               pickup: {
                 placeId: place.place_id,
                 address: place.formatted_address,
                 location: { lat: loc.lat(), lng: loc.lng() },
               },
-              dropoff,
-              miles: value?.miles ?? null,
-              minutes: value?.minutes ?? null,
+              dropoff: latest?.dropoff ?? null,
+
+              // keep existing
+              miles: latest?.miles ?? null,
+              minutes: latest?.minutes ?? null,
+
+              // aliases
+              distanceMiles: latest?.distanceMiles ?? null,
+              durationMinutes: latest?.durationMinutes ?? null,
             });
           });
         }
 
+        // Dropoff autocomplete
         if (dropoffRef.current) {
           const ac = new google.maps.places.Autocomplete(dropoffRef.current, {
             fields: ["place_id", "formatted_address", "geometry"],
@@ -140,15 +165,23 @@ export default function RoutePicker({
             const loc = place?.geometry?.location;
             if (!place?.place_id || !place?.formatted_address || !loc) return;
 
+            const latest = latestValueRef.current;
+
             onChange({
-              pickup,
+              pickup: latest?.pickup ?? null,
               dropoff: {
                 placeId: place.place_id,
                 address: place.formatted_address,
                 location: { lat: loc.lat(), lng: loc.lng() },
               },
-              miles: value?.miles ?? null,
-              minutes: value?.minutes ?? null,
+
+              // keep existing
+              miles: latest?.miles ?? null,
+              minutes: latest?.minutes ?? null,
+
+              // aliases
+              distanceMiles: latest?.distanceMiles ?? null,
+              durationMinutes: latest?.durationMinutes ?? null,
             });
           });
         }
@@ -160,10 +193,9 @@ export default function RoutePicker({
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [browserKey]);
+  }, [browserKey, onChange]);
 
-  // Markers
+  // Markers (and basic bounds when both points exist)
   useEffect(() => {
     const google = window.google;
     if (!google?.maps || !mapInstance.current) return;
@@ -175,6 +207,9 @@ export default function RoutePicker({
         pickupMarker.current = new google.maps.Marker({ map });
       pickupMarker.current.setPosition(pickup.location);
       pickupMarker.current.setLabel("A");
+    } else if (pickupMarker.current) {
+      pickupMarker.current.setMap(null);
+      pickupMarker.current = null;
     }
 
     if (dropoff) {
@@ -182,8 +217,12 @@ export default function RoutePicker({
         dropoffMarker.current = new google.maps.Marker({ map });
       dropoffMarker.current.setPosition(dropoff.location);
       dropoffMarker.current.setLabel("B");
+    } else if (dropoffMarker.current) {
+      dropoffMarker.current.setMap(null);
+      dropoffMarker.current = null;
     }
 
+    // If both exist and no polyline yet, fit to endpoints
     if (pickup && dropoff && !routePolyline.current) {
       const bounds = new google.maps.LatLngBounds();
       bounds.extend(pickup.location);
@@ -196,16 +235,20 @@ export default function RoutePicker({
   useEffect(() => {
     const google = window.google;
 
-    if (!canRoute) {
+    // If missing either, clear polyline + clear miles/minutes
+    if (!pickup || !dropoff) {
       if (routePolyline.current) {
         routePolyline.current.setMap(null);
         routePolyline.current = null;
       }
+
       onChange({
         pickup,
         dropoff,
         miles: null,
         minutes: null,
+        distanceMiles: null,
+        durationMinutes: null,
       });
       return;
     }
@@ -223,29 +266,40 @@ export default function RoutePicker({
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            origin: pickup!.location,
-            destination: dropoff!.location,
+            origin: pickup.location,
+            destination: dropoff.location,
           }),
         });
 
         const data = await res.json();
-        if (!res.ok)
+        if (!res.ok) {
           throw new Error(data?.details || data?.error || "Route failed");
-
+        }
         if (cancelled) return;
+
+        const miles = data.miles ?? null;
+        const minutes = data.minutes ?? null;
 
         onChange({
           pickup,
           dropoff,
-          miles: data.miles ?? null,
-          minutes: data.minutes ?? null,
+
+          // original
+          miles,
+          minutes,
+
+          // aliases
+          distanceMiles: miles,
+          durationMinutes: minutes,
         });
 
+        // Clear old polyline
         if (routePolyline.current) {
           routePolyline.current.setMap(null);
           routePolyline.current = null;
         }
 
+        // Draw new polyline
         if (data.encodedPolyline) {
           const geom = google.maps.geometry?.encoding;
           if (geom?.decodePath) {
@@ -276,8 +330,20 @@ export default function RoutePicker({
     return () => {
       cancelled = true;
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [canRoute]);
+    // ✅ depend on the actual pickup/dropoff identity so it recomputes on changes
+  }, [
+    pickup?.placeId,
+    dropoff?.placeId,
+    pickup?.location?.lat,
+    pickup?.location?.lng,
+    dropoff?.location?.lat,
+    dropoff?.location?.lng,
+    onChange,
+  ]);
+
+  const displayMiles = value?.miles ?? value?.distanceMiles ?? null;
+
+  const displayMinutes = value?.minutes ?? value?.durationMinutes ?? null;
 
   return (
     <div style={{ display: "grid", gap: 10 }}>
@@ -329,14 +395,14 @@ export default function RoutePicker({
         <div>
           <div style={{ fontSize: 12, opacity: 0.7 }}>Distance</div>
           <div style={{ fontSize: 18 }}>
-            {value?.miles == null ? "—" : `${value.miles} mi`}
+            {displayMiles == null ? "—" : `${displayMiles} mi`}
           </div>
         </div>
 
         <div>
           <div style={{ fontSize: 12, opacity: 0.7 }}>Duration</div>
           <div style={{ fontSize: 18 }}>
-            {value?.minutes == null ? "—" : `${value.minutes} min`}
+            {displayMinutes == null ? "—" : `${displayMinutes} min`}
           </div>
         </div>
 
