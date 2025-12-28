@@ -285,7 +285,7 @@ export default function BookingWizard({
 
             {step === 1 ? (
               <div style={{ display: "grid", gap: 14 }}>
-                <h2 style={{ margin: 0, fontSize: 18 }}>Trip details</h2>
+                <h2 className={styles.heading}>Trip details</h2>
 
                 <div style={{ display: "grid", gap: 8 }}>
                   <label style={labelStyle}>Service</label>

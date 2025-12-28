@@ -1,11 +1,21 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Sofia_Sans_Extra_Condensed } from "next/font/google";
+import {
+  Inter,
+  Inter_Tight,
+  Sofia_Sans_Extra_Condensed,
+} from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/shared/Nav/Nav";
 import { Toaster } from "react-hot-toast";
 
 const InterTight = Inter_Tight({
   variable: "--interTight",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "800", "900"],
+});
+
+const inter = Inter({
+  variable: "--inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "800", "900"],
 });
@@ -28,7 +38,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={`${InterTight.variable} ${sofia.variable}`}>
+      <body
+        className={`${InterTight.variable} ${sofia.variable} ${inter.variable}`}
+      >
         <Toaster
           position='bottom-right'
           toastOptions={{
