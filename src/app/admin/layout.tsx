@@ -2,6 +2,7 @@ import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import styles from './AdminLayout.module.css'
+import AdminSideNav from "@/components/admin/AdminSideNav/AdminSideNav";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -26,36 +27,7 @@ export default async function AdminLayout({
       }}
       className={styles.container}
     >
-      <aside
-        style={{
-          borderRight: "1px solid rgba(0,0,0,0.1)",
-          padding: "1rem",
-        }}
-      >
-        <div style={{ fontWeight: 700, marginBottom: 16 }}>Admin</div>
-
-        <nav style={{ display: "grid", gap: 10, fontSize: 14 }}>
-          <Link href='/admin'>Dashboard</Link>
-
-          <div style={{ marginTop: 10, fontWeight: 600, opacity: 0.8 }}>
-            Bookings
-          </div>
-          <Link href='/admin/bookings'>All bookings</Link>
-
-          <div style={{ marginTop: 10, fontWeight: 600, opacity: 0.8 }}>
-            Catalog
-          </div>
-          <Link href='/admin/services'>Services</Link>
-          <Link href='/admin/vehicle-categories'>Vehicle categories</Link>
-          <Link href='/admin/vehicles'>Vehicles (units)</Link>
-
-          <div style={{ marginTop: 10, fontWeight: 600, opacity: 0.8 }}>
-            People
-          </div>
-          <Link href='/admin/users'>Users</Link>
-          <Link href='/admin/drivers'>Drivers</Link>
-        </nav>
-      </aside>
+      <AdminSideNav />
 
       <main style={{ padding: "1.25rem" }}>{children}</main>
     </div>
