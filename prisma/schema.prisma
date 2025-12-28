@@ -170,7 +170,7 @@ model Vehicle {
   luggageCapacity Int
   imageUrl        String?
 
-  // ✅ NEW: category-level hourly minimums (SUV=2, Van/Bus=3)
+  // NEW: minimum billable hours for HOURLY services (SUV 2, Vans/Buses 3)
   minHours Int @default(0)
 
   // Pricing knobs (in cents)
@@ -190,6 +190,7 @@ model Vehicle {
   @@index([active])
   @@index([sortOrder])
 }
+
 
 model ServiceType {
   id   String @id @default(cuid())
