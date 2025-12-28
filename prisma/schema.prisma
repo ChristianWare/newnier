@@ -160,6 +160,8 @@ model PasswordResetToken {
  * =========================
  * BOOKING / OPERATIONS MODELS
  * =========================
+ * Vehicle = "Vehicle Category" (SUV, Van, Bus)
+ * VehicleUnit = individual unit (Escalade #1, Sprinter #2, etc)
  */
 
 model Vehicle {
@@ -170,7 +172,7 @@ model Vehicle {
   luggageCapacity Int
   imageUrl        String?
 
-  // NEW: minimum billable hours for HOURLY services (SUV 2, Vans/Buses 3)
+  // Minimum billable hours for HOURLY services (SUV 2, Vans/Buses 3)
   minHours Int @default(0)
 
   // Pricing knobs (in cents)
@@ -182,6 +184,9 @@ model Vehicle {
   active    Boolean @default(true)
   sortOrder Int     @default(0)
 
+  // ✅ Units in this category
+  units VehicleUnit[] @relation("VehicleCategoryUnits")
+
   bookings Booking[]
 
   createdAt DateTime @default(now())
@@ -189,6 +194,26 @@ model Vehicle {
 
   @@index([active])
   @@index([sortOrder])
+}
+
+model VehicleUnit {
+  id String @id @default(cuid())
+
+  name  String
+  plate String? // optional for now ✅
+
+  // Unit belongs to a Vehicle "category"
+  categoryId String?
+  category   Vehicle? @relation("VehicleCategoryUnits", fields: [categoryId], references: [id], onDelete: SetNull)
+
+  active Boolean @default(true)
+
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  assignments Assignment[]
+
+  @@index([categoryId])
+  @@index([active])
 }
 
 model ServiceType {
@@ -226,6 +251,7 @@ model Booking {
   serviceTypeId String
   serviceType   ServiceType @relation(fields: [serviceTypeId], references: [id])
 
+  // Selected category
   vehicleId String?
   vehicle   Vehicle? @relation(fields: [vehicleId], references: [id])
 
@@ -240,8 +266,8 @@ model Booking {
   hoursRequested Int?
   hoursBilled    Int?
 
-  // ✅ NEW: for HOURLY charters (optional so P2P doesn’t break)
-  charterHours Int?
+  // (Optional / can remove later) if you’re not using it:
+  // charterHours Int?
 
   pickupAddress String
   pickupPlaceId String?
@@ -253,7 +279,7 @@ model Booking {
   dropoffLat     Decimal? @db.Decimal(10, 7)
   dropoffLng     Decimal? @db.Decimal(10, 7)
 
-  // Route estimates (store what you calculate server-side)
+  // Route estimates
   distanceMiles   Decimal? @db.Decimal(8, 2)
   durationMinutes Int?
 
@@ -333,8 +359,13 @@ model Assignment {
   bookingId String  @unique
   booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
 
+  // Assign a DRIVER user
   driverId String
   driver   User   @relation("DriverAssignments", fields: [driverId], references: [id], onDelete: Cascade)
+
+  // ✅ Optional: assign a specific vehicle unit too (recommended for dispatch)
+  vehicleUnitId String?
+  vehicleUnit   VehicleUnit? @relation(fields: [vehicleUnitId], references: [id], onDelete: SetNull)
 
   assignedById String?
   assignedBy   User?   @relation("AssignedByAdmin", fields: [assignedById], references: [id], onDelete: SetNull)
@@ -343,6 +374,7 @@ model Assignment {
 
   @@index([driverId])
   @@index([assignedById])
+  @@index([vehicleUnitId])
 }
 
 model BookingStatusEvent {

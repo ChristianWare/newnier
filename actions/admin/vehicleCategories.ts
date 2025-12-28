@@ -1,93 +1,128 @@
 "use server";
 
-import { z } from "zod";
 import { db } from "@/lib/db";
 import { auth } from "../../auth";
+import { revalidatePath } from "next/cache";
+
+function toInt(v: FormDataEntryValue | null, fallback = 0) {
+  const n = Number(v ?? fallback);
+  return Number.isFinite(n) ? Math.trunc(n) : fallback;
+}
+
+function toString(v: FormDataEntryValue | null) {
+  const s = (v ?? "").toString().trim();
+  return s.length ? s : null;
+}
 
 async function requireAdmin() {
   const session = await auth();
-  if (!session?.user?.userId || session.user.role !== "ADMIN") {
-    throw new Error("Unauthorized");
+  const role = session?.user?.role;
+  if (!session?.user || role !== "ADMIN") {
+    return { error: "Unauthorized" as const };
   }
-  return session;
+  return { session };
 }
-
-const VehicleCategorySchema = z.object({
-  id: z.string().optional(),
-
-  name: z.string().min(2),
-  description: z.string().optional().nullable(),
-  capacity: z.coerce.number().int().min(1),
-  luggageCapacity: z.coerce.number().int().min(0),
-  imageUrl: z.string().optional().nullable(),
-
-  baseFareCents: z.coerce.number().int().min(0),
-  perMileCents: z.coerce.number().int().min(0),
-  perMinuteCents: z.coerce.number().int().min(0),
-  perHourCents: z.coerce.number().int().min(0),
-
-  sortOrder: z.coerce.number().int().min(0),
-  active: z.coerce.boolean(),
-});
 
 export async function createVehicleCategory(formData: FormData) {
-  await requireAdmin();
-  const parsed = VehicleCategorySchema.safeParse(Object.fromEntries(formData));
-  if (!parsed.success) return { error: "Invalid vehicle category data." };
+  const gate = await requireAdmin();
+  if ("error" in gate) return { error: gate.error };
 
-  const d = parsed.data;
+  const name = (formData.get("name") ?? "").toString().trim();
+  if (!name) return { error: "Name is required." };
+
+  const imageUrl = toString(formData.get("imageUrl"));
+  const description = toString(formData.get("description"));
+
+  const capacity = toInt(formData.get("capacity"), 1);
+  const luggageCapacity = toInt(formData.get("luggageCapacity"), 0);
+  const sortOrder = toInt(formData.get("sortOrder"), 0);
+
+  // ✅ min hours for HOURLY services
+  const minHours = toInt(formData.get("minHours"), 0);
+
+  const active = formData.get("active") === "on";
+
+  const baseFareCents = toInt(formData.get("baseFareCents"), 0);
+  const perMileCents = toInt(formData.get("perMileCents"), 0);
+  const perMinuteCents = toInt(formData.get("perMinuteCents"), 0);
+  const perHourCents = toInt(formData.get("perHourCents"), 0);
+
   await db.vehicle.create({
     data: {
-      name: d.name,
-      description: d.description ?? null,
-      capacity: d.capacity,
-      luggageCapacity: d.luggageCapacity,
-      imageUrl: d.imageUrl ?? null,
-
-      baseFareCents: d.baseFareCents,
-      perMileCents: d.perMileCents,
-      perMinuteCents: d.perMinuteCents,
-      perHourCents: d.perHourCents,
-
-      sortOrder: d.sortOrder,
-      active: d.active,
+      name,
+      imageUrl,
+      description,
+      capacity,
+      luggageCapacity,
+      sortOrder,
+      minHours,
+      active,
+      baseFareCents,
+      perMileCents,
+      perMinuteCents,
+      perHourCents,
     },
   });
 
-  return { success: true };
+  revalidatePath("/admin/vehicle-categories");
+  return { success: true as const };
 }
 
-export async function updateVehicleCategory(formData: FormData) {
-  await requireAdmin();
-  const parsed = VehicleCategorySchema.safeParse(Object.fromEntries(formData));
-  if (!parsed.success || !parsed.data.id)
-    return { error: "Invalid vehicle category data." };
+export async function updateVehicleCategory(id: string, formData: FormData) {
+  const gate = await requireAdmin();
+  if ("error" in gate) return { error: gate.error };
 
-  const d = parsed.data;
+  const name = (formData.get("name") ?? "").toString().trim();
+  if (!name) return { error: "Name is required." };
+
+  const imageUrl = toString(formData.get("imageUrl"));
+  const description = toString(formData.get("description"));
+
+  const capacity = toInt(formData.get("capacity"), 1);
+  const luggageCapacity = toInt(formData.get("luggageCapacity"), 0);
+  const sortOrder = toInt(formData.get("sortOrder"), 0);
+
+  const minHours = toInt(formData.get("minHours"), 0);
+
+  const active = formData.get("active") === "on";
+
+  const baseFareCents = toInt(formData.get("baseFareCents"), 0);
+  const perMileCents = toInt(formData.get("perMileCents"), 0);
+  const perMinuteCents = toInt(formData.get("perMinuteCents"), 0);
+  const perHourCents = toInt(formData.get("perHourCents"), 0);
+
   await db.vehicle.update({
-    where: { id: d.id },
+    where: { id },
     data: {
-      name: d.name,
-      description: d.description ?? null,
-      capacity: d.capacity,
-      luggageCapacity: d.luggageCapacity,
-      imageUrl: d.imageUrl ?? null,
-
-      baseFareCents: d.baseFareCents,
-      perMileCents: d.perMileCents,
-      perMinuteCents: d.perMinuteCents,
-      perHourCents: d.perHourCents,
-
-      sortOrder: d.sortOrder,
-      active: d.active,
+      name,
+      imageUrl,
+      description,
+      capacity,
+      luggageCapacity,
+      sortOrder,
+      minHours,
+      active,
+      baseFareCents,
+      perMileCents,
+      perMinuteCents,
+      perHourCents,
     },
   });
 
-  return { success: true };
+  revalidatePath("/admin/vehicle-categories");
+  revalidatePath(`/admin/vehicle-categories/${id}`);
+  return { success: true as const };
 }
 
 export async function toggleVehicleCategory(id: string, active: boolean) {
-  await requireAdmin();
-  await db.vehicle.update({ where: { id }, data: { active } });
-  return { success: true };
+  const gate = await requireAdmin();
+  if ("error" in gate) return { error: gate.error };
+
+  await db.vehicle.update({
+    where: { id },
+    data: { active },
+  });
+
+  revalidatePath("/admin/vehicle-categories");
+  return { success: true as const };
 }

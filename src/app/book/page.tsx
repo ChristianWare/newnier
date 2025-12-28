@@ -1,7 +1,7 @@
 import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
-import BookWizard from "@/components/BookingPage/BookWizard/BookWizard";
+import BookingWizard from "@/components/BookingPage/BookWizard/BookWizard";
 import BookingPageIntro from "@/components/BookingPage/BookingPageIntro/BookingPageIntro";
 
 export const runtime = "nodejs";
@@ -19,11 +19,17 @@ export default async function BookPage() {
       name: true,
       slug: true,
       pricingStrategy: true,
+
+      // pricing
       minFareCents: true,
       baseFeeCents: true,
       perMileCents: true,
       perMinuteCents: true,
       perHourCents: true,
+
+      // ✅ include these so types match
+      active: true,
+      sortOrder: true,
     },
   });
 
@@ -38,20 +44,25 @@ export default async function BookPage() {
       luggageCapacity: true,
       imageUrl: true,
 
-      // ✅ needed for HOURLY pricing min enforcement
+      // ✅ REQUIRED for hourly minHours logic
       minHours: true,
 
+      // pricing
       baseFareCents: true,
       perMileCents: true,
       perMinuteCents: true,
       perHourCents: true,
+
+      // ✅ include these so types match
+      active: true,
+      sortOrder: true,
     },
   });
 
   return (
     <main>
       <BookingPageIntro />
-      <BookWizard serviceTypes={serviceTypes} vehicles={vehicles} />
+      <BookingWizard serviceTypes={serviceTypes} vehicles={vehicles} />
     </main>
   );
 }
