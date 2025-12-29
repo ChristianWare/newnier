@@ -1,46 +1,59 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { db } from "@/lib/db";
-import {
-  updateVehicle,
-  deleteVehicle,
-} from "../../../../../actions/admin/vehicles";
-import EditVehicleForm from "./EditVehicleForm";
+import { updateVehicleUnit } from "../../../../../actions/admin/vehicleUnits";
+import EditVehicleUnitForm from "./EditVehicleUnitForm";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export default async function EditVehiclePage({
+export default async function EditVehicleUnitPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
   const { id } = await params;
 
-  const vehicle = await db.vehicle.findUnique({ where: { id } });
-  if (!vehicle) notFound();
+  if (!id) notFound();
+
+  const unit = await db.vehicleUnit.findUnique({
+    where: { id },
+    include: { category: true },
+  });
+
+  if (!unit) notFound();
+
+  const unitId = unit.id;
+  const unitForForm = {
+    id: unit.id,
+    name: unit.name,
+    plate: unit.plate ?? "",
+    categoryId: unit.categoryId ?? "",
+    active: unit.active,
+  };
+
+  const categories = await db.vehicle.findMany({
+    orderBy: [{ sortOrder: "asc" }, { name: "asc" }],
+    select: { id: true, name: true },
+  });
 
   async function updateAction(formData: FormData) {
     "use server";
-    return await updateVehicle(id, formData);
-  }
-
-  async function deleteAction() {
-    "use server";
-    return await deleteVehicle(id);
+    formData.set("id", unitId);
+    return await updateVehicleUnit(formData);
   }
 
   return (
     <section style={{ display: "grid", gap: 14, maxWidth: 760 }}>
       <header style={{ display: "flex", justifyContent: "space-between" }}>
-        <h1 style={{ margin: 0, fontSize: 22 }}>Edit vehicle category</h1>
+        <h1 style={{ margin: 0, fontSize: 22 }}>Edit vehicle (unit)</h1>
         <Link href='/admin/vehicles'>Back</Link>
       </header>
 
-      <EditVehicleForm
-        vehicle={vehicle}
+      <EditVehicleUnitForm
+        unit={unitForForm}
+        categories={categories}
         onUpdate={updateAction}
-        onDelete={deleteAction}
       />
     </section>
   );

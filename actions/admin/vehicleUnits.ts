@@ -4,17 +4,13 @@ import { z } from "zod";
 import { db } from "@/lib/db";
 import { auth } from "../../auth";
 import { revalidatePath } from "next/cache";
-
-type ActionResult = { success?: string; error?: string };
+import type { ActionResult } from "@/lib/actionResult";
 
 async function requireAdmin() {
   const session = await auth();
-
-  // Adjust these fields if your session shape differs
   if (!session?.user?.userId || session.user.role !== "ADMIN") {
     throw new Error("Unauthorized");
   }
-
   return session;
 }
 
@@ -22,56 +18,30 @@ function formDataToObject(formData: FormData) {
   return Object.fromEntries(formData.entries());
 }
 
-// Convert "" -> undefined, otherwise string
-const optString = z.preprocess((v) => {
-  if (v === "" || v == null) return undefined;
+// "" -> null, else string
+const optStringNullable = z.preprocess((v) => {
+  if (v === "" || v == null) return null;
   return String(v);
-}, z.string().optional());
+}, z.string().nullable());
 
-// Convert ""/null/undefined -> undefined, else number
-const optInt = (min?: number) =>
-  z.preprocess(
-    (v) => {
-      if (v === "" || v == null) return undefined;
+// categoryId: allow "" => null
+const optCategoryId = z.preprocess((v) => {
+  if (v === "" || v == null) return null;
+  return String(v);
+}, z.string().nullable());
 
-      const n = Number(v);
-      if (Number.isNaN(n)) return undefined;
-      return n;
-    },
-    min != null
-      ? z.number().int().min(min).optional()
-      : z.number().int().optional()
-  );
-
-// Convert checkbox values -> boolean
+// checkbox => boolean
 const boolFromCheckbox = z.preprocess((v) => {
-  // FormData checkboxes: "on" if checked, null/undefined if unchecked
-  if (v === "on") return true;
-  if (v === true) return true;
-  if (v === "true") return true;
+  if (v === "on" || v === "true" || v === true) return true;
   return false;
 }, z.boolean());
 
-const VehicleUnitBaseSchema = z.object({
-  name: z.string().min(2, "Name is required"),
-  categoryId: z.string().min(1, "Category is required"),
-
-  // optional
-  plate: optString.nullable().optional(),
-  vin: optString.nullable().optional(),
-  notes: optString.nullable().optional(),
-
-  // optional overrides (blank => null)
-  capacityOverride: optInt(1).optional(),
-  luggageCapacityOverride: optInt(0).optional(),
-
+const VehicleUnitSchema = z.object({
+  id: z.string().optional(),
+  name: z.string().min(2),
+  plate: optStringNullable.optional(),
+  categoryId: optCategoryId.optional(), // nullable allowed
   active: boolFromCheckbox,
-});
-
-const VehicleUnitCreateSchema = VehicleUnitBaseSchema;
-
-const VehicleUnitUpdateSchema = VehicleUnitBaseSchema.extend({
-  id: z.string().min(1),
 });
 
 export async function createVehicleUnit(
@@ -80,9 +50,7 @@ export async function createVehicleUnit(
   try {
     await requireAdmin();
 
-    const parsed = VehicleUnitCreateSchema.safeParse(
-      formDataToObject(formData)
-    );
+    const parsed = VehicleUnitSchema.safeParse(formDataToObject(formData));
     if (!parsed.success) return { error: "Invalid vehicle unit data." };
 
     const d = parsed.data;
@@ -90,19 +58,8 @@ export async function createVehicleUnit(
     await db.vehicleUnit.create({
       data: {
         name: d.name,
-        categoryId: d.categoryId,
-
-        plate: d.plate ? d.plate : null,
-        vin: d.vin ? d.vin : null,
-        notes: d.notes ? d.notes : null,
-
-        capacityOverride:
-          typeof d.capacityOverride === "number" ? d.capacityOverride : null,
-        luggageCapacityOverride:
-          typeof d.luggageCapacityOverride === "number"
-            ? d.luggageCapacityOverride
-            : null,
-
+        plate: d.plate ?? null,
+        categoryId: d.categoryId ?? null,
         active: d.active,
       },
     });
@@ -120,10 +77,10 @@ export async function updateVehicleUnit(
   try {
     await requireAdmin();
 
-    const parsed = VehicleUnitUpdateSchema.safeParse(
-      formDataToObject(formData)
-    );
-    if (!parsed.success) return { error: "Invalid vehicle unit data." };
+    const parsed = VehicleUnitSchema.safeParse(formDataToObject(formData));
+    if (!parsed.success || !parsed.data.id) {
+      return { error: "Invalid vehicle unit data." };
+    }
 
     const d = parsed.data;
 
@@ -131,19 +88,8 @@ export async function updateVehicleUnit(
       where: { id: d.id },
       data: {
         name: d.name,
-        categoryId: d.categoryId,
-
-        plate: d.plate ? d.plate : null,
-        vin: d.vin ? d.vin : null,
-        notes: d.notes ? d.notes : null,
-
-        capacityOverride:
-          typeof d.capacityOverride === "number" ? d.capacityOverride : null,
-        luggageCapacityOverride:
-          typeof d.luggageCapacityOverride === "number"
-            ? d.luggageCapacityOverride
-            : null,
-
+        plate: d.plate ?? null,
+        categoryId: d.categoryId ?? null,
         active: d.active,
       },
     });
@@ -163,7 +109,10 @@ export async function toggleVehicleUnit(
   try {
     await requireAdmin();
 
-    await db.vehicleUnit.update({ where: { id }, data: { active } });
+    await db.vehicleUnit.update({
+      where: { id },
+      data: { active },
+    });
 
     revalidatePath("/admin/vehicles");
     return { success: active ? "vehicle enabled" : "vehicle disabled" };
