@@ -7,6 +7,7 @@ import {
 import "./globals.css";
 import Nav from "@/components/shared/Nav/Nav";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/shared/Footer/Footer";
 
 const InterTight = Inter_Tight({
   variable: "--interTight",
@@ -49,6 +50,7 @@ export default function RootLayout({
         />
         <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

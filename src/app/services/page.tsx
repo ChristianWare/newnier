@@ -5,8 +5,6 @@ import AllServices from "@/components/ServicesPage/AllServices/AllServices";
 import ServicePageIntro from "@/components/ServicesPage/ServicePageIntro/ServicePageIntro";
 import ServicesPostHero from "@/components/ServicesPage/ServicesPostHero/ServicesPostHero";
 import FinalCTA2 from "@/components/shared/FinalCTA2/FinalCTA2";
-import Footer from "@/components/shared/Footer/Footer";
-import Nav from "@/components/shared/Nav/Nav";
 
 export default function ServicesPage() {
   return (
@@ -18,7 +16,6 @@ export default function ServicesPage() {
       <Events />
       <BlogSection />
       <FinalCTA2 />
-      <Footer />
     </main>
   );
 }

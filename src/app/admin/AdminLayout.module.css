@@ -1,6 +1,7 @@
 .container {
   background-color: var(--tan);
   padding: 10rem 0rem;
+  /* min-height: 100vh; */
 }
 
 .content {
@@ -46,10 +47,10 @@
 }
 
 @media screen and (max-width: 1268px) {
-  .content {
+  /* .content {
     grid-template-columns: 2fr 4fr;
     grid-gap: 2rem;
-  }
+  } */
 
   .heading,
   .copy {
@@ -57,30 +58,24 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  .right {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 100%;
-  }
 }
 
-@media screen and (max-width: 1068px) {
+@media screen and (max-width: 768px) {
   .content {
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr;
     grid-gap: 2rem;
   }
 }
 
 @media screen and (max-width: 1068px) {
-  .content {
+  /* .content {
     grid-template-columns: 1fr;
     grid-gap: 10rem;
-  }
+  } */
 
-  .right {
-    order: -1
-  }
+  /* .right {
+    order: -1;
+  } */
 
   .copy {
     width: 100%;

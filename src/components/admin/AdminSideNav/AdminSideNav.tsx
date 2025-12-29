@@ -6,10 +6,13 @@ import Calendar from "@/components/icons/Calendar/Calendar";
 import House from "@/components/icons/House/House";
 import Employee from "@/components/icons/Employee/Employee";
 import Cog from "@/components/icons/Cog/Cog";
+import Bell from "@/components/icons/Bell/Bell";
 import Users from "@/components/icons/Users/Users";
+import Wheel from "@/components/icons/Wheel/Wheel";
 import Report from "@/components/icons/Report/Report";
+import Car from "@/components/icons/Car/Car";
 import Listing from "@/components/icons/Listing/Listing";
-// import UserButton from "@/components/dashboard/UserButton/UserButton";
+import UserButton from "@/components/shared/UserButton/UserButton";
 import Button from "@/components/shared/Button/Button";
 import { useState } from "react";
 import FalseButton from "@/components/shared/FalseButton/FalseButton";
@@ -18,15 +21,15 @@ import { usePathname } from "next/navigation";
 const NAV_ITEMS = [
   { title: "Dashboard", href: "/admin", icon: <House /> },
   { title: "Bookings", href: "/admin/bookings", icon: <Calendar /> },
-  { title: "Services", href: "/admin/services", icon: <Listing /> },
+  { title: "Services", href: "/admin/services", icon: <Bell /> },
   {
-    title: "Vehicle categories",
+    title: "Vehicle Categories",
     href: "/admin/vehicle-categories",
     icon: <Listing />,
   },
-  { title: "Vehicles", href: "/admin/vehicles", icon: <Listing /> },
+  { title: "Vehicles", href: "/admin/vehicles", icon: <Car /> },
   { title: "Users", href: "/admin/users", icon: <Users /> },
-  { title: "Drivers", href: "/admin/drivers", icon: <Users /> },
+  { title: "Drivers", href: "/admin/drivers", icon: <Wheel /> },
   //   { title: "Groomers", href: "/admin/groomers", icon: <Employee /> },
   //   { title: "Reports", href: "/admin/reports", icon: <Report /> },
   //   { title: "Settings", href: "/admin/settings", icon: <Cog /> },
@@ -88,9 +91,8 @@ export default function AdminSideNav() {
         </ul>
 
         <div className={styles.btnContainer}>
-          {/* <UserButton /> */}
-          <Button btnType='tan' text='Go Home' href='/' />
-          <Button btnType='brown' text='User Dashboard' href='/dashboard' />
+          <UserButton />
+          <Button btnType='black' text='Go Home' href='/' />
         </div>
       </nav>
     </aside>
