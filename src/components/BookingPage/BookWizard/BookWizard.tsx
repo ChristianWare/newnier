@@ -9,6 +9,9 @@ import RoutePicker, {
 } from "@/components/BookingPage/RoutePicker/RoutePicker";
 import { createBookingRequest } from "../../../../actions/bookings/createBookingRequest";
 import LayoutWrapper from "@/components/shared/LayoutWrapper";
+import Grid2 from "../Grid2/Grid2";
+import Stepper from "../Stepper/Stepper";
+import SummaryRow from "../SummaryRow/SummaryRow";
 
 type PricingStrategy = "POINT_TO_POINT" | "HOURLY" | "FLAT";
 
@@ -632,78 +635,7 @@ export default function BookingWizard({
   );
 }
 
-/* ---------------- UI helpers ---------------- */
 
-function Stepper({ step }: { step: 1 | 2 | 3 }) {
-  const items = [
-    { n: 1, label: "Trip" },
-    { n: 2, label: "Vehicle" },
-    { n: 3, label: "Confirm" },
-  ] as const;
-
-  return (
-    <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-      {items.map((it) => (
-        <div
-          key={it.n}
-          style={{
-            display: "flex",
-            gap: 8,
-            alignItems: "center",
-            padding: "6px 10px",
-            borderRadius: 999,
-            border: "1px solid rgba(0,0,0,0.12)",
-            background: step === it.n ? "rgba(0,0,0,0.06)" : "transparent",
-          }}
-        >
-          <div
-            style={{
-              width: 22,
-              height: 22,
-              borderRadius: 999,
-              display: "grid",
-              placeItems: "center",
-              fontSize: 12,
-              fontWeight: 700,
-              border: "1px solid rgba(0,0,0,0.18)",
-              background: step === it.n ? "rgba(0,0,0,0.10)" : "white",
-            }}
-          >
-            {it.n}
-          </div>
-          <div style={{ fontSize: 12, opacity: 0.8 }}>{it.label}</div>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function Grid2({ children }: { children: React.ReactNode }) {
-  return (
-    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
-      {children}
-    </div>
-  );
-}
-
-function SummaryRow({
-  label,
-  value,
-  strong,
-}: {
-  label: string;
-  value: string;
-  strong?: boolean;
-}) {
-  return (
-    <div style={{ display: "flex", justifyContent: "space-between", gap: 12 }}>
-      <div style={{ fontSize: 12, opacity: 0.75 }}>{label}</div>
-      <div style={{ fontSize: 13, fontWeight: strong ? 800 : 500 }}>
-        {value}
-      </div>
-    </div>
-  );
-}
 
 const labelStyle: React.CSSProperties = { fontSize: 12, opacity: 0.8 };
 
