@@ -3,6 +3,7 @@ import LayoutWrapper from "@/components/shared/LayoutWrapper";
 import LoginForm from "@/components/auth/LoginForm/LoginForm";
 import Image from "next/image";
 import Img1 from "../../../../public/images/airport3.jpg";
+import SectionHeading from "@/components/shared/SectionHeading/SectionHeading";
 
 export default function LoginPageIntro() {
   return (
@@ -15,6 +16,7 @@ export default function LoginPageIntro() {
             </div>
           </div>
           <div className={styles.right}>
+            <SectionHeading text='Nier Transportation' />
             <h1 className={styles.heading}>Welcome back</h1>
             <p className={styles.copy}>
               Enter your email and password to access your account

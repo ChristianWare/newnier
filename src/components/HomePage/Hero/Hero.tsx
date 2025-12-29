@@ -16,7 +16,8 @@ export default function Hero() {
             <div className={styles.left}>
               <SectionHeading text='Nier Transportation' />
               <h1 className={styles.heading}>
-                Reliable black car service <br className={styles.br} /> across phoenix & beyond.
+                Reliable black car service <br className={styles.br} /> across
+                phoenix & beyond.
               </h1>
               <p className={styles.copy}>
                 At Nier Transportation, we’re more than a car service; we’re

@@ -1,7 +1,6 @@
 import { auth } from "../../../auth";
 import { redirect } from "next/navigation";
-import Link from "next/link";
-import styles from './AdminLayout.module.css'
+import styles from "./AdminLayout.module.css";
 import AdminSideNav from "@/components/admin/AdminSideNav/AdminSideNav";
 
 export const runtime = "nodejs";
@@ -19,17 +18,17 @@ export default async function AdminLayout({
   if (role !== "ADMIN") redirect("/");
 
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "260px 1fr",
-        minHeight: "100vh",
-      }}
-      className={styles.container}
-    >
-      <AdminSideNav />
-
-      <main style={{ padding: "1.25rem" }}>{children}</main>
-    </div>
+    <main>
+      <section className={styles.container}>
+        <div className={styles.content}>
+          <div className={styles.left}>
+            <div className={styles.AdminSideNavContainer}>
+              <AdminSideNav />
+            </div>
+          </div>
+          <div className={styles.right}>{children}</div>
+        </div>
+      </section>
+    </main>
   );
 }

@@ -54,8 +54,6 @@ export default function LoginForm() {
 
   return (
     <div className={styles.container}>
-      <GoogleButton title='in' />
-      <p className={styles.or}>or</p>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className={styles.form}
@@ -117,10 +115,12 @@ export default function LoginForm() {
           <FalseButton
             text={isPending ? "Submitting..." : "Sign In"}
             type='submit'
-            btnType='accent'
+            btnType='black'
             disabled={isPending}
           />
         </div>
+        <p className={styles.or}>or</p>
+        <GoogleButton title='in' />
       </form>
       <footer className={styles.cardFooter}>
         <p className={styles.footerText}>
@@ -129,8 +129,6 @@ export default function LoginForm() {
             Sign up
           </Link>
         </p>
-      </footer>
-      <footer className={styles.cardFooter}>
         <p className={styles.footerText}>
           Forgot password?{" "}
           <Link href='/password-email-form' className={styles.link}>

@@ -33,8 +33,10 @@
 }
 
 .copy {
-  max-width: 500px;
-  font-size: 1.6rem;
+  color: var(--darkGray);
+  max-width: 450px;
+  font-size: 1.8rem;
+  font-weight: 500;
 }
 
 .right {
@@ -42,7 +44,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .icon {
@@ -54,6 +56,7 @@
   width: 100%;
   margin-top: 3rem;
 }
+
 
 @media screen and (max-width: 1268px) {
   .content {

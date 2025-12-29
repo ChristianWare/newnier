@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background-color: var(--white);
-  border: 1px solid var(--brown);
+  background-color: var(--gray);
 }
 
 .nav {
@@ -62,11 +61,11 @@
 }
 
 .navLink:hover {
-  background-color: var(--brownii);
+  background-color: var(--yellow);
 }
 
 .navLinkActive {
-  background-color: var(--brownii);
+  background-color: var(--yellow);
 }
 
 .btnContainer,
