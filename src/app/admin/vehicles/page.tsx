@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { db } from "@/lib/db";
 import { toggleVehicleUnit } from "../../../../actions/admin/vehicleUnits";
+import Button from "@/components/shared/Button/Button";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -15,7 +16,12 @@ export default async function AdminVehiclesPage() {
     <section style={{ display: "grid", gap: 14 }}>
       <header style={{ display: "flex", justifyContent: "space-between" }}>
         <h1 style={{ margin: 0, fontSize: 22 }}>Vehicles (units)</h1>
-        <Link href='/admin/vehicles/new'>New vehicle</Link>
+        <Button
+          href='/admin/vehicles/new'
+          text='New vehicle'
+          btnType='black'
+          arrow
+        />
       </header>
 
       <div style={{ border: "1px solid rgba(0,0,0,0.12)", borderRadius: 14 }}>
@@ -70,6 +76,12 @@ function Th({ children }: { children: React.ReactNode }) {
     </th>
   );
 }
-function Td({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) {
+function Td({
+  children,
+  style,
+}: {
+  children: React.ReactNode;
+  style?: React.CSSProperties;
+}) {
   return <td style={{ padding: "12px 14px", ...style }}>{children}</td>;
 }
